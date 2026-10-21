@@ -5,7 +5,7 @@ import About from "./components/About";
 import Marquee from "./components/Marquee";
 import VideoCarousel from "./components/VideoCarousel";
 import ServicesShowcase from "./components/ServicesShowcase";
-import Testimonials from "./components/testimonials";
+import Testimonials from "./components/Testimonials";
 
 function App() {
   return (
