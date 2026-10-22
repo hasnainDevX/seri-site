@@ -1,9 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { bookingUrl } from "../data/site";
 import headshot from "../assets/Profile&ETC/seri-white-blazer-hand-on-chin.jpg";
-// Replace with Seri's original portrait when supplied.
-const portraitUrl =
-  "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1000&q=85";
+import CircularText from "./CircularText";
 
 export default function About() {
   const sectionRef = useRef(null);
@@ -107,6 +105,25 @@ export default function About() {
             Book Appointment
           </a>
         </div>
+      </div>
+      <div className="absolute top-6 right-6 z-20 origin-bottom-right scale-75 md:bottom-10 md:right-10 md:scale-100 lg:bottom-16 lg:right-16">
+        <CircularText
+          text="SERIÉ LASH BROW TRAINING"
+          onHover="speedUp"
+          direction="clockwise"
+          spinDuration={20}
+          size={200}
+          fontSize={24}
+          draggable
+          hoverTilt={20}
+          tilt={0}
+          fontWeight={900}
+          letterSpacing={0}
+          startAngle={0}
+          repeat={1}
+          fill
+          ring={false}
+        />
       </div>
     </section>
   );

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 // Pick any photo from your assets folder and update this path.
-import testimonialsBg from "../assets/Profile&ETC/serie-training-materials-overhead.jpg";
+import testimonialsBg from "../assets/Profile&ETC/seri-laptop-sofa-full-length.jpg";
 
 const defaultTestimonials = [
   {
@@ -99,7 +99,7 @@ export default function Testimonials({
       </div>
       <div
         aria-hidden="true"
-        className="absolute inset-0 -z-10 bg-espresso/75"
+        className="absolute inset-0 -z-10 bg-espresso/80"
       />
 
       <div className="mx-auto max-w-3xl">

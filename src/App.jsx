@@ -6,6 +6,8 @@ import Marquee from "./components/Marquee";
 import VideoCarousel from "./components/VideoCarousel";
 import ServicesShowcase from "./components/ServicesShowcase";
 import Testimonials from "./components/Testimonials";
+import WorkMarquee from "./components/WorkMarquee";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -26,6 +28,8 @@ function App() {
           <ServicesShowcase />
           <VideoCarousel />
           <Testimonials/>
+          <WorkMarquee/>
+          <Footer/>
         </div>
       </main>
     </>
