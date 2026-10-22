@@ -262,14 +262,16 @@ const CircularText = ({
               opacity: ring ? 1 : 0
             }}
           />
-          <motion.div className="absolute inset-0" role="img" aria-label={text} style={{ rotate: rotation }}>
+          <motion.div className="absolute left-1/2 top-1/2 size-0" role="img" aria-label={text} style={{ rotate: rotation }}>
             {letters.map((letter, i) => (
               <span
                 key={i}
-                className={`absolute inset-0 inline-block whitespace-pre ${settled ? LETTER_EASE : ''}`}
+                className={`absolute left-0 top-0 size-0 whitespace-pre ${settled ? LETTER_EASE : ''}`}
                 style={{ transform: `rotate(${angles[i] ?? 0}deg)` }}
               >
                 <span
+                  className="absolute left-0 -translate-x-1/2"
+                  style={{ top: -size / 2 }}
                   ref={
                     i < glyphs.length
                       ? el => {
