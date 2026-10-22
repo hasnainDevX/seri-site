@@ -32,7 +32,9 @@ function MarqueeRow({ items, reverse = false }) {
 
   return (
     <div className="marquee group/marquee overflow-hidden">
-      <div className={`marquee-track flex w-max ${reverse ? 'marquee-reverse' : 'marquee-forward'}`}>
+      <div
+        className={`marquee-track flex w-max ${reverse ? "marquee-reverse" : "marquee-forward"}`}
+      >
         {[0, 1].map((copy) => (
           <ul
             key={copy}
@@ -43,7 +45,7 @@ function MarqueeRow({ items, reverse = false }) {
               <li key={`${copy}-${i}`} className="w-56 shrink-0 md:w-72">
                 <img
                   src={item.src}
-                  alt={copy === 0 ? item.alt : ''}
+                  alt={copy === 0 ? item.alt : ""}
                   loading="lazy"
                   draggable="false"
                   className="aspect-[4/5] w-full rounded-sm object-cover"
@@ -59,10 +61,18 @@ function MarqueeRow({ items, reverse = false }) {
 
 export default function WorkMarquee() {
   return (
-    <section aria-labelledby="work-heading" className="bg-off-white py-16 text-espresso md:py-24">
+    <section
+      aria-labelledby="work-heading"
+      className="bg-off-white py-16 text-espresso md:py-24"
+    >
       <div className="mx-auto mb-10 max-w-[1440px] px-6 md:px-10 lg:px-16">
-        <p className="text-[10px] font-medium uppercase tracking-[0.16em]">Our Work</p>
-        <h2 id="work-heading" className="mt-3 font-heading text-4xl tracking-[-0.04em] md:text-5xl">
+        <p className="text-[10px] font-medium uppercase tracking-[0.16em]">
+          {"{ Our Work }"}
+        </p>
+        <h2
+          id="work-heading"
+          className="mt-3 font-heading text-4xl tracking-[-0.04em] md:text-5xl"
+        >
           Results we&apos;re proud of
         </h2>
       </div>

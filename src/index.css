@@ -31,6 +31,7 @@
 @layer base {
   body {
     @apply m-0 bg-off-white font-body leading-relaxed text-espresso antialiased;
+    overflow-x: hidden;
   }
 
   h1, h2, h3, h4, h5, h6 {

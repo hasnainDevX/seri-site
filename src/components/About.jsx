@@ -50,12 +50,11 @@ export default function About() {
               />
             )}
           </div>
-          {/* <figcaption className="mt-4 text-center text-[9px] uppercase tracking-[0.16em] text-espresso/65">Placeholder portrait · Seri’s photo coming soon</figcaption> */}
         </figure>
 
         <div className="max-w-xl">
           <p className="mb-5 text-[10px] font-medium uppercase tracking-[0.2em]">
-            The person behind SERIÉ
+            {"{ The person behind SERIÉ }"}
           </p>
           <h2
             id="about-heading"

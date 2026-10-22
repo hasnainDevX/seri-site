@@ -44,7 +44,7 @@ export default function ServicesShowcase() {
     <section className="bg-white px-6 py-20 md:px-10 md:py-28 lg:px-16">
       <div className="mx-auto max-w-[1440px] text-center bg-white">
         <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-espresso/60">
-          Our Services
+          {"{ Our Services }"}
         </p>
         <h2 className="mx-auto mt-4 max-w-2xl font-heading text-[28px] leading-snug text-espresso md:text-[34px]">
           Helping you feel confident in your lash &amp; brow routine, with real
