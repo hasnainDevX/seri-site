@@ -1,11 +1,27 @@
-import { useEffect, useRef } from "react";
+import { Children, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import { motion, useAnimationControls, useReducedMotion } from "motion/react";
+import navBackground from "../assets/image.png";
 
 export default function MobileNavigation({ open, onClose, children }) {
   const dialogRef = useRef(null);
   const reducedMotion = useReducedMotion();
   const panelAnimation = useAnimationControls();
+
+  // Text animation: each top-level menu item slides up + fades in, one after another,
+  // starting once the panel is mostly down.
+  const itemVariants = {
+    hidden: { opacity: 0, y: 28, transition: { duration: 0.2 } },
+    show: (i) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: reducedMotion ? 0 : 0.6,
+        delay: reducedMotion ? 0 : 0.45 + i * 0.09,
+        ease: [0.22, 1, 0.36, 1],
+      },
+    }),
+  };
 
   useEffect(() => {
     const dialog = dialogRef.current;
@@ -82,6 +98,23 @@ export default function MobileNavigation({ open, onClose, children }) {
       }}
       className="fixed inset-0 m-0 h-dvh max-h-none w-full max-w-none overflow-clip border-0 bg-transparent p-0 text-espresso backdrop:bg-transparent"
     >
+      {/* Smooth open/close for any native <details> dropdown (Chrome 131+, Safari/Firefox just snap) */}
+      <style>{`
+        #mobile-navigation { interpolate-size: allow-keywords; }
+        #mobile-navigation details::details-content {
+          height: 0;
+          opacity: 0;
+          overflow: clip;
+          transition: height .45s cubic-bezier(.4,0,.2,1), opacity .35s ease, content-visibility .45s allow-discrete;
+        }
+        #mobile-navigation details[open]::details-content { height: auto; opacity: 1; }
+        #mobile-navigation details > summary svg { transition: transform .3s ease; }
+        #mobile-navigation details[open] > summary svg { transform: rotate(180deg); }
+        @media (prefers-reduced-motion: reduce) {
+          #mobile-navigation details::details-content,
+          #mobile-navigation details > summary svg { transition: none; }
+        }
+      `}</style>
       <motion.div
         aria-hidden="true"
         initial={false}
@@ -96,10 +129,30 @@ export default function MobileNavigation({ open, onClose, children }) {
           duration: reducedMotion ? 0 : 0.9,
           ease: [0.4, 0, 0.2, 1],
         }}
-        className="absolute inset-0 flex w-full flex-col bg-white"
+        // NOTE: no bg-white here. It was painting on top of the bg image.
+        // `isolate` keeps the image layers inside this panel's stacking context.
+        className="absolute inset-0 isolate flex w-full flex-col overflow-hidden bg-white"
       >
-        <div className="flex shrink-0 items-center justify-between border-b border-stone px-6 pb-5 pt-[max(1.25rem,env(safe-area-inset-top))]">
-          <a href="/" aria-label="SERIÉ home" onClick={onClose}>
+        {/* Background image — a normal layer (no negative z-index), content sits above it */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${navBackground})` }}
+        />
+        {/* Light wash for text legibility. Lower the number (e.g. /40) to show more image */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 bg-white/55"
+        />
+
+        {/* Header: border-bottom removed */}
+        <div className="relative z-10 flex shrink-0 items-center justify-between px-6 pb-5 pt-[max(1.25rem,env(safe-area-inset-top))]">
+          <a
+            href="/"
+            aria-label="SERIÉ home"
+            onClick={onClose}
+            className="transition-opacity duration-300 hover:opacity-70"
+          >
             <span className="block font-heading text-[32px] leading-none tracking-[-0.065em]">
               SERIÉ
             </span>
@@ -111,7 +164,7 @@ export default function MobileNavigation({ open, onClose, children }) {
             type="button"
             onClick={onClose}
             aria-label="Close menu"
-            className="grid size-11 cursor-pointer place-items-center hover:bg-greige"
+            className="grid size-11 cursor-pointer place-items-center transition-colors duration-300 hover:bg-greige"
           >
             <svg
               aria-hidden="true"
@@ -125,14 +178,32 @@ export default function MobileNavigation({ open, onClose, children }) {
             </svg>
           </button>
         </div>
+
         <nav
           aria-label="Mobile navigation"
-          className="flex min-h-0 flex-1 flex-col overflow-y-auto overscroll-contain px-6 pb-[max(1.5rem,env(safe-area-inset-bottom))] pt-6"
+          className={[
+            "relative z-10 flex min-h-0 flex-1 flex-col overflow-y-auto overscroll-contain px-6 pb-[max(1.5rem,env(safe-area-inset-bottom))] pt-6",
+
+            // Remove border-bottom, use underline on top-level links + Services label
+            "[&>div>a]:border-b-0 [&_summary]:border-b-0 [&_details]:border-b-0",
+            "[&>div>a]:underline [&>div>a]:underline-offset-4 [&>div>a]:decoration-1",
+            "[&_summary]:underline [&_summary]:underline-offset-4 [&_summary]:decoration-1",
+          ].join(" ")}
           onClick={(event) => {
             if (event.target.closest("a[href]")) onClose();
           }}
         >
-          {children}
+          {Children.toArray(children).map((child, i) => (
+            <motion.div
+              key={child.key ?? i}
+              custom={i}
+              variants={itemVariants}
+              initial="hidden"
+              animate={open ? "show" : "hidden"}
+            >
+              {child}
+            </motion.div>
+          ))}
         </nav>
       </motion.div>
     </dialog>,
