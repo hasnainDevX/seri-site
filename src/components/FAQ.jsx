@@ -2,6 +2,45 @@ import { useState } from 'react'
 import RevealHeading from './RevealHeading'
 import { faqGroups } from '../data/faqs'
 
+function FAQList({ items }) {
+  const [openIndex, setOpenIndex] = useState(null)
+
+  return (
+    <div className="border-t border-stone">
+      {items.map(([question, answer], index) => {
+        const open = openIndex === index
+        return (
+          <div key={question} className="border-b border-stone">
+            <button
+              type="button"
+              onClick={() => setOpenIndex(open ? null : index)}
+              aria-expanded={open}
+              className="flex min-h-24 w-full cursor-pointer items-center justify-between gap-6 py-5 text-left font-editorial text-[22px] font-medium leading-[1.3] tracking-[-0.01em] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-espresso md:text-[24px]"
+            >
+              <span className="max-w-[44ch]">{question}</span>
+              <span aria-hidden="true" className="relative size-3 shrink-0 text-espresso">
+                <span className="absolute left-0 top-1/2 h-px w-full bg-current" />
+                <span
+                  className={`absolute left-1/2 top-0 h-full w-px bg-current transition-transform duration-300 motion-reduce:transition-none ${open ? 'rotate-90' : ''}`}
+                />
+              </span>
+            </button>
+            <div
+              className={`grid transition-[grid-template-rows] duration-300 ease-out motion-reduce:transition-none ${open ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'}`}
+            >
+              <div className="overflow-hidden">
+                <p className="max-w-[62ch] whitespace-pre-line pb-6 pr-6 font-body text-sm leading-[1.8] text-espresso md:pr-10 md:text-[15px]">
+                  {answer}
+                </p>
+              </div>
+            </div>
+          </div>
+        )
+      })}
+    </div>
+  )
+}
+
 export default function FAQ() {
   const [active, setActive] = useState(0)
   const group = faqGroups[active]
@@ -22,7 +61,7 @@ export default function FAQ() {
                 aria-pressed={active === index}
                 aria-controls="faq-answers"
                 onClick={() => setActive(index)}
-                className={`inline-flex min-h-12 cursor-pointer items-center justify-center border px-8 py-3 text-center text-[10px] font-medium uppercase tracking-[0.16em] transition-colors motion-reduce:transition-none ${active === index ? 'border-espresso bg-espresso text-off-white' : 'border-espresso text-espresso hover:bg-espresso hover:text-off-white'}`}
+                className={`inline-flex min-h-12 cursor-pointer items-center justify-center border px-8 py-3 text-center text-[10px] font-medium uppercase tracking-[0.16em] transition-colors motion-reduce:transition-none ${active === index ? 'border-espresso bg-butter text-clay t' : 'border-espresso text-espresso hover:bg-espresso hover:text-off-white'}`}
               >
                 {category.title}
               </button>
@@ -33,20 +72,7 @@ export default function FAQ() {
         <div className="min-w-0">
           <div id="faq-answers" key={group.title}>
             <h3 className="mb-5 text-center font-editorial text-[30px] font-medium leading-[1.2] tracking-[-0.015em] md:text-[34px]">{group.title}</h3>
-            <div className="border-t border-stone">
-              {group.items.map(([question, answer]) => (
-                <details key={question} name="service-faq" className="group border-b border-stone">
-                  <summary className="flex min-h-24 cursor-pointer list-none items-center justify-between gap-6 py-5 font-editorial text-[22px] font-medium leading-[1.3] tracking-[-0.01em] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-espresso md:text-[24px] [&::-webkit-details-marker]:hidden">
-                    <span className="max-w-[44ch]">{question}</span>
-                    <span aria-hidden="true" className="relative size-3 shrink-0 text-espresso">
-                      <span className="absolute left-0 top-1/2 h-px w-full bg-current" />
-                      <span className="absolute left-1/2 top-0 h-full w-px bg-current transition-transform duration-300 group-open:rotate-90 motion-reduce:transition-none" />
-                    </span>
-                  </summary>
-                  <p className="max-w-[62ch] whitespace-pre-line pb-6 pr-6 font-body text-sm leading-[1.8] text-espresso md:pr-10 md:text-[15px]">{answer}</p>
-                </details>
-              ))}
-            </div>
+            <FAQList items={group.items} />
           </div>
         </div>
       </div>
