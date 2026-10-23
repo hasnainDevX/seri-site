@@ -9,7 +9,7 @@ export default function Preloader() {
   const [finished, setFinished] = useState(false)
 
   useEffect(() => {
-    const timer = window.setTimeout(() => setFinished(true), 3500)
+    const timer = window.setTimeout(() => setFinished(true), 3400)
     return () => window.clearTimeout(timer)
   }, [reduceMotion])
 
@@ -31,7 +31,7 @@ export default function Preloader() {
             className="-mr-px h-full flex-1 origin-top bg-white"
             initial={{ scaleY: 1 }}
             animate={{ scaleY: reduceMotion ? 1 : 0 }}
-            transition={{ delay: 0.85 + delay * 0.5, duration: 0.45, ease: [0.76, 0, 0.24, 1] }}
+            transition={{ delay: 2 + delay * 1, duration: 0.9, ease: [0.76, 0, 0.24, 1] }}
           />
         ))}
       </div>
@@ -40,14 +40,14 @@ export default function Preloader() {
         className="absolute inset-0 flex flex-col items-center justify-center text-espresso"
         initial={{ opacity: 1 }}
         animate={{ opacity: reduceMotion ? 1 : 0 }}
-        transition={{ delay: 0.65, duration: 0.2 }}
+        transition={{ delay: 1.9, duration: 0.5 }}
       >
         <div className="overflow-hidden pb-2">
           <motion.span
             className="block font-heading text-[64px] leading-[1.15] tracking-[-0.065em] md:text-[88px]"
             initial={{ y: reduceMotion ? 0 : '110%' }}
             animate={{ y: 0 }}
-            transition={{ duration: 0.4, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
           >SERIÉ</motion.span>
         </div>
         <div className="mt-2 overflow-hidden">
@@ -55,7 +55,7 @@ export default function Preloader() {
             className="block font-body text-[9px] font-semibold uppercase tracking-[0.24em] md:text-[10px]"
             initial={{ y: reduceMotion ? 0 : '110%' }}
             animate={{ y: 0 }}
-            transition={{ duration: 0.35, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.9, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
           >Lash, Brow &amp; Training</motion.span>
         </div>
       </motion.div>
