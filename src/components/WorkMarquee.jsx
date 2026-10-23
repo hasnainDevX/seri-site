@@ -1,3 +1,4 @@
+import RevealHeading from './RevealHeading'
 import koreanEye from "../assets/ClientsPhotos/KoreanLashLiftTint/korean-lash-lift-eye-closeup.png";
 import koreanPortrait from "../assets/ClientsPhotos/KoreanLashLiftTint/korean-lash-lift-client-portrait.png";
 import training from "../assets/Training/lash-training-demonstration.png";
@@ -70,12 +71,12 @@ export default function WorkMarquee() {
         <p className="text-[10px] font-medium uppercase tracking-[0.16em]">
           {"{ Our Work }"}
         </p>
-        <h2
+        <RevealHeading
           id="work-heading"
           className="mt-3 font-heading text-4xl tracking-[-0.04em] md:text-5xl "
         >
           Results we&apos;re proud of
-        </h2>
+        </RevealHeading>
       </div>
 
       <ExperienceStats/>

@@ -8,10 +8,10 @@ import KoreanLashLift from "../assets/ClientsPhotos/KoreanLashLiftTint/korean-la
 import NanoComboBrows from "../assets/ClientsPhotos/Nano-NanoComboBrows/nano-combo-brows-before-after.jpg";
 
 export const services = [
-  { label: "Brow Lamination", href: "/brow-lamination", image: browLamination },
-  { label: "Lash Extension", href: "/lash-extension", image: LashExtension },
-  { label: "KoreanLashLift", href: "/korean-lash-lift", image: KoreanLashLift },
-  { label: "NanoComboBrows", href: "/Nano-combo-brows", image: NanoComboBrows },
+  { label: "Brow Lamination & Sculpt", href: "/brow-lamination", image: browLamination },
+  { label: "Lash Extensions", href: "/lash-extension", image: LashExtension },
+  { label: "Korean Lash Lift & Tint", href: "/korean-lash-lift", image: KoreanLashLift },
+  { label: "Nano & Combo Brows", href: "/Nano-combo-brows", image: NanoComboBrows },
 ];
 
 function PageLink({ item, className, underline = false }) {

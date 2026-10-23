@@ -1,3 +1,4 @@
+import RevealHeading from './RevealHeading'
 import { bookingUrl } from "../data/site";
 
 import pmuBrowsImage from "../assets/ClientsPhotos/Nano-NanoComboBrows/nano-brows-before-after-01.jpg";
@@ -14,13 +15,13 @@ import browLaminationHoverImage from "../assets/ClientsPhotos/BrowLamination/bro
 
 export const services = [
   {
-    label: "PMU Brows",
+    label: "Nano & Combo Brows",
     href: "/services/pmu-brows",
     image: pmuBrowsImage,
     hoverImage: pmuBrowsHoverImage,
   },
   {
-    label: "Korean Lash Lift",
+    label: "Korean Lash Lift & Tint",
     href: "/services/korean-lash-lift",
     image: koreanLashLiftImage,
     hoverImage: koreanLashLiftHoverImage,
@@ -32,7 +33,7 @@ export const services = [
     hoverImage: lashExtensionsHoverImage,
   },
   {
-    label: "Brow Lamination",
+    label: "Brow Lamination & Sculpt",
     href: "/services/brow-lamination",
     image: browLaminationImage,
     hoverImage: browLaminationHoverImage,
@@ -46,10 +47,10 @@ export default function ServicesShowcase() {
         <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-espresso/60">
           {"{ Our Services }"}
         </p>
-        <h2 className="mx-auto mt-4 max-w-2xl font-heading text-[28px] leading-snug text-espresso md:text-[34px]">
+        <RevealHeading className="mx-auto mt-4 max-w-2xl font-heading text-[28px] leading-snug text-espresso md:text-[34px]">
           Helping you feel confident in your lash &amp; brow routine, with real
           results you can see
-        </h2>
+        </RevealHeading>
         <a
           href={bookingUrl}
           target="_blank"
@@ -67,21 +68,21 @@ export default function ServicesShowcase() {
             href={item.href}
             className="group block cursor-pointer text-center"
           >
-            {/* Clip here, same as the Testimonials section */}
-            <div className="relative isolate aspect-square [clip-path:inset(0)] bg-stone">
-              {/* Pinned image: stays fixed while the card scrolls over it */}
+            {/* Keep both images sized to the card while crossfading on hover. */}
+            <div className="relative isolate aspect-square overflow-hidden bg-stone">
+              
               <div aria-hidden={false} className="absolute inset-0">
                 <img
                   src={item.image}
                   alt={item.label}
-                  className="fixed inset-0 h-svh w-full object-cover transition-opacity duration-500 group-hover:opacity-0 motion-reduce:absolute motion-reduce:h-full motion-reduce:transition-none"
+                  className="absolute inset-0 size-full object-cover transition-opacity duration-500 group-hover:opacity-0 motion-reduce:transition-none"
                 />
               </div>
               <div aria-hidden="true" className="absolute inset-0">
                 <img
                   src={item.hoverImage}
                   alt=""
-                  className="fixed inset-0 h-svh w-full object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100 motion-reduce:absolute motion-reduce:h-full motion-reduce:transition-none"
+                  className="absolute inset-0 size-full object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100 motion-reduce:transition-none"
                 />
               </div>
             </div>

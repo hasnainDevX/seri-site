@@ -1,3 +1,4 @@
+import RevealHeading from './RevealHeading'
 import { useEffect, useState } from "react";
 
 // Pick any photo from your assets folder and update this path.
@@ -81,23 +82,23 @@ export default function Testimonials({
       />
 
       <div className="mx-auto max-w-[856px] border border-espresso/60 bg-white px-6 py-8 md:px-14 md:py-8 lg:px-20">
-        <h2 className="font-heading text-[32px] font-normal leading-tight tracking-[-0.04em] text-black md:text-[38px]">Client Love</h2>
-        {/* Only the active review occupies space, keeping the text gaps consistent. */}
-        <div className="mt-6" aria-live={paused ? "polite" : "off"}>
+        <RevealHeading className="font-heading text-[32px] font-normal leading-tight tracking-[-0.04em] text-black md:text-[38px]">Client Love</RevealHeading>
+        {/* Stack reviews in one grid cell so the longest review sets a stable card height. */}
+        <div className="mt-6 grid" aria-live={paused ? "polite" : "off"}>
           {items.map((item, index) => (
             <figure
               key={item.id ?? index}
               role="group"
               aria-roledescription="slide"
               aria-hidden={index !== active}
-              className={`flex-col items-center ${
+              className={`col-start-1 row-start-1 flex flex-col items-center transition-opacity duration-500 ease-in-out motion-reduce:transition-none ${
                 index === active
-                  ? "flex"
-                  : "hidden"
+                  ? "opacity-100"
+                  : "opacity-0 pointer-events-none select-none"
               }`}
             >
 
-              <blockquote className="max-w-[660px] whitespace-pre-line font-body text-sm leading-[1.75] md:text-[15px]">
+              <blockquote className="flex flex-1 items-center max-w-[660px] whitespace-pre-line font-body text-sm leading-[1.75] md:text-[15px]">
                 {item.quote}
               </blockquote>
               <figcaption className="mt-6 font-body text-xs font-medium uppercase leading-relaxed tracking-[0.04em] md:text-[13px]">

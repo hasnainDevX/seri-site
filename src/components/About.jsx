@@ -1,33 +1,19 @@
-import { useEffect, useRef, useState } from "react";
+import RevealHeading from './RevealHeading';
+import { useState } from "react";
 import { bookingUrl } from "../data/site";
 import headshot from "../assets/Profile&ETC/seri-white-blazer-hand-on-chin.jpg";
 import CircularText from "./CircularText";
 
 export default function About() {
-  const sectionRef = useRef(null);
-  const [revealed, setRevealed] = useState(false);
+
+
   const [portraitFailed, setPortraitFailed] = useState(false);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setRevealed(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.15 },
-    );
-    observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, []);
-
-  const reveal = `block motion-reduce:animate-none motion-reduce:transform-none ${revealed ? "animate-heading-reveal" : "translate-y-[115%]"}`;
 
   return (
     <section
       id="about"
-      ref={sectionRef}
+
       aria-labelledby="about-heading"
       className="relative z-10 min-h-svh scroll-mt-16 bg-white md:scroll-mt-20 text-black"
     >
@@ -56,14 +42,12 @@ export default function About() {
           <p className="mb-5 text-[10px] font-medium uppercase tracking-[0.2em]">
             {"{ The person behind SERIÉ }"}
           </p>
-          <h2
+          <RevealHeading
             id="about-heading"
             className="font-editorial text-[clamp(2.5rem,3.6vw,3.5rem)] font-normal leading-[1.2] tracking-[-0.015em] text-espresso"
           >
-            <span className="block overflow-hidden pb-[0.12em]">
-              <span className={reveal}>Meet Seri</span>
-            </span>
-          </h2>
+            Meet Seri
+          </RevealHeading>
           <p className="mt-3 font-editorial text-xl italic leading-relaxed md:text-[22px]">
             Founder, Lash & Brow Artist, and Educator
           </p>

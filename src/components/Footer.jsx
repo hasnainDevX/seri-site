@@ -1,7 +1,9 @@
+import RevealHeading from './RevealHeading'
+import footerImage from '../assets/image.png'
 import { bookingUrl } from '../data/site'
 
 const label = 'font-body text-[11px] font-semibold uppercase leading-relaxed tracking-[0.18em]'
-const link = 'inline-flex min-h-11 items-center text-sm underline-offset-4 transition-colors hover:text-black hover:underline motion-reduce:transition-none'
+const link = 'inline-flex min-h-11 items-center text-sm underline-offset-4 transition-colors hover:text-stone hover:underline motion-reduce:transition-none'
 
 function Arrow({ className = 'size-4' }) {
   return (
@@ -13,14 +15,15 @@ function Arrow({ className = 'size-4' }) {
 
 export default function Footer() {
   return (
-    <footer className="border-t border-stone bg-espresso text-white">
+    <footer className="relative isolate border-t border-stone bg-espresso text-white">
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10"><img src={footerImage} alt="" loading="lazy" className="size-full object-cover" /><div className="absolute inset-0 bg-black/65" /></div>
       <div className="border-b border-stone bg-white">
         <div className="mx-auto grid max-w-[1440px] gap-8 px-6 py-10 md:grid-cols-2 md:items-center md:gap-12 md:px-10 md:py-12 lg:gap-24 lg:px-16 text-espresso">
           <div>
-            <h2 className={label}>Stay connected</h2>
-            <p className="mt-3 max-w-md font-heading text-[28px] leading-[1.25] tracking-[-0.025em] md:text-[32px]">
+            <RevealHeading className={label}>Stay connected</RevealHeading>
+            <RevealHeading as="p" className="mt-3 max-w-md font-heading text-[28px] leading-[1.25] tracking-[-0.025em] md:text-[32px]">
               A little beauty, in your inbox.
-            </p>
+            </RevealHeading>
           </div>
           <div className="min-w-0">
             <p className="max-w-md text-sm leading-7">
@@ -48,21 +51,21 @@ export default function Footer() {
           </div>
 
           <nav aria-label="Footer navigation">
-            <h2 className={label}>Explore</h2>
+            <RevealHeading className={label}>Explore</RevealHeading>
             <ul className="mt-4">
               <li><a href="/" className={link}>Home</a></li>
-              <li><a href="/#about" className={link}>Meet Seri</a></li>
+              <li><a href="/about" className={link}>Meet Seri</a></li>
               <li><a href="/#training" className={link}>Training</a></li>
             </ul>
           </nav>
 
           <div>
-            <h2 className={label}>Visit the studio</h2>
+            <RevealHeading className={label}>Visit the studio</RevealHeading>
             <p className="mt-6 text-sm leading-7">
               Winnipeg, Canada<br />
               By appointment
             </p>
-            <a href={bookingUrl} target="_blank" rel="noopener noreferrer" className="group mt-6 inline-flex min-h-11 items-center gap-6 border-b border-espresso pb-2 text-[11px] font-semibold uppercase tracking-[0.12em] hover:text-black">
+            <a href={bookingUrl} target="_blank" rel="noopener noreferrer" className="group mt-6 inline-flex min-h-11 items-center gap-6 border-b border-white/60 pb-2 text-[11px] font-semibold uppercase tracking-[0.12em] hover:text-stone">
               Book an appointment
               <span className="transition-transform duration-300 group-hover:translate-x-1 motion-reduce:transition-none"><Arrow /></span>
             </a>

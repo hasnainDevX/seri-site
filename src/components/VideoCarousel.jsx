@@ -1,3 +1,4 @@
+import RevealHeading from './RevealHeading'
 import { useEffect, useRef, useState } from "react";
 import CircularText from "./CircularText";
 
@@ -173,9 +174,9 @@ export default function VideoCarousel({ clips = defaultClips }) {
         <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-espresso/60">
           {"{ Training }"}
         </p>{" "}
-        <h2 className="mt-4 font-heading text-[28px] leading-snug md:text-[34px]">
+        <RevealHeading className="mt-4 font-heading text-[28px] leading-snug md:text-[34px]">
           Learn the craft behind the results
-        </h2>
+        </RevealHeading>
         <p className="mt-5 text-sm leading-relaxed text-espresso/75">
           Train with Seri in Winnipeg and learn lash and brow techniques
           hands-on, from consultation and prep to flawless finishing. Small

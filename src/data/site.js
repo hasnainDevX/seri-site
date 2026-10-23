@@ -11,7 +11,7 @@ export const services = [
 ]
 
 export const navigation = [
-  { label: 'About', href: '/#about' },
+  { label: 'About', href: '/about' },
   { label: 'Training', href: null },
   { label: 'Contact', href: null },
 ]
