@@ -96,7 +96,7 @@ export default function MobileNavigation({ open, onClose, children }) {
           duration: reducedMotion ? 0 : 0.9,
           ease: [0.4, 0, 0.2, 1],
         }}
-        className="absolute inset-0 flex w-full flex-col bg-off-white"
+        className="absolute inset-0 flex w-full flex-col bg-white"
       >
         <div className="flex shrink-0 items-center justify-between border-b border-stone px-6 pb-5 pt-[max(1.25rem,env(safe-area-inset-top))]">
           <a href="/" aria-label="SERIÉ home" onClick={onClose}>

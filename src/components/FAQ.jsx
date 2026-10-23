@@ -10,7 +10,7 @@ export default function FAQ() {
     <section id="faq" aria-labelledby="faq-heading" className="scroll-mt-24 bg-white px-6 py-16 text-black md:px-10 md:py-24 lg:px-16">
       <div className="mx-auto grid max-w-[1200px] items-start gap-10 md:grid-cols-[minmax(0,0.8fr)_minmax(0,1.6fr)] md:gap-12 lg:gap-24">
         <div className="md:sticky md:top-28">
-          <p className="mb-4 font-body text-[10px] font-medium uppercase tracking-[0.18em] text-clay">Before your appointment</p>
+          <p className="mb-4 font-body text-[10px] font-medium uppercase tracking-[0.18em] text-clay">{"Before your appointment"}</p>
           <RevealHeading id="faq-heading" className="max-w-[14ch] font-editorial text-[44px] font-normal leading-[1.05] tracking-[-0.025em] lg:text-[54px]">Frequently asked questions</RevealHeading>
           <p className="mt-6 max-w-[25ch] font-body text-sm leading-[1.75] text-espresso">Treatment details, preparation, and aftercare.</p>
 
