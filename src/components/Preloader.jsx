@@ -9,7 +9,7 @@ export default function Preloader() {
   const [finished, setFinished] = useState(false)
 
   useEffect(() => {
-    const timer = window.setTimeout(() => setFinished(true), 1500)
+    const timer = window.setTimeout(() => setFinished(true), 3500)
     return () => window.clearTimeout(timer)
   }, [reduceMotion])
 
