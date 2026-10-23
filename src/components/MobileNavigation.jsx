@@ -1,141 +1,221 @@
-import { useEffect, useRef } from "react";
-import { createPortal } from "react-dom";
-import { motion, useAnimationControls, useReducedMotion } from "motion/react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { bookingUrl, navigation } from "../data/site";
+import MobileNavigation from "./MobileNavigation";
+import useOutsideClick from "../hooks/useOutsideClick";
+import browLamination from "../assets/ClientsPhotos/BrowLamination/brow-lamination-client-result.png";
+import LashExtension from "../assets/ClientsPhotos/LashExtension/lash-extensions-client-portrait-01.jpg";
+import KoreanLashLift from "../assets/ClientsPhotos/KoreanLashLiftTint/korean-lash-lift-eye-closeup.png";
+import NanoComboBrows from "../assets/ClientsPhotos/Nano-NanoComboBrows/nano-combo-brows-before-after.jpg";
+import navBackground from "../assets/image.png";
 
-export default function MobileNavigation({ open, onClose, children }) {
-  const dialogRef = useRef(null);
-  const reducedMotion = useReducedMotion();
-  const panelAnimation = useAnimationControls();
+export const services = [
+  { label: "Brow Lamination", href: "/brow-lamination", image: browLamination },
+  { label: "Lash Extension", href: "/lash-extension", image: LashExtension },
+  { label: "KoreanLashLift", href: "/korean-lash-lift", image: KoreanLashLift },
+  { label: "NanoComboBrows", href: "/Nano-combo-brows", image: NanoComboBrows },
+];
 
-  useEffect(() => {
-    const dialog = dialogRef.current;
-    if (!open) return;
-    dialog.showModal();
-    const previousOverflow = document.documentElement.style.overflow;
-    document.documentElement.style.overflow = "hidden";
-    const desktop = window.matchMedia("(min-width: 1024px)");
-    const closeOnDesktop = () => {
-      if (desktop.matches) onClose();
-    };
-    desktop.addEventListener("change", closeOnDesktop);
-    return () => {
-      document.documentElement.style.overflow = previousOverflow;
-      desktop.removeEventListener("change", closeOnDesktop);
-    };
-  }, [open, onClose]);
+function PageLink({ item, className, underline = false }) {
+  const label = underline ? (
+    <span className="relative inline-flex items-center gap-2">
+      {item.label}
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 -bottom-1 h-px origin-left scale-x-0 bg-current transition-transform duration-300 ease-out group-hover:scale-x-100 motion-reduce:transition-none"
+      />
+    </span>
+  ) : (
+    item.label
+  );
 
-  useEffect(() => {
-    let cancelled = false;
-    let frame;
-    const transition = {
-      type: "tween",
-      duration: reducedMotion ? 0 : 0.9,
-      ease: [0.4, 0, 0.2, 1],
-    };
-    if (open) {
-      panelAnimation.set({ y: "-100%" });
-      frame = requestAnimationFrame(() =>
-        panelAnimation.start({ y: "0%", transition }),
-      );
-    } else {
-      panelAnimation.start({ y: "-100%", transition }).then(() => {
-        if (!cancelled) dialogRef.current?.close();
-      });
-    }
-    return () => {
-      cancelled = true;
-      cancelAnimationFrame(frame);
-      panelAnimation.stop();
-    };
-  }, [open, reducedMotion, panelAnimation]);
+  return item.href ? (
+    <a className={`${className}${underline ? " group" : ""}`} href={item.href}>
+      {label}
+    </a>
+  ) : (
+    <button type="button" disabled className={className}>
+      {label}
+    </button>
+  );
+}
 
-  return createPortal(
-    <dialog
-      ref={dialogRef}
-      autoFocus
-      tabIndex={-1}
-      id="mobile-navigation"
-      aria-label="Navigation menu"
+function ServiceMenuItem({ item }) {
+  return (
+    <a
+      href={item.href}
+      className="flex cursor-pointer items-center gap-4 px-2 py-2.5 text-left text-xs leading-relaxed transition-colors hover:bg-greige"
+    >
+      {item.image ? (
+        <img
+          src={item.image}
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+          className="size-14 shrink-0 rounded-sm object-cover"
+        />
+      ) : (
+        <span
+          className="size-14 shrink-0 rounded-sm bg-stone"
+          aria-hidden="true"
+        />
+      )}
+      <span className="uppercase tracking-[0.12em]">{item.label}</span>
+    </a>
+  );
+}
+
+function ServicesMenu({ mobile = false }) {
+  const detailsRef = useRef(null);
+
+  useOutsideClick(detailsRef, () => {
+    if (detailsRef.current?.open) detailsRef.current.open = false;
+  });
+
+  return (
+    <details
+      ref={detailsRef}
+      className="group/services relative"
       onKeyDown={(event) => {
-        if (event.key !== "Tab") return;
-        const items = [
-          ...event.currentTarget.querySelectorAll(
-            'a[href], button:not(:disabled), summary, [tabindex="0"]',
-          ),
-        ].filter((element) => element.getClientRects().length > 0);
-        const first = items[0];
-        const last = items[items.length - 1];
-        if (event.shiftKey && document.activeElement === first) {
-          event.preventDefault();
-          last?.focus();
-        } else if (!event.shiftKey && document.activeElement === last) {
-          event.preventDefault();
-          first?.focus();
+        if (event.key === "Escape") {
+          event.currentTarget.open = false;
+          event.currentTarget.querySelector("summary").focus();
         }
       }}
-      onCancel={(event) => {
-        event.preventDefault();
-        onClose();
-      }}
-      onClick={(event) => {
-        if (event.target === event.currentTarget) onClose();
-      }}
-      className="fixed inset-0 m-0 h-dvh max-h-none w-full max-w-none overflow-clip border-0 bg-transparent p-0 text-espresso backdrop:bg-transparent"
     >
-      <motion.div
-        aria-hidden="true"
-        initial={false}
-        animate={{ opacity: open ? 1 : 0 }}
-        transition={{ duration: reducedMotion ? 0 : 0.5 }}
-        className="pointer-events-none absolute inset-0 bg-espresso/45"
-      />
-      <motion.div
-        initial={{ y: "-100%" }}
-        animate={panelAnimation}
-        transition={{
-          duration: reducedMotion ? 0 : 0.9,
-          ease: [0.4, 0, 0.2, 1],
-        }}
-        className="absolute inset-0 flex w-full flex-col bg-white"
-      >
-        <div className="flex shrink-0 items-center justify-between border-b border-stone px-6 pb-5 pt-[max(1.25rem,env(safe-area-inset-top))]">
-          <a href="/" aria-label="SERIÉ home" onClick={onClose}>
-            <span className="block font-heading text-[32px] leading-none tracking-[-0.065em]">
-              SERIÉ
-            </span>
-            <span className="mt-2 block text-[7px] font-semibold uppercase tracking-[0.18em]">
-              Lash, Brow &amp; Training
-            </span>
-          </a>
-          <button
-            type="button"
-            onClick={onClose}
-            aria-label="Close menu"
-            className="grid size-11 cursor-pointer place-items-center hover:bg-greige"
-          >
-            <svg
-              aria-hidden="true"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.2"
-              className="size-6"
-            >
-              <path d="m6 6 12 12M6 18 18 6" />
-            </svg>
-          </button>
-        </div>
-        <nav
-          aria-label="Mobile navigation"
-          className="flex min-h-0 flex-1 flex-col overflow-y-auto overscroll-contain px-6 pb-[max(1.5rem,env(safe-area-inset-bottom))] pt-6"
-          onClick={(event) => {
-            if (event.target.closest("a[href]")) onClose();
-          }}
+      <summary className={`group flex cursor-pointer list-none items-center justify-between gap-2 py-3 transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-offset-4 [&::-webkit-details-marker]:hidden ${mobile ? "font-heading text-2xl leading-relaxed hover:opacity-60" : "text-[10px] font-medium uppercase tracking-[0.16em]"}`}>
+        <span className="relative inline-flex items-center">
+          Services
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-x-0 -bottom-1 h-px origin-left scale-x-0 bg-current transition-transform duration-300 ease-out group-hover:scale-x-100 motion-reduce:transition-none"
+          />
+        </span>
+        <svg
+          className="size-3 transition-transform group-open/services:rotate-180 motion-reduce:transition-none"
+          viewBox="0 0 12 12"
+          fill="none"
+          stroke="currentColor"
+          aria-hidden="true"
         >
-          {children}
+          <path d="m3 4.5 3 3 3-3" />
+        </svg>
+      </summary>
+      <div
+        className={
+          mobile
+            ? "grid gap-1 pb-4 pl-4"
+            : "absolute top-full -left-5 z-30 grid w-[34rem] grid-cols-2 gap-x-4 gap-y-1 border border-stone bg-white p-4 text-espresso shadow-lg shadow-espresso/5"
+        }
+      >
+        {services.map((item) => (
+          <ServiceMenuItem key={item.label} item={item} />
+        ))}
+      </div>
+    </details>
+  );
+}
+
+export default function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(() => window.scrollY > 24);
+  const solid = scrolled || menuOpen;
+  const closeMenu = useCallback(() => setMenuOpen(false), []);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 24);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+  const navClass =
+    "py-3 text-[10px] font-medium uppercase tracking-[0.16em] cursor-pointer disabled:cursor-not-allowed";
+
+  return (
+    <header
+      className={`sticky top-0 z-50 -mb-16 transition-colors duration-300 motion-reduce:transition-none md:-mb-20 [&_a:focus-visible]:outline-current [&_button:focus-visible]:outline-current relative ${solid ? "text-espresso shadow-[0_3px_5px_-2px_rgba(0,0,0,0.35)]" : "bg-transparent text-off-white"}`}
+    >
+      {solid && (
+        <>
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 -z-10 bg-cover bg-center"
+            style={{ backgroundImage: `url(${navBackground})` }}
+          />
+          <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 bg-white/92" />
+        </>
+      )}
+      <div className="mx-auto flex h-16 max-w-[1440px] items-center justify-between gap-6 px-6 md:h-20 md:px-10 lg:px-16">
+        {/* Text wordmark until the original logo file is supplied. */}
+        <a href="/" aria-label="SERIÉ home" className="shrink-0 text-inherit transition-opacity duration-300 hover:opacity-80">
+          <span className="block font-heading text-[32px] leading-none tracking-[-0.065em] md:text-[38px]">
+            SERIÉ
+          </span>
+          <span className="mt-1.5 block text-[7px] font-semibold uppercase leading-none tracking-[0.18em]">
+            Lash, Brow & Training
+          </span>
+        </a>
+
+        <nav
+          aria-label="Main navigation"
+          className="hidden items-center gap-8 lg:flex xl:gap-10"
+        >
+          <PageLink item={navigation[0]} className={navClass} underline />
+          <ServicesMenu />
+          {navigation.slice(1).map((item) => (
+            <PageLink
+              key={item.label}
+              item={item}
+              className={navClass}
+              underline
+            />
+          ))}
+          <a
+            href={bookingUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`cursor-pointer border px-6 py-3.5 text-[10px] font-medium uppercase tracking-[0.12em] transition-colors motion-reduce:transition-none ${solid ? "border-espresso bg-espresso text-off-white hover:bg-espresso/85" : "border-off-white/70 bg-transparent text-off-white hover:bg-off-white hover:text-espresso"}`}
+          >
+            Book Appointment
+          </a>
         </nav>
-      </motion.div>
-    </dialog>,
-    document.body,
+
+        <button
+          type="button"
+          aria-expanded={menuOpen}
+          aria-controls="mobile-navigation"
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
+          onClick={() => setMenuOpen(!menuOpen)}
+          className="grid size-11 cursor-pointer place-items-center lg:hidden"
+        >
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.2"
+            aria-hidden="true"
+          >
+            <path d={menuOpen ? "m6 6 12 12M6 18 18 6" : "M3 8h18M3 16h18"} />
+          </svg>
+        </button>
+      </div>
+
+      <MobileNavigation open={menuOpen} onClose={closeMenu}>
+        <div className="divide-y divide-stone">
+          <a href="/" className="block py-3 font-heading text-2xl leading-relaxed transition-opacity duration-300 hover:opacity-60">Home</a>
+          <PageLink item={navigation[0]} className="block py-3 text-left font-heading text-2xl leading-relaxed transition-opacity duration-300 hover:opacity-60" />
+          <ServicesMenu mobile />
+          {navigation.slice(1).map((item) => (
+            <PageLink key={item.label} item={item} className="block w-full py-3 text-left font-heading text-2xl leading-relaxed transition-opacity duration-300 hover:opacity-60 disabled:cursor-not-allowed disabled:text-espresso/50 disabled:hover:opacity-100" />
+          ))}
+        </div>
+        <div className="mt-auto pt-10">
+          <a href={bookingUrl} target="_blank" rel="noopener noreferrer" className="flex min-h-12 items-center justify-center bg-espresso px-4 py-4 text-center text-[10px] font-semibold uppercase tracking-[0.14em] text-off-white transition-colors duration-300 hover:bg-black focus-visible:outline-offset-4">
+            Book Appointment
+          </a>
+          <p className="mt-5 text-center text-[10px] uppercase tracking-[0.14em]">Lash &amp; brow artistry in Winnipeg</p>
+        </div>
+      </MobileNavigation>
+    </header>
   );
 }
