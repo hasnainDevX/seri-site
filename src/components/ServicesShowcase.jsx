@@ -1,98 +1,56 @@
-import { bookingUrl } from "../data/site";
+import { bookingUrl } from '../data/site'
+import studioImage from '../assets/Profile&ETC/seri-brow-brush-mirror-landscape.jpg'
+import browsImage from '../assets/ClientsPhotos/Nano-NanoComboBrows/nano-brows-before-after-01.jpg'
+import liftImage from '../assets/ClientsPhotos/KoreanLashLiftTint/korean-lash-lift-client-portrait.png'
+import extensionsImage from '../assets/ClientsPhotos/LashExtension/lash-extensions-client-portrait-01.jpg'
+import laminationImage from '../assets/ClientsPhotos/BrowLamination/brow-lamination-client-result.png'
 
-import pmuBrowsImage from "../assets/ClientsPhotos/Nano-NanoComboBrows/nano-brows-before-after-01.jpg";
-import pmuBrowsHoverImage from "../assets/ClientsPhotos/Nano-NanoComboBrows/nano-brows-before-after-02.jpg";
-
-import koreanLashLiftImage from "../assets/ClientsPhotos/KoreanLashLiftTint/korean-lash-lift-client-portrait.png";
-import koreanLashLiftHoverImage from "../assets/ClientsPhotos/KoreanLashLiftTint/korean-lash-lift-eye-closeup.png";
-
-import lashExtensionsImage from "../assets/ClientsPhotos/LashExtension/lash-extensions-client-portrait-01.jpg";
-import lashExtensionsHoverImage from "../assets/ClientsPhotos/LashExtension/lash-extensions-client-portrait-02.png";
-
-import browLaminationImage from "../assets/ClientsPhotos/BrowLamination/brow-lamination-before-after.jpg";
-import browLaminationHoverImage from "../assets/ClientsPhotos/BrowLamination/brow-lamination-client-result.png";
-
-export const services = [
+const services = [
   {
-    label: "PMU Brows",
-    href: "/services/pmu-brows",
-    image: pmuBrowsImage,
-    hoverImage: pmuBrowsHoverImage,
+    name: 'Nano & Combo Brows',
+    image: browsImage,
+    intro: 'Natural definition, thoughtfully tailored to you.',
+    description: 'Fine hairstrokes mimic your natural brow hairs for a soft, realistic finish. Prefer a little more fullness? Combo brows blend hairstrokes with shading for added shape and definition.',
   },
   {
-    label: "Korean Lash Lift",
-    href: "/services/korean-lash-lift",
-    image: koreanLashLiftImage,
-    hoverImage: koreanLashLiftHoverImage,
+    name: 'Korean Lash Lift & Tint',
+    image: liftImage,
+    intro: 'Your natural lashes, beautifully lifted.',
+    description: 'A customized lift and curl creates a longer, more defined look without extensions. Complete with a lash tint and a complimentary keratin and peptide lash mask for a fresh, eye-opening finish.',
   },
   {
-    label: "Lash Extensions",
-    href: "/services/lash-extensions",
-    image: lashExtensionsImage,
-    hoverImage: lashExtensionsHoverImage,
+    name: 'Lash Extensions',
+    image: extensionsImage,
+    intro: 'A lash look that feels like you.',
+    description: 'Add length, fullness, and definition with a set customized to your style. Choose from Classic, Wet Mascara Look, Natural Wispy, or YY Wispy for your preferred finish.',
   },
   {
-    label: "Brow Lamination",
-    href: "/services/brow-lamination",
-    image: browLaminationImage,
-    hoverImage: browLaminationHoverImage,
+    name: 'Brow Lamination & Sculpt',
+    image: laminationImage,
+    intro: 'Soft structure. Fuller-looking brows.',
+    description: 'Lamination softens and repositions your natural brow hairs for a fuller, more uniform look. Brow sculpting brings together shaping, waxing, and tinting to refine your brows.',
   },
-];
+]
 
 export default function ServicesShowcase() {
   return (
-    <section className="bg-white px-6 py-20 md:px-10 md:py-28 lg:px-16">
-      <div className="mx-auto max-w-[1440px] text-center bg-white">
-        <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-espresso/60">
-          {"{ Our Services }"}
-        </p>
-        <h2 className="mx-auto mt-4 max-w-2xl font-heading text-[28px] leading-snug text-espresso md:text-[34px]">
-          Helping you feel confident in your lash &amp; brow routine, with real
-          results you can see
-        </h2>
-        <a
-          href={bookingUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-8 inline-block cursor-pointer bg-espresso px-7 py-3.5 text-[10px] font-medium uppercase tracking-[0.12em] text-off-white transition-colors hover:bg-espresso/85 motion-reduce:transition-none"
-        >
-          Schedule Appointment
-        </a>
-      </div>
-
-      <div className="mx-auto mt-14 grid max-w-[1440px] grid-cols-1 gap-x-6 gap-y-14 sm:grid-cols-2 lg:grid-cols-4">
-        {services.map((item) => (
-          <a
-            key={item.label}
-            href={item.href}
-            className="group block cursor-pointer text-center"
-          >
-            <div className="relative aspect-square overflow-hidden">
-              <img
-                src={item.image}
-                alt={item.label}
-                className="absolute inset-0 size-full object-cover transition-opacity duration-500 motion-reduce:transition-none group-hover:opacity-0"
-              />
-              <img
-                src={item.hoverImage}
-                alt=""
-                aria-hidden="true"
-                className="absolute inset-0 size-full object-cover opacity-0 transition-opacity duration-500 motion-reduce:transition-none group-hover:opacity-100"
-              />
+    <section id="services" aria-labelledby="services-heading" className="relative isolate scroll-mt-20 overflow-hidden bg-stone px-5 py-14 md:px-10 md:py-20">
+      <img src={studioImage} alt="" aria-hidden="true" loading="lazy" className="absolute inset-0 -z-20 size-full object-cover object-center" />
+      <div aria-hidden="true" className="absolute inset-0 -z-10 bg-espresso/25" />
+      <h2 id="services-heading" className="sr-only">Our services</h2>
+      <div className="mx-auto grid max-w-[1000px] gap-10 md:gap-[72px]">
+        {services.map((service) => (
+          <article key={service.name} className="grid min-w-0 border border-espresso bg-off-white p-2.5 md:grid-cols-[minmax(0,1fr)_minmax(0,2fr)]">
+            <img src={service.image} alt={service.name + ' by Seri'} loading="lazy" className="aspect-[7/6] w-full object-cover md:h-full md:min-h-[274px]" />
+            <div className="flex flex-col items-start px-4 py-7 text-espresso md:px-9 md:py-5 lg:px-11">
+              <h3 className="font-editorial text-[36px] font-medium leading-[1.1] tracking-[-0.045em] text-black md:text-[40px]">{service.name}</h3>
+              <p className="mt-4 font-body text-sm leading-[1.6] md:text-[15px]">{service.intro}</p>
+              <p className="mb-7 mt-5 max-w-[58ch] font-body text-sm leading-[1.6] md:text-[15px]">{service.description}</p>
+              <a href={bookingUrl} target="_blank" rel="noopener noreferrer" aria-label={'Book ' + service.name} className="mt-auto inline-flex min-h-11 min-w-[200px] items-center justify-center border border-espresso bg-white px-6 py-2 text-[11px] font-medium uppercase tracking-[0.06em] text-black transition-colors hover:bg-espresso hover:text-off-white focus-visible:outline-espresso motion-reduce:transition-none">Book Appointment</a>
             </div>
-
-            <div className="relative z-10 -mt-5 flex justify-center">
-              <span className="inline-flex items-center justify-center bg-off-white px-8 py-3 text-[10px] font-medium uppercase tracking-[0.14em] text-espresso">
-                Service
-              </span>
-            </div>
-
-            <h3 className="mt-4 font-heading text-2xl text-espresso">
-              {item.label}
-            </h3>
-          </a>
+          </article>
         ))}
       </div>
     </section>
-  );
+  )
 }

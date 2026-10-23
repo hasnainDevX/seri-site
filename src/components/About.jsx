@@ -107,12 +107,12 @@ export default function About() {
       </div>
       <div className="absolute top-6 right-6 z-20 origin-bottom-right scale-75 md:bottom-10 md:right-10 md:scale-100 lg:bottom-16 lg:right-16">
         <CircularText
-          text="SERIÉ LASH BROW TRAINING"
-          onHover="speedUp"
+          text="SERIÉ LASH BROW TRAINING "
+          // onHover="speedUp"
           direction="clockwise"
           spinDuration={20}
-          size={200}
-          fontSize={24}
+          size={160}
+          fontSize={15}
           draggable
           hoverTilt={20}
           tilt={0}
@@ -122,7 +122,10 @@ export default function About() {
           repeat={1}
           fill
           ring={false}
-        />
+          className="text-espresso"
+        >
+          <span className="pointer-events-none select-none font-heading text-[25px] font-normal leading-none tracking-[-0.065em] text-espresso">SERIÉ</span>
+        </CircularText>
       </div>
     </section>
   );

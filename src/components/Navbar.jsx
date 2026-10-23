@@ -1,5 +1,6 @@
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { bookingUrl, navigation } from "../data/site";
+import MobileNavigation from "./MobileNavigation";
 import useOutsideClick from "../hooks/useOutsideClick";
 import browLamination from "../assets/ClientsPhotos/BrowLamination/brow-lamination-client-result.png";
 import LashExtension from "../assets/ClientsPhotos/LashExtension/lash-extensions-client-portrait-01.jpg";
@@ -80,7 +81,7 @@ function ServicesMenu({ mobile = false }) {
         }
       }}
     >
-      <summary className="group flex cursor-pointer list-none items-center gap-2 py-3 text-[10px] font-medium uppercase tracking-[0.16em] focus-visible:outline-2 focus-visible:outline-offset-4 [&::-webkit-details-marker]:hidden">
+      <summary className={`group flex cursor-pointer list-none items-center justify-between gap-2 py-3 focus-visible:outline-2 focus-visible:outline-offset-4 [&::-webkit-details-marker]:hidden ${mobile ? "font-heading text-2xl leading-relaxed" : "text-[10px] font-medium uppercase tracking-[0.16em]"}`}>
         <span className="relative inline-flex items-center">
           Services
           <span
@@ -117,6 +118,7 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(() => window.scrollY > 24);
   const solid = scrolled || menuOpen;
+  const closeMenu = useCallback(() => setMenuOpen(false), []);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 24);
@@ -128,7 +130,7 @@ export default function Navbar() {
 
   return (
     <header
-      className={`sticky top-0 z-50 -mb-16 transition-colors duration-300 motion-reduce:transition-none md:-mb-20 [&_a:focus-visible]:outline-current [&_button:focus-visible]:outline-current ${solid ? "bg-white text-espresso shadow-sm shadow-espresso/5" : "bg-transparent text-off-white"}`}
+      className={`sticky top-0 z-50 -mb-16 transition-colors duration-300 motion-reduce:transition-none md:-mb-20 [&_a:focus-visible]:outline-current [&_button:focus-visible]:outline-current ${solid ? "bg-white text-espresso shadow-[0_3px_5px_-2px_rgba(0,0,0,0.35)]" : "bg-transparent text-off-white"}`}
     >
       <div className="mx-auto flex h-16 max-w-[1440px] items-center justify-between gap-6 px-6 md:h-20 md:px-10 lg:px-16">
         {/* Text wordmark until the original logo file is supplied. */}
@@ -187,39 +189,22 @@ export default function Navbar() {
         </button>
       </div>
 
-      {menuOpen && (
-        <nav
-          id="mobile-navigation"
-          aria-label="Mobile navigation"
-          className="absolute inset-x-0 top-full grid border-t border-stone bg-white px-6 pb-6 text-espresso shadow-lg shadow-espresso/5 lg:hidden"
-          onKeyDown={(event) => {
-            if (event.key === "Escape") {
-              setMenuOpen(false);
-              document
-                .querySelector('[aria-controls="mobile-navigation"]')
-                .focus();
-            }
-          }}
-        >
-          <PageLink item={navigation[0]} className={`${navClass} text-left`} />
+      <MobileNavigation open={menuOpen} onClose={closeMenu}>
+        <div className="divide-y divide-stone">
+          <a href="/" className="block py-3 font-heading text-2xl leading-relaxed">Home</a>
+          <PageLink item={navigation[0]} className="block py-3 text-left font-heading text-2xl leading-relaxed" />
           <ServicesMenu mobile />
           {navigation.slice(1).map((item) => (
-            <PageLink
-              key={item.label}
-              item={item}
-              className={`${navClass} text-left`}
-            />
+            <PageLink key={item.label} item={item} className="block w-full py-3 text-left font-heading text-2xl leading-relaxed disabled:cursor-not-allowed disabled:text-espresso/50" />
           ))}
-          <a
-            href={bookingUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-3 cursor-pointer bg-espresso px-6 py-4 text-center text-[10px] uppercase tracking-[0.12em] text-off-white"
-          >
+        </div>
+        <div className="mt-auto pt-10">
+          <a href={bookingUrl} target="_blank" rel="noopener noreferrer" className="flex min-h-12 items-center justify-center bg-espresso px-4 py-4 text-center text-[10px] font-semibold uppercase tracking-[0.14em] text-off-white hover:bg-black focus-visible:outline-offset-4">
             Book Appointment
           </a>
-        </nav>
-      )}
+          <p className="mt-5 text-center text-[10px] uppercase tracking-[0.14em]">Lash &amp; brow artistry in Winnipeg</p>
+        </div>
+      </MobileNavigation>
     </header>
   );
 }

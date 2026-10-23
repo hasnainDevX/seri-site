@@ -8,6 +8,7 @@ import lashExt1 from "../assets/ClientsPhotos/LashExtension/lash-extensions-clie
 import lashExt2 from "../assets/ClientsPhotos/LashExtension/lash-extensions-client-portrait-02.png";
 import browBA from "../assets/ClientsPhotos/BrowLamination/brow-lamination-before-after.jpg";
 import browResult from "../assets/ClientsPhotos/BrowLamination/brow-lamination-client-result.png";
+import ExperienceStats from "./ExperienceStats";
 
 const rowOne = [
   { src: nano1, alt: "Nano brows before and after" },
@@ -65,17 +66,19 @@ export default function WorkMarquee() {
       aria-labelledby="work-heading"
       className="bg-off-white py-16 text-espresso md:py-24"
     >
-      <div className="mx-auto mb-10 max-w-[1440px] px-6 md:px-10 lg:px-16">
+      <div className="mx-auto mb-10 max-w-[1440px] px-6 md:px-10 lg:px-16 text-center">
         <p className="text-[10px] font-medium uppercase tracking-[0.16em]">
           {"{ Our Work }"}
         </p>
         <h2
           id="work-heading"
-          className="mt-3 font-heading text-4xl tracking-[-0.04em] md:text-5xl"
+          className="mt-3 font-heading text-4xl tracking-[-0.04em] md:text-5xl "
         >
           Results we&apos;re proud of
         </h2>
       </div>
+
+      <ExperienceStats/>
 
       <div className="grid gap-4">
         <MarqueeRow items={rowOne} />

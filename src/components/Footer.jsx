@@ -1,108 +1,80 @@
-import { bookingUrl, navigation } from '../data/site'
+import { bookingUrl } from '../data/site'
 
-function LashDivider() {
+const label = 'font-body text-[11px] font-semibold uppercase leading-relaxed tracking-[0.18em]'
+const link = 'inline-flex min-h-11 items-center text-sm underline-offset-4 transition-colors hover:text-black hover:underline motion-reduce:transition-none'
+
+function Arrow({ className = 'size-4' }) {
   return (
-    <svg aria-hidden="true" width="100%" height="24" className="text-espresso/40">
-      <defs>
-        <pattern id="lash-pattern" width="32" height="24" patternUnits="userSpaceOnUse">
-          <g fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round">
-            <path d="M4 6Q16 11 28 6" />
-            <path d="M6 7.2 3 12M10 8.6 8 14.5M16 9.2V16M22 8.6 24 14.5M26 7.2 29 12" />
-          </g>
-        </pattern>
-      </defs>
-      <rect width="100%" height="100%" fill="url(#lash-pattern)" />
+    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.3" className={className}>
+      <path d="M4 12h15M13 6l6 6-6 6" />
     </svg>
   )
 }
 
-const eyebrow = 'text-[10px] font-semibold uppercase tracking-[0.18em] text-gold'
-
 export default function Footer() {
   return (
-    <footer className="relative overflow-hidden border-t border-stone bg-off-white text-espresso">
-      {/* faint vertical guide lines */}
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 mx-auto grid max-w-[1440px] grid-cols-4 lg:grid-cols-8">
-        {Array.from({ length: 8 }).map((_, i) => (
-          <div key={i} className={`border-l border-stone/40 ${i > 3 ? 'hidden lg:block' : ''} ${i === 7 ? 'border-r' : ''}`} />
-        ))}
+    <footer className="border-t border-stone bg-espresso text-white">
+      <div className="border-b border-stone bg-white">
+        <div className="mx-auto grid max-w-[1440px] gap-8 px-6 py-10 md:grid-cols-2 md:items-center md:gap-12 md:px-10 md:py-12 lg:gap-24 lg:px-16 text-espresso">
+          <div>
+            <h2 className={label}>Stay connected</h2>
+            <p className="mt-3 max-w-md font-heading text-[28px] leading-[1.25] tracking-[-0.025em] md:text-[32px]">
+              A little beauty, in your inbox.
+            </p>
+          </div>
+          <div className="min-w-0">
+            <p className="max-w-md text-sm leading-7">
+              New services, training dates, and updates from the studio.
+            </p>
+            {/* Enable signup when the mailing-list integration is connected. */}
+            <div className="mt-4 flex min-h-12 items-center justify-between gap-4 border-b border-taupe pb-3">
+              <span className="text-sm">Newsletter sign-ups opening soon</span>
+              <Arrow className="size-5 shrink-0" />
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div className="relative mx-auto grid max-w-[1440px] gap-12 px-6 py-16 md:px-10 md:py-24 lg:grid-cols-[1.2fr_1fr_1fr_1.3fr] lg:gap-10 lg:px-16">
-        {/* Brand */}
-        <div>
-          <a href="/" aria-label="SERIÉ home" className="inline-block">
-            <span className="block font-heading text-[44px] leading-none tracking-[-0.065em]">SERIÉ</span>
-            <span className="mt-2 block text-[8px] font-semibold uppercase leading-none tracking-[0.18em]">Lash, Brow &amp; Training</span>
-          </a>
-          <p className="mt-10 max-w-[18rem] text-sm leading-relaxed text-espresso/70">
-            Lash, brow and training studio. Add your tagline and city here.
-          </p>
-          <a href="https://instagram.com/yourhandle" target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex items-center gap-2 text-sm transition-opacity hover:opacity-60">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
-              <rect x="3" y="3" width="18" height="18" rx="5" />
-              <circle cx="12" cy="12" r="4" />
-              <circle cx="17.2" cy="6.8" r="0.6" fill="currentColor" />
-            </svg>
-            @yourhandle
-          </a>
-        </div>
+      <div className="mx-auto max-w-[1440px] px-6 md:px-10 lg:px-16">
+        <div className="grid gap-x-10 gap-y-10 py-12 sm:grid-cols-2 md:py-16 lg:grid-cols-[1.5fr_0.75fr_1fr] lg:gap-x-20">
+          <div className="sm:col-span-2 lg:col-span-1">
+            <a href="/" aria-label="SERIÉ home" className="inline-block">
+              <span className="block font-heading text-[48px] leading-none tracking-[-0.065em]">SERIÉ</span>
+              <span className="mt-3 block text-[9px] font-semibold uppercase leading-relaxed tracking-[0.18em]">Lash, Brow &amp; Training</span>
+            </a>
+            <p className="mt-6 max-w-[28ch] font-editorial text-[22px] leading-[1.4]">
+              Enhance your natural beauty with care and precision.
+            </p>
+          </div>
 
-        {/* Explore */}
-        <nav aria-label="Footer navigation">
-          <h3 className={eyebrow}>Explore</h3>
-          <ul className="mt-6 grid gap-4 text-sm text-espresso/75">
-            {navigation.map((item) => (
-              <li key={item.label}>
-                {item.href ? (
-                  <a href={item.href} className="transition-colors hover:text-espresso">{item.label}</a>
-                ) : (
-                  <span className="opacity-50">{item.label}</span>
-                )}
-              </li>
-            ))}
-            <li><a href={bookingUrl} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-espresso">Booking</a></li>
-          </ul>
-        </nav>
+          <nav aria-label="Footer navigation">
+            <h2 className={label}>Explore</h2>
+            <ul className="mt-4">
+              <li><a href="/" className={link}>Home</a></li>
+              <li><a href="/#about" className={link}>Meet Seri</a></li>
+              <li><a href="/#training" className={link}>Training</a></li>
+            </ul>
+          </nav>
 
-        {/* Studio info */}
-        <div>
-          <h3 className={eyebrow}>Studio Info</h3>
-          <div className="mt-6 grid gap-4 text-sm leading-relaxed text-espresso/75">
-            <p>Your City<br />By appointment only</p>
-            <p>Cash, card &amp; e-transfer accepted</p>
-            <a href={bookingUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-espresso transition-opacity hover:opacity-60">
+          <div>
+            <h2 className={label}>Visit the studio</h2>
+            <p className="mt-6 text-sm leading-7">
+              Winnipeg, Canada<br />
+              By appointment
+            </p>
+            <a href={bookingUrl} target="_blank" rel="noopener noreferrer" className="group mt-6 inline-flex min-h-11 items-center gap-6 border-b border-espresso pb-2 text-[11px] font-semibold uppercase tracking-[0.12em] hover:text-black">
               Book an appointment
-              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" aria-hidden="true"><path d="M2 8 8 2M3 2h5v5" /></svg>
+              <span className="transition-transform duration-300 group-hover:translate-x-1 motion-reduce:transition-none"><Arrow /></span>
             </a>
           </div>
         </div>
 
-        {/* Newsletter */}
-        <form onSubmit={(e) => e.preventDefault()} className="self-start bg-greige/60 p-8">
-          <h3 className={eyebrow}>Newsletter</h3>
-          <p className="mt-5 font-heading text-2xl tracking-[-0.03em]">Stay in the loop.</p>
-          <p className="mt-3 text-sm leading-relaxed text-espresso/70">Appointment openings, tips, and occasional updates.</p>
-          <label htmlFor="footer-email" className="sr-only">Email address</label>
-          <input
-            id="footer-email"
-            type="email"
-            required
-            placeholder="Email address"
-            className="mt-6 w-full border border-stone bg-white px-4 py-3.5 text-sm outline-none placeholder:text-espresso/45 focus:border-espresso"
-          />
-          <button type="submit" className="mt-3 w-full cursor-pointer bg-espresso px-6 py-4 text-[10px] font-semibold uppercase tracking-[0.18em] text-off-white transition-colors hover:bg-espresso/85">
-            Subscribe
-          </button>
-        </form>
-      </div>
-
-      {/* Lash divider + copyright */}
-      <div className="relative mx-auto max-w-[1440px] px-6 pb-8 md:px-10 lg:px-16">
-        <LashDivider />
-        <p className="mt-4 text-center text-[10px] uppercase tracking-[0.16em] text-espresso/50">
-          &copy; {new Date().getFullYear()} SERIÉ. All rights reserved.
-        </p>
+        <div className="flex flex-col gap-4 border-t border-stone py-6 text-xs leading-relaxed sm:flex-row sm:items-center sm:justify-between">
+          <p>&copy; {new Date().getFullYear()} SERIÉ. All rights reserved.</p>
+          <a href="#root" className="inline-flex min-h-11 w-fit items-center gap-3 underline-offset-4 hover:underline">
+            Back to top <Arrow className="size-4 -rotate-90" />
+          </a>
+        </div>
       </div>
     </footer>
   )

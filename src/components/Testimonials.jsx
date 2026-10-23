@@ -24,31 +24,9 @@ const defaultTestimonials = [
   },
 ];
 
-function Stars() {
-  return (
-    <div
-      role="img"
-      aria-label="5 out of 5 stars"
-      className="mb-5 flex justify-center gap-1.5 text-amber-300"
-    >
-      {Array.from({ length: 5 }, (_, i) => (
-        <svg
-          key={i}
-          viewBox="0 0 24 24"
-          className="size-5 md:size-6"
-          fill="currentColor"
-          aria-hidden="true"
-        >
-          <path d="m12 2 2.9 6.9 7.5.6-5.7 4.9 1.7 7.3L12 17.8l-6.4 3.9 1.7-7.3-5.7-4.9 7.5-.6Z" />
-        </svg>
-      ))}
-    </div>
-  );
-}
-
 export default function Testimonials({
   items = defaultTestimonials,
-  interval = 4000,
+  interval = 10000,
 }) {
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
@@ -73,7 +51,7 @@ export default function Testimonials({
     <section
       aria-label="Client testimonials"
       aria-roledescription="carousel"
-      className="relative isolate z-10 [clip-path:inset(0)] px-6 py-20 text-center text-off-white md:py-28"
+      className="relative isolate z-10 [clip-path:inset(0)] bg-stone px-5 py-16 text-center text-espresso md:px-10 md:py-24 lg:py-28"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onFocus={() => setPaused(true)}
@@ -99,75 +77,55 @@ export default function Testimonials({
       </div>
       <div
         aria-hidden="true"
-        className="absolute inset-0 -z-10 bg-espresso/80"
+        className="absolute inset-0 -z-10 bg-espresso/15"
       />
 
-      <div className="mx-auto max-w-3xl">
-        <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-off-white/70">
-          Kind Words
-        </p>
-        <span
-          aria-hidden="true"
-          className="mt-4 block font-heading text-6xl leading-none text-off-white/40"
-        >
-          “
-        </span>
-
-        {/* All quotes share one grid cell, so the section height stays fixed (it matches the longest quote) while they crossfade. */}
-        <div className="mt-2 grid" aria-live={paused ? "polite" : "off"}>
+      <div className="mx-auto max-w-[856px] border border-espresso/60 bg-white px-6 py-8 md:px-14 md:py-8 lg:px-20">
+        <h2 className="font-heading text-[32px] font-normal leading-tight tracking-[-0.04em] text-black md:text-[38px]">Client Love</h2>
+        {/* Only the active review occupies space, keeping the text gaps consistent. */}
+        <div className="mt-6" aria-live={paused ? "polite" : "off"}>
           {items.map((item, index) => (
             <figure
               key={item.id ?? index}
               role="group"
               aria-roledescription="slide"
               aria-hidden={index !== active}
-              className={`col-start-1 row-start-1 flex flex-col items-center justify-center transition-all duration-700 ease-in-out motion-reduce:transition-none ${
+              className={`flex-col items-center ${
                 index === active
-                  ? "translate-y-0 opacity-100"
-                  : "pointer-events-none translate-y-2 opacity-0"
+                  ? "flex"
+                  : "hidden"
               }`}
             >
-              <Stars />
-              <blockquote className="whitespace-pre-line font-heading text-lg leading-relaxed md:text-2xl md:leading-[1.6]">
+
+              <blockquote className="max-w-[660px] whitespace-pre-line font-body text-sm leading-[1.75] md:text-[15px]">
                 {item.quote}
               </blockquote>
-              <figcaption className="mt-6 text-[10px] font-medium uppercase tracking-[0.16em]">
-                – {item.author}
+              <figcaption className="mt-6 font-body text-xs font-medium uppercase leading-relaxed tracking-[0.04em] md:text-[13px]">
+                {item.author}
               </figcaption>
             </figure>
           ))}
         </div>
 
-        <div className="mt-10 flex items-center justify-center gap-6">
+        <div className="mt-1 flex items-center justify-center gap-1">
           <button
             type="button"
             onClick={() => move(-1)}
             disabled={count < 2}
             aria-label="Previous testimonial"
-            className="grid size-11 cursor-pointer place-items-center rounded-full border border-off-white/40 hover:bg-off-white/10 disabled:opacity-40"
+            className="grid size-11 cursor-pointer place-items-center text-2xl transition-colors hover:text-clay focus-visible:outline-espresso disabled:opacity-40"
           >
             ←
           </button>
 
-          <div className="flex items-center gap-2">
-            {items.map((item, index) => (
-              <button
-                key={item.id ?? index}
-                type="button"
-                onClick={() => setActive(index)}
-                aria-label={`Show testimonial ${index + 1}`}
-                aria-current={index === active}
-                className={`size-2 cursor-pointer rounded-full transition-colors ${index === active ? "bg-off-white" : "bg-off-white/30 hover:bg-off-white/60"}`}
-              />
-            ))}
-          </div>
+
 
           <button
             type="button"
             onClick={() => move(1)}
             disabled={count < 2}
             aria-label="Next testimonial"
-            className="grid size-11 cursor-pointer place-items-center rounded-full border border-off-white/40 hover:bg-off-white/10 disabled:opacity-40"
+            className="grid size-11 cursor-pointer place-items-center text-2xl transition-colors hover:text-clay focus-visible:outline-espresso disabled:opacity-40"
           >
             →
           </button>

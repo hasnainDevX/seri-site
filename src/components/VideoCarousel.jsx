@@ -1,9 +1,11 @@
 import { useEffect, useRef, useState } from "react";
+import CircularText from "./CircularText";
 
 import training01 from "../assets/Training/video1.mp4";
 import training02 from "../assets/Training/video2.mp4";
 import training03 from "../assets/Training/video2.mp4";
 import training01Poster from "../assets/Training/brow-training-practice.png";
+import trainingBackground from "../assets/Training/lash-training-demonstration.png";
 
 const defaultClips = [
   {
@@ -148,7 +150,7 @@ export default function VideoCarousel({ clips = defaultClips }) {
       id="training"
       aria-label="Training"
       aria-roledescription="carousel"
-      className="relative z-10 overflow-hidden bg-off-white py-16 text-espresso md:py-24"
+      className="relative z-10 overflow-hidden bg-white py-16 text-espresso md:py-24"
       onKeyDown={(event) => {
         if (event.key === "ArrowRight") {
           event.preventDefault();
@@ -160,6 +162,13 @@ export default function VideoCarousel({ clips = defaultClips }) {
         }
       }}
     >
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 -z-10 bg-cover bg-center"
+        style={{ backgroundImage: `url(${trainingBackground})` }}
+      />
+      <div aria-hidden="true" className="absolute inset-0 -z-10 bg-off-white/90" />
+
       <div className="mx-auto max-w-2xl px-6 text-center">
         <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-espresso/60">
           {"{ Training }"}
@@ -244,6 +253,28 @@ export default function VideoCarousel({ clips = defaultClips }) {
         >
           Enquire About Training
         </a>
+      </div>
+      <div className="absolute top-6 right-6 z-20 origin-bottom-right scale-75 md:bottom-10 md:right-10 md:scale-100 lg:bottom-16 lg:right-16">
+        <CircularText
+          text="SERIÉ LASH BROW TRAINING "
+          // onHover="speedUp"
+          direction="clockwise"
+          spinDuration={20}
+          size={160}
+          fontSize={15}
+          draggable
+          hoverTilt={20}
+          tilt={0}
+          fontWeight={900}
+          letterSpacing={0}
+          startAngle={0}
+          repeat={1}
+          fill
+          ring={false}
+          className="text-espresso"
+        >
+          <span className="pointer-events-none select-none font-heading text-[25px] font-normal leading-none tracking-[-0.065em] text-espresso">SERIÉ</span>
+        </CircularText>
       </div>
     </section>
   );
