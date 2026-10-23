@@ -10,6 +10,7 @@ import ServicesShowcase from "./components/ServicesShowcase";
 import Testimonials from "./components/Testimonials";
 import WorkMarquee from "./components/WorkMarquee";
 import Footer from "./components/Footer";
+import FAQ from './components/FAQ';
 
 function App() {
   const isAboutPage = window.location.pathname.replace(/\/+$/, '') === '/about';
@@ -33,6 +34,7 @@ function App() {
           <VideoCarousel />
           <Testimonials/>
           <WorkMarquee/>
+          <FAQ/>
           <Footer/>
         </div>
       </main>}
