@@ -20,7 +20,6 @@ export default function Hero() {
       s.current === next ? s : { current: next, prev: s.current },
     );
 
-  // Auto-advance. The timer restarts on every change, so clicking a bar gives a full interval.
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const timer = setTimeout(
@@ -42,7 +41,6 @@ export default function Hero() {
       { threshold: 0.15 },
     );
 
-    // Reveal after the fonts are ready so loading cannot hide the animation.
     document.fonts.ready.then(() => {
       if (!cancelled && sectionRef.current)
         observer.observe(sectionRef.current);
@@ -68,12 +66,9 @@ export default function Hero() {
         @keyframes hero-zoom { from { transform: scale(1); } to { transform: scale(1.18); } }
         @keyframes hero-progress { from { transform: scaleX(0); } to { transform: scaleX(1); } }
 
-        /* Outer layer: the wipe reveal */
         .hero-slide-active { animation: hero-wipe ${WIPE}ms cubic-bezier(0.77, 0, 0.175, 1) both; }
-        /* Middle layer: settle in on entry, drift up on exit */
         .hero-slide-active .hero-motion { animation: hero-settle 2s cubic-bezier(0.22, 1, 0.36, 1) both; }
         .hero-slide-leaving .hero-motion { animation: hero-exit ${WIPE}ms cubic-bezier(0.77, 0, 0.175, 1) both; }
-        /* Inner layer: slow zoom the whole time the image is on screen */
         .hero-slide-active img,
         .hero-slide-leaving img { animation: hero-zoom ${INTERVAL + WIPE}ms linear both; }
 
@@ -109,7 +104,6 @@ export default function Hero() {
         })}
       </div>
 
-      {/* Overlay: an even dark tint plus a gradient that darkens the top (navbar) and bottom (dots) */}
       <div aria-hidden="true" className="absolute inset-0 -z-10 bg-black/40" />
       <div
         aria-hidden="true"
@@ -122,14 +116,14 @@ export default function Hero() {
         </p>
         <h1
           id="hero-heading"
-          className="font-light! text-[clamp(2.5rem,6.4vw,6rem)] font- uppercase leading-[1.08] tracking-[-0.035em]"
+          className="font-light! text-[clamp(3rem,8.5vw,8rem)] uppercase leading-[1.05] tracking-[-0.035em]"
         >
-          <span className="block overflow-hidden pb-[0.12em]">
+          <span className="block overflow-hidden pb-[0.12em] md:text-left md:-ml-14 lg:-ml-20">
             <span className={`${reveal} [animation-delay:180ms]`}>
               Enhance Your
             </span>
           </span>
-          <span className="-mt-[0.08em] block overflow-hidden pb-[0.12em]">
+          <span className="-mt-[0.08em] block overflow-hidden pb-[0.12em] md:text-right md:-mr-14 lg:-mr-20">
             <span className={`${reveal} [animation-delay:360ms]`}>
               Natural Beauty
             </span>
