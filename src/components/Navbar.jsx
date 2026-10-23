@@ -26,7 +26,26 @@ function PageLink({ item, className, underline = false }) {
   ) : (
     item.label
   );
-
+  function MobileLink({ item }) {
+    if (!item.href) {
+      return (
+        <span className="font-heading text-3xl text-espresso/40">
+          {item.label}
+        </span>
+      );
+    }
+    return (
+      <a href={item.href} className="group font-heading text-3xl tracking-wide">
+        <span className="relative inline-block pb-2">
+          {item.label}
+          <span
+            aria-hidden="true"
+            className="absolute inset-x-0 bottom-0 h-px origin-center scale-x-[0.35] bg-gold transition-transform duration-500 ease-out group-hover:scale-x-100 group-focus-visible:scale-x-100 motion-reduce:transition-none"
+          />
+        </span>
+      </a>
+    );
+  }
   return item.href ? (
     <a className={`${className}${underline ? " group" : ""}`} href={item.href}>
       {label}
@@ -81,7 +100,9 @@ function ServicesMenu({ mobile = false }) {
         }
       }}
     >
-      <summary className={`group flex cursor-pointer list-none items-center justify-between gap-2 py-3 focus-visible:outline-2 focus-visible:outline-offset-4 [&::-webkit-details-marker]:hidden ${mobile ? "font-heading text-2xl leading-relaxed" : "text-[10px] font-medium uppercase tracking-[0.16em]"}`}>
+      <summary
+        className={`group flex cursor-pointer list-none items-center justify-between gap-2 py-3 focus-visible:outline-2 focus-visible:outline-offset-4 [&::-webkit-details-marker]:hidden ${mobile ? "font-heading text-2xl leading-relaxed" : "text-[10px] font-medium uppercase tracking-[0.16em]"}`}
+      >
         <span className="relative inline-flex items-center">
           Services
           <span
@@ -191,18 +212,37 @@ export default function Navbar() {
 
       <MobileNavigation open={menuOpen} onClose={closeMenu}>
         <div className="divide-y divide-stone">
-          <a href="/" className="block py-3 font-heading text-2xl leading-relaxed">Home</a>
-          <PageLink item={navigation[0]} className="block py-3 text-left font-heading text-2xl leading-relaxed" />
+          <a
+            href="/"
+            className="block py-3 font-heading text-2xl leading-relaxed"
+          >
+            Home
+          </a>
+          <PageLink
+            item={navigation[0]}
+            className="block py-3 text-left font-heading text-2xl leading-relaxed"
+          />
           <ServicesMenu mobile />
           {navigation.slice(1).map((item) => (
-            <PageLink key={item.label} item={item} className="block w-full py-3 text-left font-heading text-2xl leading-relaxed disabled:cursor-not-allowed disabled:text-espresso/50" />
+            <PageLink
+              key={item.label}
+              item={item}
+              className="block w-full py-3 text-left font-heading text-2xl leading-relaxed disabled:cursor-not-allowed disabled:text-espresso/50"
+            />
           ))}
         </div>
         <div className="mt-auto pt-10">
-          <a href={bookingUrl} target="_blank" rel="noopener noreferrer" className="flex min-h-12 items-center justify-center bg-espresso px-4 py-4 text-center text-[10px] font-semibold uppercase tracking-[0.14em] text-off-white hover:bg-black focus-visible:outline-offset-4">
+          <a
+            href={bookingUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex min-h-12 items-center justify-center bg-espresso px-4 py-4 text-center text-[10px] font-semibold uppercase tracking-[0.14em] text-off-white hover:bg-black focus-visible:outline-offset-4"
+          >
             Book Appointment
           </a>
-          <p className="mt-5 text-center text-[10px] uppercase tracking-[0.14em]">Lash &amp; brow artistry in Winnipeg</p>
+          <p className="mt-5 text-center text-[10px] uppercase tracking-[0.14em]">
+            Lash &amp; brow artistry in Winnipeg
+          </p>
         </div>
       </MobileNavigation>
     </header>
