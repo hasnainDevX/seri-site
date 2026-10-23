@@ -41,8 +41,8 @@ export const services = [
 
 export default function ServicesShowcase() {
   return (
-    <section className="bg-white px-6 py-20 md:px-10 md:py-28 lg:px-16">
-      <div className="mx-auto max-w-[1440px] text-center bg-white">
+    <section className="relative z-10 bg-white px-6 py-20 md:px-10 md:py-28 lg:px-16">
+      <div className="mx-auto max-w-[1440px] bg-white text-center">
         <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-espresso/60">
           {"{ Our Services }"}
         </p>
@@ -67,22 +67,27 @@ export default function ServicesShowcase() {
             href={item.href}
             className="group block cursor-pointer text-center"
           >
-            <div className="relative aspect-square overflow-hidden">
-              <img
-                src={item.image}
-                alt={item.label}
-                className="absolute inset-0 size-full object-cover transition-opacity duration-500 motion-reduce:transition-none group-hover:opacity-0"
-              />
-              <img
-                src={item.hoverImage}
-                alt=""
-                aria-hidden="true"
-                className="absolute inset-0 size-full object-cover opacity-0 transition-opacity duration-500 motion-reduce:transition-none group-hover:opacity-100"
-              />
+            {/* Clip here, same as the Testimonials section */}
+            <div className="relative isolate aspect-square [clip-path:inset(0)] bg-stone">
+              {/* Pinned image: stays fixed while the card scrolls over it */}
+              <div aria-hidden={false} className="absolute inset-0">
+                <img
+                  src={item.image}
+                  alt={item.label}
+                  className="fixed inset-0 h-svh w-full object-cover transition-opacity duration-500 group-hover:opacity-0 motion-reduce:absolute motion-reduce:h-full motion-reduce:transition-none"
+                />
+              </div>
+              <div aria-hidden="true" className="absolute inset-0">
+                <img
+                  src={item.hoverImage}
+                  alt=""
+                  className="fixed inset-0 h-svh w-full object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100 motion-reduce:absolute motion-reduce:h-full motion-reduce:transition-none"
+                />
+              </div>
             </div>
 
             <div className="relative z-10 -mt-5 flex justify-center">
-              <span className="inline-flex items-center justify-center off-white px-8 py-3 text-[10px] font-medium uppercase tracking-[0.14em] text-espresso">
+              <span className="inline-flex items-center justify-center bg-off-white px-8 py-3 text-[10px] font-medium uppercase tracking-[0.14em] text-espresso">
                 Service
               </span>
             </div>

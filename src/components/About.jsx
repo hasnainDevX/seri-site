@@ -113,7 +113,7 @@ export default function About() {
           spinDuration={20}
           size={160}
           fontSize={15}
-          draggable
+          // draggable
           hoverTilt={20}
           tilt={0}
           fontWeight={900}

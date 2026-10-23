@@ -28,7 +28,7 @@ export default function ExperienceStats() {
           href={bookingUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-10 inline-block cursor-pointer border border-espresso px-8 py-3.5 text-[10px] font-medium uppercase tracking-[0.14em] text-espresso transition-colors hover:bg-espresso hover:text-off-white motion-reduce:transition-none"
+          className="mt-10 inline-block cursor-pointer border border-espresso px-8 py-3.5 text-[10px] font-medium uppercase tracking-[0.14em] text-espresso transition-colors hover:bg-espresso hover:text-off-white motion-reduce:transition-none bg-white"
         >
           Book Appointment
         </a>

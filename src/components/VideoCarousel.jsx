@@ -254,7 +254,7 @@ export default function VideoCarousel({ clips = defaultClips }) {
           Enquire About Training
         </a>
       </div>
-      <div className="absolute top-6 right-6 z-20 origin-bottom-right scale-75 md:bottom-10 md:right-10 md:scale-100 lg:bottom-16 lg:right-16">
+      <div className="absolute top-6 right-6 z-20 origin-bottom-right scale-75 md:bottom-10 md:right-10 md:scale-100 lg:bottom-16 lg:right-16 hidden md:block">
         <CircularText
           text="SERIÉ LASH BROW TRAINING "
           // onHover="speedUp"
