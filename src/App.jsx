@@ -6,7 +6,7 @@ import Hero from "./components/Hero";
 import About from "./components/About";
 import Marquee from "./components/Marquee";
 import VideoCarousel from "./components/VideoCarousel";
-import ServicesGrid from "./components/ServicesGrid";
+import ServicesShowcase from "./components/ServicesShowcase";
 import Testimonials from "./components/Testimonials";
 import WorkMarquee from "./components/WorkMarquee";
 import Footer from "./components/Footer";
@@ -29,7 +29,7 @@ function App() {
           <Marquee />
           <About />
           <Marquee />
-          <ServicesGrid />
+          <ServicesShowcase />
           <VideoCarousel />
           <Testimonials/>
           <WorkMarquee/>
