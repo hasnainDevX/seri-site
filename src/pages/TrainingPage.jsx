@@ -99,7 +99,7 @@ export default function TrainingPage() {
             <RevealHeading id="inquiry-title" className={heading}>Book your Training.</RevealHeading>
             <p className="mt-6 max-w-[36ch] text-sm leading-[1.85] md:text-[15px]">If you’re interested in enrolling, complete the form with a few details. Seri will review your submission and get back to you via email within 24 hours.</p>
             <p className="mt-5 max-w-[36ch] text-sm leading-[1.85] text-espresso">Your place is secured once your training date is confirmed and your deposit has been received.</p>
-            <address className="mt-8 border-t border-stone pt-6 text-sm not-italic leading-[1.85]">296 Stafford St<br />Winnipeg, MB R3M 1J1<br /><span className="text-espresso">Inside Lisa Tran Brow</span></address>
+            <address className="mt-8 border-t border-stone pt-6 text-sm not-italic leading-[1.85]">296 Stafford St<br />Winnipeg, MB R3M 1J1<br /></address>
           </div>
           <TrainingInquiryForm />
         </div>
