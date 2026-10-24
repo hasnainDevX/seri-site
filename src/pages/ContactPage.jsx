@@ -8,7 +8,7 @@ import contactBackground from '../assets/image.png'
 import posterImage from '../assets/Profile&ETC/seri-laptop-sofa-full-length.jpg'
 import Marquee from '../components/Marquee'
 
-const address = '96 Stafford St, Winnipeg, MB R3M 1J1, Canada'
+const address = '296 Stafford St, Winnipeg, MB R3M 1J1, Canada'
 const mapQuery = encodeURIComponent(address)
 const mapUrl = 'https://www.google.com/maps?q=' + mapQuery + '&z=16&output=embed'
 const directionsUrl = 'https://www.google.com/maps/dir/?api=1&destination=' + mapQuery
@@ -87,7 +87,7 @@ export default function ContactPage() {
               <RevealHeading id="location-title" className={heading}>Visit the studio.</RevealHeading>
             </div>
             <div className="grid gap-5 sm:grid-cols-2">
-              <address className="text-sm not-italic leading-[1.85]">96 Stafford St<br />Winnipeg, MB R3M 1J1<br /><span className="text-espresso">Inside Lisa Tran Brow</span></address>
+              <address className="text-sm not-italic leading-[1.85]">296 Stafford St<br />Winnipeg, MB R3M 1J1<br /><span className="text-espresso">Inside Lisa Tran Brow</span></address>
               <div>
                 <p className="text-sm leading-[1.85]">By appointment</p>
                 <a href={directionsUrl} target="_blank" rel="noopener noreferrer" className="mt-2 inline-flex min-h-11 items-center gap-3 text-[10px] font-medium uppercase tracking-[0.14em] underline underline-offset-4">Get directions <span aria-hidden="true">↗</span></a>
@@ -95,7 +95,7 @@ export default function ContactPage() {
             </div>
           </div>
           <div className="overflow-hidden border border-stone bg-greige">
-            <iframe title="Google Map: SERIÉ studio at 96 Stafford Street, Winnipeg" src={mapUrl} loading="lazy" referrerPolicy="no-referrer-when-downgrade" allowFullScreen className="block h-[360px] w-full border-0 md:h-[480px]" />
+            <iframe title="Google Map: SERIÉ studio at 296 Stafford Street, Winnipeg" src={mapUrl} loading="lazy" referrerPolicy="no-referrer-when-downgrade" allowFullScreen className="block h-[360px] w-full border-0 md:h-[480px]" />
           </div>
           <p className="mt-4 text-xs leading-relaxed text-espresso">Inside Lisa Tran Brow. <a href={directionsUrl} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4">Open directions in Google Maps.</a></p>
         </div>

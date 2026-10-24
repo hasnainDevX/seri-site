@@ -116,21 +116,21 @@ export default function Hero() {
         </p>
         <h1
           id="hero-heading"
-          className="font-light! text-[clamp(3rem,8.5vw,8rem)] uppercase leading-[1.05] tracking-[-0.035em]"
+          className="font-light! text-center text-[clamp(1.5rem,7.4vw,3.5rem)] md:text-[clamp(3rem,8.5vw,8rem)] uppercase leading-[1.05] tracking-[-0.035em]"
         >
-          <span className="block overflow-hidden pb-[0.12em] md:text-left md:-ml-14 lg:-ml-20">
+          <span className="block whitespace-nowrap overflow-hidden pb-[0.12em] md:text-left md:-ml-14 lg:-ml-20">
             <span className={`${reveal} [animation-delay:180ms]`}>
               Enhance Your
             </span>
           </span>
-          <span className="-mt-[0.08em] block overflow-hidden pb-[0.12em] md:text-right md:-mr-14 lg:-mr-20">
+          <span className="-mt-[0.08em] block whitespace-nowrap overflow-hidden pb-[0.12em] md:text-right md:-mr-14 lg:-mr-20">
             <span className={`${reveal} [animation-delay:360ms]`}>
               Natural Beauty
             </span>
           </span>
         </h1>
 
-        <div className="flex justify-center items-center gap-4">
+        <div className="flex flex-wrap justify-center items-center gap-x-3 gap-y-0 sm:gap-x-4">
           <a
             href={bookingUrl}
             target="_blank"
@@ -141,9 +141,7 @@ export default function Hero() {
           </a>
 
           <a
-            href={bookingUrl}
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/training#training-inquiry"
             className="mt-9 inline-flex min-h-12 items-center justify-center border border-off-white/70 px-8 py-3 text-[10px] font-medium uppercase tracking-[0.16em] transition-colors hover:bg-off-white hover:text-espresso focus-visible:outline-off-white motion-reduce:transition-none md:mt-10"
           >
             Apply for Training

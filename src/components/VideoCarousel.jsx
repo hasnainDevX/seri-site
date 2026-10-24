@@ -249,7 +249,7 @@ export default function VideoCarousel({ clips = defaultClips }) {
 
       <div className="mt-12 text-center">
         <a
-          href="#contact"
+          href="/training#training-inquiry"
           className="inline-block cursor-pointer bg-espresso px-7 py-3.5 text-[10px] font-medium uppercase tracking-[0.12em] text-off-white transition-colors hover:bg-espresso/85 motion-reduce:transition-none"
         >
           Enquire About Training

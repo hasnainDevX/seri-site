@@ -68,5 +68,5 @@ Payment options for the remaining balance:
 export const trainingFAQs = [
   ['When will I receive access to the online learning materials?', 'You will receive access to the online theory portion once the remaining balance has been received. The access link will be emailed to you within 24 hours.'],
   ['Do I need to bring models for hands-on practice?', 'Yes. Students are responsible for sourcing their own models for the in-person training day. Each student will have full hands-on practice on two models with Seri’s guidance.\n\nOnce the training deposit is received, you will receive a confirmation email from Seri with detailed model qualifications and requirements.'],
-  ['Where will the in-person training take place?', '96 Stafford St, Winnipeg, MB R3M 1J1 (inside Lisa Tran Brow).\n\nYou can also search “AlluredbySeri” on Google Maps for directions.'],
+  ['Where will the in-person training take place?', '296 Stafford St, Winnipeg, MB R3M 1J1 (inside Lisa Tran Brow).\n\nYou can also search “AlluredbySeri” on Google Maps for directions.'],
 ]
