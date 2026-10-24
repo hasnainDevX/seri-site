@@ -55,7 +55,7 @@ export default function Footer() {
             <ul className="mt-4">
               <li><a href="/" className={link}>Home</a></li>
               <li><a href="/about" className={link}>Meet Seri</a></li>
-              <li><a href="/#training" className={link}>Training</a></li>
+              <li><a href="/training" className={link}>Training</a></li>
             </ul>
           </nav>
 

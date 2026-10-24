@@ -2,7 +2,7 @@ import { useId, useState } from 'react'
 import RevealHeading from './RevealHeading'
 import { faqGroups } from '../data/faqs'
 
-function FAQList({ items }) {
+export function FAQList({ items }) {
   const id = useId()
   const [openIndex, setOpenIndex] = useState(null)
 
