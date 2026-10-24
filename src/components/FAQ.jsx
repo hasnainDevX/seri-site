@@ -1,8 +1,9 @@
-import { useState } from 'react'
+import { useId, useState } from 'react'
 import RevealHeading from './RevealHeading'
 import { faqGroups } from '../data/faqs'
 
 function FAQList({ items }) {
+  const id = useId()
   const [openIndex, setOpenIndex] = useState(null)
 
   return (
@@ -15,6 +16,7 @@ function FAQList({ items }) {
               type="button"
               onClick={() => setOpenIndex(open ? null : index)}
               aria-expanded={open}
+              aria-controls={id + '-' + index}
               className="flex min-h-24 w-full cursor-pointer items-center justify-between gap-6 py-5 text-left font-editorial text-[22px] font-medium leading-[1.3] tracking-[-0.01em] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-espresso md:text-[24px]"
             >
               <span className="max-w-[44ch]">{question}</span>
@@ -26,6 +28,8 @@ function FAQList({ items }) {
               </span>
             </button>
             <div
+              id={id + '-' + index}
+              aria-hidden={!open}
               className={`grid transition-[grid-template-rows] duration-300 ease-out motion-reduce:transition-none ${open ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'}`}
             >
               <div className="overflow-hidden">
@@ -41,20 +45,21 @@ function FAQList({ items }) {
   )
 }
 
-export default function FAQ() {
+export default function FAQ({ service }) {
   const [active, setActive] = useState(0)
-  const group = faqGroups[active]
+  const groups = service ? faqGroups.filter(item => item.title === service) : faqGroups
+  const group = groups[active] ?? groups[0]
 
   return (
-    <section id="faq" aria-labelledby="faq-heading" className="scroll-mt-24 bg-white px-6 py-16 text-black md:px-10 md:py-24 lg:px-16">
+    <section id="faq" aria-labelledby="faq-heading" className="scroll-mt-40 bg-white px-6 py-16 text-black md:px-10 md:py-24 lg:px-16">
       <div className="mx-auto grid max-w-[1200px] items-start gap-10 md:grid-cols-[minmax(0,0.8fr)_minmax(0,1.6fr)] md:gap-12 lg:gap-24">
         <div className="md:sticky md:top-28">
           <p className="mb-4 font-body text-[10px] font-medium uppercase tracking-[0.18em] text-clay">{"Before your appointment"}</p>
           <RevealHeading id="faq-heading" className="max-w-[14ch] font-editorial text-[44px] font-normal leading-[1.05] tracking-[-0.025em] lg:text-[54px]">Frequently asked questions</RevealHeading>
           <p className="mt-6 max-w-[25ch] font-body text-sm leading-[1.75] text-espresso">Treatment details, preparation, and aftercare.</p>
 
-          <div role="group" aria-label="Filter questions by treatment" className="mt-9 flex flex-col gap-3 md:mt-10">
-            {faqGroups.map((category, index) => (
+          {!service && <div role="group" aria-label="Filter questions by treatment" className="mt-9 flex flex-col gap-3 md:mt-10">
+            {groups.map((category, index) => (
               <button
                 key={category.title}
                 type="button"
@@ -66,12 +71,12 @@ export default function FAQ() {
                 {category.title}
               </button>
             ))}
-          </div>
+          </div>}
         </div>
 
         <div className="min-w-0">
           <div id="faq-answers" key={group.title}>
-            <h3 className="mb-5 text-center font-editorial text-[30px] font-medium leading-[1.2] tracking-[-0.015em] md:text-[34px]">{group.title}</h3>
+            <RevealHeading as="h3" className="mb-5 text-center font-editorial text-[30px] font-medium leading-[1.2] tracking-[-0.015em] md:text-[34px]">{group.title}</RevealHeading>
             <FAQList items={group.items} />
           </div>
         </div>

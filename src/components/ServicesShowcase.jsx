@@ -9,6 +9,7 @@ import laminationImage from "../assets/ClientsPhotos/BrowLamination/brow-laminat
 const services = [
   {
     name: "Nano & Combo Brows",
+    href: "/services/nano-combo-brows",
     image: browsImage,
     intro:
       "Nano Brows: Ideal for a natural, “these are my real brows” look, with fine hairstrokes that mimic natural brow hairs. Can last 1–2 years.",
@@ -17,6 +18,7 @@ const services = [
   },
   {
     name: "Korean Lash Lift & Tint",
+    href: "/services/korean-lash-lift",
     image: liftImage,
     intro:
       "A Korean lash lift enhances your natural lashes with a customized lift and curl for a longer, more defined look—without extensions. Perfect for a fresh, eye-opening finish.",
@@ -25,6 +27,7 @@ const services = [
   },
   {
     name: "Lash Extensions",
+    href: "/services/lash-extensions",
     image: extensionsImage,
     intro:
       "Customized lash extensions for added length, fullness, and definition. Lasts 3+ weeks, with fills recommended within 3 weeks to keep lashes full and fresh.",
@@ -33,6 +36,7 @@ const services = [
   },
   {
     name: "Brow Lamination & Sculpt",
+    href: "/services/brow-lamination",
     image: laminationImage,
     intro:
       "Brow Lamination softens, straightens, and repositions natural eyebrow hairs to create a fuller, fluffier, and more uniform look. Results typically last 4–6 weeks and can last up to 8 weeks, depending on your natural hair growth and aftercare.",
@@ -94,15 +98,17 @@ export default function ServicesShowcase() {
               <p className="mb-7 mt-5 max-w-[58ch] font-body text-sm leading-[1.6] md:text-[15px]">
                 {service.description}
               </p>
+              <div className="mt-auto flex flex-wrap items-center gap-x-6 gap-y-3">
+              <a href={service.href} className="inline-flex min-h-11 items-center gap-3 text-[11px] font-medium uppercase tracking-[0.06em] underline underline-offset-4 hover:text-clay">Explore service <span aria-hidden="true">→</span></a>
               <a
                 href={bookingUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={"Book " + service.name}
-                className="mt-auto inline-flex min-h-11 min-w-[200px] items-center justify-center border border-espresso bg-white px-6 py-2 text-[11px] font-medium uppercase tracking-[0.06em] text-black transition-colors hover:bg-espresso hover:text-off-white focus-visible:outline-espresso motion-reduce:transition-none"
+                className="inline-flex min-h-11 min-w-[200px] items-center justify-center border border-espresso bg-white px-6 py-2 text-[11px] font-medium uppercase tracking-[0.06em] text-black transition-colors hover:bg-espresso hover:text-off-white focus-visible:outline-espresso motion-reduce:transition-none"
               >
                 Book Appointment
-              </a>
+              </a></div>
             </div>
           </article>
         ))}

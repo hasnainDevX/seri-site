@@ -16,7 +16,7 @@ import browLaminationHoverImage from "../assets/ClientsPhotos/BrowLamination/bro
 export const services = [
   {
     label: "Nano & Combo Brows",
-    href: "/services/pmu-brows",
+    href: "/services/nano-combo-brows",
     image: pmuBrowsImage,
     hoverImage: pmuBrowsHoverImage,
   },

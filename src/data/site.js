@@ -4,10 +4,10 @@ export const heroVideoUrl = 'https://res.cloudinary.com/dr9nm40gf/video/upload/q
 
 // Connect each destination as its page is built.
 export const services = [
-  { label: 'Nano & Combo Brows', href: null },
-  { label: 'Brow Lamination & Sculpt', href: null },
-  { label: 'Korean Lash Lift & Tint', href: null },
-  { label: 'Lash Extensions', href: null },
+  { label: 'Nano & Combo Brows', href: '/services/nano-combo-brows' },
+  { label: 'Brow Lamination & Sculpt', href: '/services/brow-lamination' },
+  { label: 'Korean Lash Lift & Tint', href: '/services/korean-lash-lift' },
+  { label: 'Lash Extensions', href: '/services/lash-extensions' },
 ]
 
 export const navigation = [

@@ -8,10 +8,10 @@ import KoreanLashLift from "../assets/ClientsPhotos/KoreanLashLiftTint/korean-la
 import NanoComboBrows from "../assets/ClientsPhotos/Nano-NanoComboBrows/nano-combo-brows-before-after.jpg";
 
 export const services = [
-  { label: "Brow Lamination & Sculpt", href: "/brow-lamination", image: browLamination },
-  { label: "Lash Extensions", href: "/lash-extension", image: LashExtension },
-  { label: "Korean Lash Lift & Tint", href: "/korean-lash-lift", image: KoreanLashLift },
-  { label: "Nano & Combo Brows", href: "/Nano-combo-brows", image: NanoComboBrows },
+  { label: "Brow Lamination & Sculpt", href: "/services/brow-lamination", image: browLamination },
+  { label: "Lash Extensions", href: "/services/lash-extensions", image: LashExtension },
+  { label: "Korean Lash Lift & Tint", href: "/services/korean-lash-lift", image: KoreanLashLift },
+  { label: "Nano & Combo Brows", href: "/services/nano-combo-brows", image: NanoComboBrows },
 ];
 
 function PageLink({ item, className, underline = false }) {
@@ -135,10 +135,10 @@ function ServicesMenu({ mobile = false }) {
   );
 }
 
-export default function Navbar() {
+export default function Navbar({ forceSolid = false }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(() => window.scrollY > 24);
-  const solid = scrolled || menuOpen;
+  const solid = forceSolid || scrolled || menuOpen;
   const closeMenu = useCallback(() => setMenuOpen(false), []);
 
   useEffect(() => {
