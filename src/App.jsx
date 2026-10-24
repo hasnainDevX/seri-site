@@ -1,3 +1,4 @@
+import ContactPage from './pages/ContactPage';
 import TrainingPage from './pages/TrainingPage';
 import ServicePage from './pages/ServicePage';
 import { getServicePage } from './data/servicePages';
@@ -23,7 +24,7 @@ function App() {
       <Preloader />
       <AnnouncementBar />
       <Navbar />
-      {window.location.pathname.replace(/\/+$/, '') === '/training' ? <TrainingPage /> : servicePage ? <ServicePage service={servicePage} /> : isAboutPage ? <AboutPage /> : <main className="relative isolate">
+      {window.location.pathname.replace(/\/+$/, '') === '/contact' ? <ContactPage /> : window.location.pathname.replace(/\/+$/, '') === '/training' ? <TrainingPage /> : servicePage ? <ServicePage service={servicePage} /> : isAboutPage ? <AboutPage /> : <main className="relative isolate">
         <div className="h-[calc(100svh-32px)] min-h-[588px] motion-reduce:h-auto motion-reduce:min-h-0 md:min-h-[608px] md:motion-reduce:min-h-0">
           <div className="fixed inset-x-0 top-0 z-0 motion-reduce:static">
             <Hero />

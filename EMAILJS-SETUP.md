@@ -29,3 +29,38 @@ Without configuration, the form gives a clear unavailable message and links to t
 
 Content source: https://www.alluredbyseri.com/training
 API reference: https://www.emailjs.com/docs/rest-api/send/
+
+## Contact form
+
+The contact page uses the same VITE_EMAILJS_SERVICE_ID and VITE_EMAILJS_PUBLIC_KEY.
+Set VITE_EMAILJS_CONTACT_TEMPLATE_ID to a separate general-contact template.
+
+Set the recipient in the EmailJS dashboard and Reply-To to {{reply_to}}.
+Suggested subject: Contact inquiry from {{from_name}}
+
+Template body:
+Name: {{from_name}}
+Email: {{email}}
+Phone: {{phone}}
+Interested in: {{interest}}
+
+Message:
+{{message}}
+
+The form validates required fields, prevents duplicate submissions, preserves input on errors, and only confirms success after EmailJS accepts the request.
+### Updated contact inquiry fields
+
+The contact form now matches the centered booking-inquiry layout. Add these variables to the contact template so all preferences are included:
+
+First name: {{first_name}}
+Last name: {{last_name}}
+Full name: {{from_name}}
+Email: {{email}}
+Phone: {{phone}}
+Services (multiple selections): {{interest}}
+Preferred date: {{preferred_date}}
+Preferred time: {{preferred_time}}
+How they heard about SERIÉ: {{referral}}
+Desired look / questions: {{message}}
+
+The name, email, phone, service selection, and referral are required. Date, time, and message are optional. These are preferences, not a confirmed booking.
