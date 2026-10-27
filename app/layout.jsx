@@ -5,9 +5,9 @@ import { Playfair_Display, Open_Sans, Cormorant_Garamond } from 'next/font/googl
 import SiteChrome from '@/components/SiteChrome'
 import './globals.css'
 
-const heading = Playfair_Display({ subsets: ['latin'], weight: ['400', '500', '600'], variable: '--font-playfair', display: 'swap' })
-const body = Open_Sans({ subsets: ['latin'], weight: ['400', '500', '600'], variable: '--font-open-sans', display: 'swap' })
-const editorial = Cormorant_Garamond({ subsets: ['latin'], weight: ['400', '500'], style: ['normal', 'italic'], variable: '--font-cormorant', display: 'swap' })
+const heading = Playfair_Display({ subsets: ['latin'], weight: 'variable', variable: '--font-playfair', display: 'swap' })
+const body = Open_Sans({ subsets: ['latin'], weight: 'variable', variable: '--font-open-sans', display: 'swap' })
+const editorial = Cormorant_Garamond({ subsets: ['latin'], weight: 'variable', style: ['normal', 'italic'], variable: '--font-cormorant', display: 'swap' })
 
 export const metadata = {
   metadataBase: new URL(siteUrl), applicationName: 'SERIÉ',

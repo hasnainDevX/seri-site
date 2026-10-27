@@ -1,3 +1,4 @@
+import ArrowIcon from './ArrowIcon'
 import MediaImage from '@/components/MediaImage'
 import DeferredBackdrop from './DeferredBackdrop'
 import SiteLink from '@/components/SiteLink'
@@ -52,14 +53,14 @@ export default function ServicesShowcase() {
     <section
       id="services"
       aria-labelledby="services-heading"
-      className="relative isolate scroll-mt-20 overflow-hidden bg-stone px-5 py-14 md:px-10 md:py-20"
+      className="relative isolate scroll-mt-20 overflow-hidden bg-espresso px-5 py-14 md:px-10 md:py-20"
     >
       <div aria-hidden="true" data-service-backdrop className="pointer-events-none absolute inset-0 -z-20 [clip-path:inset(0)]">
         <DeferredBackdrop src={studioImage} alt="" loading="lazy" className="fixed inset-0 h-svh w-full object-cover object-center motion-reduce:absolute motion-reduce:h-full" />
       </div>
       <div
         aria-hidden="true"
-        className="absolute inset-0 -z-10 bg-espresso/25"
+        className="absolute inset-0 -z-10 bg-black/50"
       />
       <div
         id="services-heading"
@@ -98,7 +99,7 @@ export default function ServicesShowcase() {
                 {service.description}
               </p>
               <div className="mt-auto flex flex-wrap items-center gap-x-6 gap-y-3">
-              <SiteLink href={service.href} className="inline-flex min-h-11 items-center gap-3 text-[11px] font-medium uppercase tracking-[0.06em] underline underline-offset-4 hover:text-clay">Explore this treatment <span aria-hidden="true">→</span></SiteLink>
+              <SiteLink href={service.href} aria-label={"Explore this treatment: " + service.name} className="inline-flex min-h-11 items-center gap-3 text-[11px] font-medium uppercase tracking-[0.06em] underline underline-offset-4 hover:text-clay">Explore this treatment <ArrowIcon /></SiteLink>
               <SiteLink
                 href={bookingUrl}
                 target="_blank"

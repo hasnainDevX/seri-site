@@ -1,4 +1,5 @@
 'use client'
+import ArrowIcon from './ArrowIcon'
 import { useEffect, useRef, useState } from 'react'
 const training01 = "/assets/Training/video1.mp4"
 const training02 = "/assets/Training/video2.mp4"
@@ -170,7 +171,7 @@ return <div       onKeyDown={(event) => {
           aria-label="Previous video"
           className="grid size-11 cursor-pointer place-items-center rounded-full border border-stone hover:bg-greige disabled:opacity-40"
         >
-          ←
+          <ArrowIcon left />
         </button>
         <p
           aria-live="polite"
@@ -187,7 +188,7 @@ return <div       onKeyDown={(event) => {
           aria-label="Next video"
           className="grid size-11 cursor-pointer place-items-center rounded-full border border-stone hover:bg-greige disabled:opacity-40"
         >
-          →
+          <ArrowIcon />
         </button>
       </div>
 

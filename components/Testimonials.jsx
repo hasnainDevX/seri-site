@@ -1,4 +1,5 @@
 'use client'
+import ArrowIcon from './ArrowIcon'
 import DeferredBackdrop from './DeferredBackdrop'
 
 
@@ -96,7 +97,6 @@ export default function Testimonials({
           {items.map((item, index) => (
             <figure
               key={item.id ?? index}
-              role="group"
               aria-roledescription="slide"
               aria-hidden={index !== active}
               className={`col-start-1 row-start-1 flex flex-col items-center transition-opacity duration-500 ease-in-out motion-reduce:transition-none ${
@@ -124,7 +124,7 @@ export default function Testimonials({
             aria-label="Previous testimonial"
             className="grid size-11 cursor-pointer place-items-center text-2xl transition-colors hover:text-clay focus-visible:outline-espresso disabled:opacity-40"
           >
-            ←
+            <ArrowIcon left />
           </button>
 
 
@@ -136,7 +136,7 @@ export default function Testimonials({
             aria-label="Next testimonial"
             className="grid size-11 cursor-pointer place-items-center text-2xl transition-colors hover:text-clay focus-visible:outline-espresso disabled:opacity-40"
           >
-            →
+            <ArrowIcon />
           </button>
         </div>
       </div>

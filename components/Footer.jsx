@@ -19,27 +19,6 @@ export default function Footer() {
   return (
     <footer className="relative isolate border-t border-stone bg-espresso text-white">
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10"><MediaImage src={footerImage} alt="" loading="lazy" className="size-full object-cover" /><div className="absolute inset-0 bg-black/65" /></div>
-      <div className="border-b border-stone bg-white">
-        <div className="mx-auto grid max-w-[1440px] gap-8 px-6 py-10 md:grid-cols-2 md:items-center md:gap-12 md:px-10 md:py-12 lg:gap-24 lg:px-16 text-espresso">
-          <div>
-            <RevealHeading className={label}>Stay connected</RevealHeading>
-            <RevealHeading as="p" className="mt-3 max-w-md font-heading text-[28px] leading-[1.25] tracking-[-0.025em] md:text-[32px]">
-              A little beauty, in your inbox.
-            </RevealHeading>
-          </div>
-          <div className="min-w-0">
-            <p className="max-w-md text-sm leading-7">
-              New services, training dates, and updates from the studio.
-            </p>
-            {/* Enable signup when the mailing-list integration is connected. */}
-            <div className="mt-4 flex min-h-12 items-center justify-between gap-4 border-b border-taupe pb-3">
-              <span className="text-sm">Newsletter sign-ups opening soon</span>
-              <Arrow className="size-5 shrink-0" />
-            </div>
-          </div>
-        </div>
-      </div>
-
       <div className="mx-auto max-w-[1440px] px-6 md:px-10 lg:px-16">
         <div className="grid gap-x-10 gap-y-10 py-12 sm:grid-cols-2 md:py-16 lg:grid-cols-[1.5fr_0.75fr_1fr] lg:gap-x-20">
           <div className="sm:col-span-2 lg:col-span-1">

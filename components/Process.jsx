@@ -34,7 +34,7 @@ export default function Process() {
         <ol className="mx-auto mt-10 grid max-w-[940px] gap-9 md:mt-12 md:grid-cols-3 md:gap-8 lg:gap-14">
           {steps.map((step) => (
             <li key={step.number} className="relative mx-auto w-full max-w-[280px] pt-20 md:pt-24">
-              <span aria-hidden="true" className="pointer-events-none absolute -top-4 left-0 select-none font-editorial text-[140px] italic leading-none tracking-[-0.06em] text-espresso/25 md:text-[160px]">
+              <span aria-hidden="true" className="pointer-events-none absolute -top-4 left-0 select-none font-editorial text-[140px] italic leading-none tracking-[-0.06em] text-[#878078] md:text-[160px]">
                 {step.number}
               </span>
               <div className="relative">
