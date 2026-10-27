@@ -1,6 +1,7 @@
 import TrainingPage from '@/views/TrainingPage'
-export const metadata = {
-  "title": "Korean Lash Lift Training",
-  "description": "Explore one-to-one Korean Lash Lift training in Winnipeg, course details, student support, and registration inquiries."
-}
-export default function Page() { return <TrainingPage /> }
+import { pageMetadata } from '@/lib/seo'
+import { pageSchema } from '@/lib/schema'
+import JsonLd from '@/components/JsonLd'
+import { trainingFAQs } from '@/data/training'
+export const metadata = pageMetadata('/training')
+export default function Page() { return <><JsonLd data={pageSchema('/training', { questions: trainingFAQs })} /><TrainingPage /></> }

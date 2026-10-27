@@ -50,8 +50,8 @@ export default function ServicesShowcase() {
           {"{ Our Services }"}
         </p>
         <RevealHeading className="mx-auto mt-4 max-w-2xl font-heading text-[28px] leading-snug text-espresso md:text-[34px]">
-          Helping you feel confident in your lash &amp; brow routine, with real
-          results you can see
+          Lash &amp; brow treatments,
+          tailored to you.
         </RevealHeading>
         <SiteLink
           href={bookingUrl}

@@ -6,17 +6,17 @@ const steps = [
   {
     number: '01',
     title: 'Choose your treatment',
-    description: 'Explore our lash and brow services and book your appointment online. Unsure where to start? Get in touch and we’ll help you find the right fit.',
+    description: 'Choose from lash extensions, Korean lash lifts, and brow treatments. Not sure which suits you? Ask Seri before you book.',
   },
   {
     number: '02',
     title: 'Make it personal',
-    description: 'We’ll talk through the look you love and consider your natural features. Your treatment is tailored to you, with thoughtful attention to every detail.',
+    description: 'Talk through the look you have in mind. Seri considers your natural lashes, brows, and features to tailor your treatment.',
   },
   {
     number: '03',
     title: 'Care beyond the studio',
-    description: 'Leave with aftercare guidance for your treatment, so you know how to care for your lashes or brows and when to return for maintenance.',
+    description: 'Leave with clear aftercare guidance for your lashes or brows, including how to maintain your results and when to return.',
   },
 ]
 

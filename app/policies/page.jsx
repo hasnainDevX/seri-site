@@ -1,6 +1,7 @@
 import PoliciesPage from '@/views/PoliciesPage'
-export const metadata = {
-  "title": "Studio Policies",
-  "description": "Read SERIÉ’s appointment, cancellation, late arrival, no-show, and PMU deposit policies before your visit."
-}
-export default function Page() { return <PoliciesPage /> }
+import { pageMetadata } from '@/lib/seo'
+import { pageSchema } from '@/lib/schema'
+import JsonLd from '@/components/JsonLd'
+
+export const metadata = pageMetadata('/policies')
+export default function Page() { return <><JsonLd data={pageSchema('/policies')} /><PoliciesPage /></> }

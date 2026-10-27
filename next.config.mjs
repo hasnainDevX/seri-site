@@ -5,6 +5,9 @@ const nextConfig = {
     imageSizes: [56, 112, 224, 288, 320],
     formats: ['image/webp'],
   },
+  async headers() {
+    return (process.env.VERCEL_ENV === 'preview' || process.env.SITE_NOINDEX === 'true') ? [{ source: '/:path*', headers: [{ key: 'X-Robots-Tag', value: 'noindex, nofollow' }] }] : []
+  },
   async redirects() {
     return [
       { source: '/services/pmu-brows', destination: '/services/nano-combo-brows', permanent: true },

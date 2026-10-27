@@ -27,6 +27,10 @@ const defaultTestimonials = [
       "I’ve had both lash extensions and a premium lash lift done by Seri, and both experiences were incredible! The lash extensions were flawless, giving me a natural yet glamorous look. The premium lash lift was equally amazing!\n\nSeri’s expertise and attention to detail are unmatched! Highly recommend for anyone seeking top-tier lash services.",
     author: "Sarah L.",
   },
+{"id":4,"author":"Malwina B.","quote":"I got my nano combo brows and Korean lash lift done with Seri and I love the results! She’s very knowledgeable and takes her time with each appointment making sure I have the best results! She also makes sure you’re comfortable during the whole process and constantly checks in to see how you’re doing. I would recommend her to anyone looking to get brows or lashes done since she’s the best in the field!"},
+{"id":5,"author":"Rebecca S.","quote":"Seri is an incredible lash artist! I’ve been getting lash lifts for 10+ years and this was definitely the best experience I’ve had. She is friendly, has incredible attention to detail and gave me the best results. I would highly recommend you book with her."},
+{"id":6,"author":"Mari","quote":"I had nano brows and a korean lash lift done by Seri. You can tell how much effort, patience, and dedication she puts into her work. I was nervous at first because it was my first time getting both those done but the results exceeded my expectations. I don’t think anyone could have done a better job!"},
+{"id":7,"author":"Julie W","quote":"I’ve tried so many places, but my lashes always lose their curl in minutes. Seri is the first artist to actually conquer my stubborn lashes! The results are flawless and, most importantly, they actually LAST. The experience was so relaxing and she clearly knows her craft. Highly recommend her premium lash lift for anyone who thinks their lashes are impossible to curl!"},
 ];
 
 export default function Testimonials({

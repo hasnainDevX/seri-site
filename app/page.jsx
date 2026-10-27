@@ -1,3 +1,7 @@
+import { pageMetadata } from '@/lib/seo'
+import { pageSchema } from '@/lib/schema'
+import JsonLd from '@/components/JsonLd'
+export const metadata = pageMetadata('/')
 import Hero from '@/components/Hero'
 import MeetSeri from '@/components/MeetSeri'
 import Marquee from '@/components/Marquee'
@@ -9,7 +13,7 @@ import WorkMarquee from '@/components/WorkMarquee'
 import FAQ from '@/components/FAQ'
 import Footer from '@/components/Footer'
 
-export default function HomePage() { return (<main className="relative isolate">
+export default function HomePage() { return (<main className="relative isolate"><JsonLd data={pageSchema('/')} />
         <div className="h-[calc(100svh-32px)] min-h-[588px] motion-reduce:h-auto motion-reduce:min-h-0 md:min-h-[608px] md:motion-reduce:min-h-0">
           <div className="fixed inset-x-0 top-0 z-0 motion-reduce:static">
             <Hero />

@@ -32,7 +32,7 @@ export default function MeetSeri() {
             id="meet-seri-heading"
             className="font-editorial text-[clamp(2.75rem,4.5vw,4.5rem)] leading-[1.1] tracking-[-0.025em]"
           >
-            Meet, Seri
+            Meet Seri
           </RevealHeading>
           <div className="mt-7 space-y-5 font-body text-sm leading-[1.8] md:text-base">
             <p>
@@ -46,8 +46,8 @@ export default function MeetSeri() {
               Permanent Makeup Artist
             </p>
             <p>
-              Hands-on educator, with a passion for thoughtful, personalized
-              beauty.
+              Personalized lash and brow services, and hands-on beauty
+              training in Winnipeg.
             </p>
           </div>
           <SiteLink

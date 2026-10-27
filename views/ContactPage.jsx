@@ -24,7 +24,7 @@ export default function ContactPage() {
         <div className="mx-auto w-full max-w-[1200px]">
           <p className="mb-5 text-[10px] font-medium uppercase tracking-[0.2em]">Contact SERIÉ · Winnipeg</p>
           <RevealHeading as="h1" id="contact-title" className="max-w-[12ch] font-editorial text-[clamp(3.5rem,7vw,6.5rem)] leading-[1.02] tracking-[-0.025em]">Let’s connect.</RevealHeading>
-          <p className="mt-6 max-w-[40ch] font-editorial text-[24px] leading-[1.4] md:text-[28px]">A little guidance. Your next appointment. We’re here for you.</p>
+          <p className="mt-6 max-w-[40ch] font-editorial text-[24px] leading-[1.4] md:text-[28px]">Questions about lashes, brows, or training? Start here.</p>
           <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3">
             <SiteLink href="#contact-inquiry" className="inline-flex min-h-12 items-center justify-center border border-white/70 px-8 py-3 text-[10px] font-medium uppercase tracking-[0.16em] transition-colors hover:bg-white hover:text-espresso">Let’s start a conversation</SiteLink>
             <SiteLink href="#studio-location" className="inline-flex min-h-12 items-center gap-4 text-[10px] font-medium uppercase tracking-[0.16em] underline-offset-4 hover:underline">Find the studio <span aria-hidden="true">↓</span></SiteLink>
@@ -41,8 +41,8 @@ export default function ContactPage() {
             <p className="mb-3 font-editorial text-[24px] italic leading-[1.35] text-clay md:text-[28px]">A little time, just for you.</p>
             <RevealHeading id="message-title" className="font-editorial text-[clamp(2.25rem,4vw,3.25rem)] font-normal uppercase leading-[1.1] tracking-[-0.025em]">Let’s get in touch</RevealHeading>
             <div aria-hidden="true" className="mx-auto my-6 h-px w-12 bg-taupe" />
-            <p className="text-sm leading-[1.8] text-espresso">Beautiful lashes and brows begin with understanding you. Tell us what you’re looking for and we’ll help you find the right treatment.</p>
-            <p className="mt-4 text-sm leading-[1.8] text-espresso">Complete the form below and Seri will be in touch to discuss your preferences and availability.</p>
+            <p className="text-sm leading-[1.8] text-espresso">Considering lash extensions, a Korean lash lift, or a brow treatment? Tell Seri about the look you have in mind.</p>
+            <p className="mt-4 text-sm leading-[1.8] text-espresso">Send your questions below, or use online booking to choose your appointment.</p>
           </div>
           <ContactForm />
         </div>
@@ -53,13 +53,13 @@ export default function ContactPage() {
           <div className="mb-9 grid items-end gap-7 md:grid-cols-2 md:gap-14">
             <div>
               <p className={eyebrow}>Find us in Winnipeg</p>
-              <RevealHeading id="location-title" className={heading}>Visit the studio.</RevealHeading>
+              <RevealHeading id="location-title" className={heading}>Find SERIÉ in Winnipeg.</RevealHeading>
             </div>
             <div className="grid gap-5 sm:grid-cols-2">
               <address className="text-sm not-italic leading-[1.85]">296 Stafford St<br />Winnipeg, MB R3M 1J1<br /></address>
               <div>
                 <p className="text-sm leading-[1.85]">By appointment</p>
-                <SiteLink href={directionsUrl} target="_blank" rel="noopener noreferrer" className="mt-2 inline-flex min-h-11 items-center gap-3 text-[10px] font-medium uppercase tracking-[0.14em] underline underline-offset-4">Show me the way <span aria-hidden="true">↗</span></SiteLink>
+                <SiteLink href={directionsUrl} target="_blank" rel="noopener noreferrer" className="mt-2 inline-flex min-h-11 items-center gap-3 text-[10px] font-medium uppercase tracking-[0.14em] underline underline-offset-4">Get studio directions <span aria-hidden="true">↗</span></SiteLink>
               </div>
             </div>
           </div>

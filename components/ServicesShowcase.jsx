@@ -69,7 +69,7 @@ export default function ServicesShowcase() {
           as="h2"
           className="font-editorial text-center text-[44px] font-medium leading-[1.05] tracking-[-0.045em] text-off-white md:text-[64px]"
         >
-          Our services
+          Lash &amp; brow services
         </RevealHeading>
       </div>
       <div className="mx-auto grid max-w-[1000px] gap-10 md:gap-[72px]">
@@ -98,7 +98,7 @@ export default function ServicesShowcase() {
                 {service.description}
               </p>
               <div className="mt-auto flex flex-wrap items-center gap-x-6 gap-y-3">
-              <SiteLink href={service.href} className="inline-flex min-h-11 items-center gap-3 text-[11px] font-medium uppercase tracking-[0.06em] underline underline-offset-4 hover:text-clay">Tell me more <span aria-hidden="true">→</span></SiteLink>
+              <SiteLink href={service.href} className="inline-flex min-h-11 items-center gap-3 text-[11px] font-medium uppercase tracking-[0.06em] underline underline-offset-4 hover:text-clay">Explore this treatment <span aria-hidden="true">→</span></SiteLink>
               <SiteLink
                 href={bookingUrl}
                 target="_blank"

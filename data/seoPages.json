@@ -1,0 +1,74 @@
+[
+  {
+    "key": "home",
+    "path": "/",
+    "title": "Lash & Brow Services in Winnipeg | SERIÉ",
+    "description": "Discover lash extensions, Korean lash lifts, brow lamination, and Nano & Combo Brows at SERIÉ in Winnipeg. Explore treatments and book with Seri.",
+    "heading": "Lash & Brow Studio",
+    "keyword": "Lash and brow services Winnipeg"
+  },
+  {
+    "key": "about",
+    "path": "/about",
+    "title": "Meet Seri | Lash & Brow Artist in Winnipeg | SERIÉ",
+    "description": "Meet Seri, the artist and educator behind SERIÉ in Winnipeg. Discover her approach to personalized lash services, brow treatments, and hands-on training.",
+    "heading": "Meet Seri",
+    "keyword": "Seri lash and brow artist Winnipeg"
+  },
+  {
+    "key": "training",
+    "path": "/training",
+    "title": "Korean Lash Lift Training Winnipeg | SERIÉ",
+    "description": "Learn Korean lash lifts with Seri in Winnipeg through a one-to-one beginner class, online theory, and hands-on model practice. Explore the course and inquire.",
+    "heading": "Korean Lash Lift Training",
+    "keyword": "Korean lash lift training Winnipeg"
+  },
+  {
+    "key": "contact",
+    "path": "/contact",
+    "title": "Contact & Book Your Visit | SERIÉ Winnipeg",
+    "description": "Visit SERIÉ at 296 Stafford St in Winnipeg. Ask about lash and brow treatments, get studio directions, or choose your appointment through online booking.",
+    "heading": "Visit the Studio",
+    "keyword": "SERIÉ Winnipeg booking"
+  },
+  {
+    "key": "policies",
+    "path": "/policies",
+    "title": "Appointment & Cancellation Policies | SERIÉ",
+    "description": "Read SERIÉ’s cancellation, rescheduling, late-arrival, no-show, and PMU deposit policies before booking your lash or brow appointment in Winnipeg.",
+    "heading": "Studio Policies",
+    "keyword": "SERIÉ cancellation policy"
+  },
+  {
+    "key": "nano-combo-brows",
+    "path": "/services/nano-combo-brows",
+    "title": "Nano & Combo Brows Winnipeg | SERIÉ",
+    "description": "Explore Nano Brows for fine hairstrokes or Combo Brows for soft shading at SERIÉ in Winnipeg. See results, read FAQs, and book your brow appointment.",
+    "heading": "Nano & Combo Brows",
+    "keyword": "nano brows Winnipeg"
+  },
+  {
+    "key": "brow-lamination",
+    "path": "/services/brow-lamination",
+    "title": "Brow Lamination & Sculpt Winnipeg | SERIÉ",
+    "description": "Shape your look with brow lamination, sculpting, waxing, and tinting at SERIÉ in Winnipeg. Explore natural brow styling, see results, and book with Seri.",
+    "heading": "Brow Lamination & Sculpt",
+    "keyword": "brow lamination Winnipeg"
+  },
+  {
+    "key": "korean-lash-lift",
+    "path": "/services/korean-lash-lift",
+    "title": "Korean Lash Lift & Tint Winnipeg | SERIÉ",
+    "description": "Enhance your natural lashes with a Korean Lash Lift & Tint at SERIÉ in Winnipeg. Includes a keratin and peptide lash mask. See results and book with Seri.",
+    "heading": "Korean Lash Lift & Tint",
+    "keyword": "Korean lash lift Winnipeg"
+  },
+  {
+    "key": "lash-extensions",
+    "path": "/services/lash-extensions",
+    "title": "Lash Extensions Winnipeg | Classic & Wispy | SERIÉ",
+    "description": "Explore Classic, Wet Mascara Look, Natural Wispy, and YY Wispy lash extensions at SERIÉ in Winnipeg. Find your style and book a full set or fill with Seri.",
+    "heading": "Lash Extensions",
+    "keyword": "lash extensions Winnipeg"
+  }
+]

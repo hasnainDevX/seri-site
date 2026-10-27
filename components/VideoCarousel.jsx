@@ -41,13 +41,12 @@ export default function VideoCarousel({ clips }) {
           {"{ Training }"}
         </p>{" "}
         <RevealHeading className="mt-4 font-heading text-[28px] leading-snug md:text-[34px]">
-          Learn the craft behind the results
+          Korean lash lift training in Winnipeg
         </RevealHeading>
         <p className="mt-5 text-sm leading-relaxed text-espresso/75">
-          Train with Seri in Winnipeg and learn lash and brow techniques
-          hands-on, from consultation and prep to flawless finishing. Small
-          classes, personal feedback, and the confidence to start taking
-          clients.
+          Learn Korean lash lift techniques in a one-to-one beginner
+          class with Seri. Explore the course and get in touch about
+          upcoming training dates.
         </p>
       </div>
 
@@ -65,10 +64,10 @@ export default function VideoCarousel({ clips }) {
 
       <div className="mt-12 text-center">
         <SiteLink
-          href="/training#training-inquiry"
+          href="/training"
           className="inline-block cursor-pointer bg-espresso px-7 py-3.5 text-[10px] font-medium uppercase tracking-[0.12em] text-off-white transition-colors hover:bg-espresso/85 motion-reduce:transition-none"
         >
-          Let’s talk training
+          Explore lash lift training
         </SiteLink>
       </div>
       <div className="absolute top-6 right-6 z-20 origin-bottom-right scale-75 md:bottom-10 md:right-10 md:scale-100 lg:bottom-16 lg:right-16 hidden lg:block">

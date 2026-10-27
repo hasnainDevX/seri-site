@@ -12,7 +12,7 @@ export default function AboutHero() {
         <div className="relative mx-auto w-full max-w-[1200px] text-left">
           <p className="mb-5 text-[10px] font-medium uppercase tracking-[0.24em] md:text-xs">The person behind SERIÉ</p>
           <RevealHeading as="h1" id="about-hero-heading" className="font-heading text-[clamp(3.5rem,7.5vw,7rem)] uppercase leading-[1.08] tracking-[-0.035em]">Meet Seri</RevealHeading>
-          <p className="mt-6 max-w-sm font-editorial text-2xl italic leading-relaxed md:text-[28px]">Artistry, care, and a love for the details.</p>
+          <p className="mt-6 max-w-sm font-editorial text-2xl italic leading-relaxed md:text-[28px]">Lash and brow artistry, with a personal approach.</p>
           <SiteLink href="#about" className="mt-8 inline-flex min-h-12 items-center gap-5 border-b border-white/60 px-2 text-[10px] font-medium uppercase tracking-[0.18em] transition-colors hover:text-stone">Get to know me <span aria-hidden="true" className="text-xl">↓</span></SiteLink>
         </div>
       </section>

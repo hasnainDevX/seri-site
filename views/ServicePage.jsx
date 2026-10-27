@@ -81,7 +81,7 @@ export default function ServicePage({ service }) {
         <div className="mx-auto max-w-[1120px]">
           <p className="mb-4 text-[10px] font-medium uppercase tracking-[0.18em] text-clay">Your next appointment</p>
           <RevealHeading id="service-booking-heading" className="font-editorial text-[42px] leading-[1.1] tracking-[-0.025em] md:text-[56px]">Let’s find your look.</RevealHeading>
-          <p className="mx-auto mb-7 mt-5 max-w-md text-sm leading-[1.8]">Explore availability and book your visit with Seri.</p>
+          <p className="mx-auto mb-7 mt-5 max-w-md text-sm leading-[1.8]">Choose a time for your {service.title} appointment at SERIÉ in Winnipeg.</p>
           <BookingLink />
           <div className="mt-14 border-t border-stone pt-8 md:mt-20">
             <RevealHeading as="h3" className="mb-5 text-[10px] font-medium uppercase tracking-[0.16em]">Explore more services</RevealHeading>

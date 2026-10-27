@@ -48,7 +48,7 @@ export default function Footer() {
               <span className="mt-3 block text-[9px] font-semibold uppercase leading-relaxed tracking-[0.18em]">Lash, Brow &amp; Training</span>
             </SiteLink>
             <p className="mt-6 max-w-[28ch] font-editorial text-[22px] leading-[1.4]">
-              Enhance your natural beauty with care and precision.
+              Your Winnipeg studio for lashes, brows, and beauty training.
             </p>
           </div>
 
