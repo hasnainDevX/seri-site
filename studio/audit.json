@@ -1,0 +1,533 @@
+{
+  "auditReportVersion": 2,
+  "vulnerabilities": {
+    "@module-federation/dts-plugin": {
+      "name": "@module-federation/dts-plugin",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "undici"
+      ],
+      "effects": [
+        "@module-federation/vite"
+      ],
+      "range": "<=0.0.0-release-v2-9-0-20260824030637 || >=2.3.2",
+      "nodes": [
+        "node_modules/@module-federation/dts-plugin"
+      ],
+      "fixAvailable": {
+        "name": "sanity",
+        "version": "6.1.0",
+        "isSemVerMajor": true
+      }
+    },
+    "@module-federation/vite": {
+      "name": "@module-federation/vite",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "@module-federation/dts-plugin"
+      ],
+      "effects": [
+        "@sanity/workbench-cli"
+      ],
+      "range": ">=1.14.3",
+      "nodes": [
+        "node_modules/@module-federation/vite"
+      ],
+      "fixAvailable": {
+        "name": "sanity",
+        "version": "6.1.0",
+        "isSemVerMajor": true
+      }
+    },
+    "@sanity/blueprints": {
+      "name": "@sanity/blueprints",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "@sanity/cli-build"
+      ],
+      "effects": [
+        "@sanity/runtime-cli"
+      ],
+      "range": ">=0.29.0",
+      "nodes": [
+        "node_modules/@sanity/runtime-cli/node_modules/@sanity/blueprints"
+      ],
+      "fixAvailable": {
+        "name": "sanity",
+        "version": "6.1.0",
+        "isSemVerMajor": true
+      }
+    },
+    "@sanity/cli": {
+      "name": "@sanity/cli",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "@sanity/cli-build",
+        "@sanity/runtime-cli",
+        "@sanity/workbench-cli",
+        "@vercel/frameworks"
+      ],
+      "effects": [
+        "sanity"
+      ],
+      "range": ">=7.3.0",
+      "nodes": [
+        "node_modules/@sanity/cli"
+      ],
+      "fixAvailable": {
+        "name": "sanity",
+        "version": "6.1.0",
+        "isSemVerMajor": true
+      }
+    },
+    "@sanity/cli-build": {
+      "name": "@sanity/cli-build",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "@sanity/workbench-cli",
+        "sanity"
+      ],
+      "effects": [
+        "@sanity/blueprints",
+        "@sanity/cli",
+        "@sanity/runtime-cli"
+      ],
+      "range": ">=1.1.0",
+      "nodes": [
+        "node_modules/@sanity/cli-build"
+      ],
+      "fixAvailable": {
+        "name": "sanity",
+        "version": "6.1.0",
+        "isSemVerMajor": true
+      }
+    },
+    "@sanity/runtime-cli": {
+      "name": "@sanity/runtime-cli",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "@sanity/blueprints",
+        "@sanity/cli-build"
+      ],
+      "effects": [
+        "@sanity/cli"
+      ],
+      "range": ">=17.13.0-next.g06897b0",
+      "nodes": [
+        "node_modules/@sanity/runtime-cli"
+      ],
+      "fixAvailable": {
+        "name": "sanity",
+        "version": "6.1.0",
+        "isSemVerMajor": true
+      }
+    },
+    "@sanity/workbench-cli": {
+      "name": "@sanity/workbench-cli",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "@module-federation/vite"
+      ],
+      "effects": [
+        "@sanity/cli",
+        "@sanity/cli-build"
+      ],
+      "range": "*",
+      "nodes": [
+        "node_modules/@sanity/workbench-cli"
+      ],
+      "fixAvailable": {
+        "name": "sanity",
+        "version": "6.1.0",
+        "isSemVerMajor": true
+      }
+    },
+    "@vercel/frameworks": {
+      "name": "@vercel/frameworks",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "js-yaml",
+        "smol-toml"
+      ],
+      "effects": [
+        "@sanity/cli"
+      ],
+      "range": ">=0.2.1-canary.0",
+      "nodes": [
+        "node_modules/@vercel/frameworks"
+      ],
+      "fixAvailable": {
+        "name": "sanity",
+        "version": "6.1.0",
+        "isSemVerMajor": true
+      }
+    },
+    "js-yaml": {
+      "name": "js-yaml",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1112714,
+          "name": "js-yaml",
+          "dependency": "js-yaml",
+          "title": "js-yaml has prototype pollution in merge (<<)",
+          "url": "https://github.com/advisories/GHSA-mh29-5h37-fv8m",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-1321"
+          ],
+          "cvss": {
+            "score": 5.3,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N"
+          },
+          "range": "<3.14.2"
+        },
+        {
+          "source": 1121859,
+          "name": "js-yaml",
+          "dependency": "js-yaml",
+          "title": "JS-YAML: Quadratic-complexity DoS in merge key handling via repeated aliases",
+          "url": "https://github.com/advisories/GHSA-h67p-54hq-rp68",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-407"
+          ],
+          "cvss": {
+            "score": 5.3,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L"
+          },
+          "range": "<3.15.0"
+        },
+        {
+          "source": 1123912,
+          "name": "js-yaml",
+          "dependency": "js-yaml",
+          "title": "js-yaml: YAML merge-key chains can force quadratic CPU consumption",
+          "url": "https://github.com/advisories/GHSA-52cp-r559-cp3m",
+          "severity": "high",
+          "cwe": [
+            "CWE-400",
+            "CWE-407"
+          ],
+          "cvss": {
+            "score": 7.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          },
+          "range": ">=3.0.0 <3.15.0"
+        },
+        {
+          "source": 1138114,
+          "name": "js-yaml",
+          "dependency": "js-yaml",
+          "title": "JS-YAML: Quadratic CPU consumption in !!omap resolution (3.x and 4.x) — CVE-2026-59870 fix not backported",
+          "url": "https://github.com/advisories/GHSA-5p4m-2wfm-xmqj",
+          "severity": "high",
+          "cwe": [
+            "CWE-407"
+          ],
+          "cvss": {
+            "score": 7.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          },
+          "range": ">=3.0.0 <3.15.1"
+        },
+        {
+          "source": 1193726,
+          "name": "js-yaml",
+          "dependency": "js-yaml",
+          "title": "js-yaml: maxTotalMergeKeys does not limit CPU use for empty merge sources",
+          "url": "https://github.com/advisories/GHSA-2883-xcg3-v3hh",
+          "severity": "high",
+          "cwe": [
+            "CWE-400",
+            "CWE-407"
+          ],
+          "cvss": {
+            "score": 7.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          },
+          "range": ">=3.0.0 <3.15.2"
+        }
+      ],
+      "effects": [
+        "@vercel/frameworks"
+      ],
+      "range": "<=3.15.1",
+      "nodes": [
+        "node_modules/js-yaml"
+      ],
+      "fixAvailable": {
+        "name": "sanity",
+        "version": "6.1.0",
+        "isSemVerMajor": true
+      }
+    },
+    "sanity": {
+      "name": "sanity",
+      "severity": "moderate",
+      "isDirect": true,
+      "via": [
+        "@sanity/cli"
+      ],
+      "effects": [
+        "@sanity/cli-build"
+      ],
+      "range": "3.94.1-next.0.6739e10a32 - 3.94.1 || 5.21.1-next.3 - 5.22.0-workbench.20260422143508 || >=6.1.1-next.1",
+      "nodes": [
+        "node_modules/sanity"
+      ],
+      "fixAvailable": {
+        "name": "sanity",
+        "version": "6.1.0",
+        "isSemVerMajor": true
+      }
+    },
+    "smol-toml": {
+      "name": "smol-toml",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1115393,
+          "name": "smol-toml",
+          "dependency": "smol-toml",
+          "title": "smol-toml: Denial of Service via TOML documents containing thousands of consecutive commented lines",
+          "url": "https://github.com/advisories/GHSA-v3rj-xjv7-4jmq",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-674"
+          ],
+          "cvss": {
+            "score": 5.3,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L"
+          },
+          "range": "<1.6.1"
+        },
+        {
+          "source": 1193945,
+          "name": "smol-toml",
+          "dependency": "smol-toml",
+          "title": "smol-toml: Denial of Service via malformed TOML documents",
+          "url": "https://github.com/advisories/GHSA-7w5x-hrqm-74c2",
+          "severity": "high",
+          "cwe": [
+            "CWE-606",
+            "CWE-835"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": "<=1.7.0"
+        },
+        {
+          "source": 1241205,
+          "name": "smol-toml",
+          "dependency": "smol-toml",
+          "title": "smol-toml: Quadratic-time parse() from parseKey rescanning to end of document on each key line",
+          "url": "https://github.com/advisories/GHSA-r4xh-jqrq-34v2",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-407"
+          ],
+          "cvss": {
+            "score": 5.3,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L"
+          },
+          "range": "<=1.8.0"
+        }
+      ],
+      "effects": [
+        "@vercel/frameworks"
+      ],
+      "range": "<=1.8.0",
+      "nodes": [
+        "node_modules/@vercel/frameworks/node_modules/smol-toml"
+      ],
+      "fixAvailable": {
+        "name": "sanity",
+        "version": "6.1.0",
+        "isSemVerMajor": true
+      }
+    },
+    "undici": {
+      "name": "undici",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1243078,
+          "name": "undici",
+          "dependency": "undici",
+          "title": "undici vulnerable to Denial of Service via unbounded memory in the EventSource parser",
+          "url": "https://github.com/advisories/GHSA-4qv8-2p9j-2685",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-770"
+          ],
+          "cvss": {
+            "score": 5.9,
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          },
+          "range": ">=7.0.0 <7.30.1"
+        },
+        {
+          "source": 1243081,
+          "name": "undici",
+          "dependency": "undici",
+          "title": "undici vulnerable to Subresource Integrity bypass via non-lowercase algorithm tokens",
+          "url": "https://github.com/advisories/GHSA-f72v-6w45-q472",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-178"
+          ],
+          "cvss": {
+            "score": 5.9,
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:H/A:N"
+          },
+          "range": ">=7.15.0 <7.30.1"
+        },
+        {
+          "source": 1243113,
+          "name": "undici",
+          "dependency": "undici",
+          "title": "undici vulnerable to Denial of Service via unhandled error on excessive content-encodings",
+          "url": "https://github.com/advisories/GHSA-xjj6-f33q-929c",
+          "severity": "high",
+          "cwe": [
+            "CWE-248",
+            "CWE-459"
+          ],
+          "cvss": {
+            "score": 7.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          },
+          "range": ">=7.18.0 <7.30.1"
+        },
+        {
+          "source": 1243473,
+          "name": "undici",
+          "dependency": "undici",
+          "title": "undici vulnerable to cache poisoning and cross-user disclosure via cross-origin redirects",
+          "url": "https://github.com/advisories/GHSA-4w7w-5xrc-9h26",
+          "severity": "high",
+          "cwe": [
+            "CWE-346",
+            "CWE-524"
+          ],
+          "cvss": {
+            "score": 7.4,
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:N"
+          },
+          "range": ">=7.0.0 <7.30.1"
+        },
+        {
+          "source": 1243475,
+          "name": "undici",
+          "dependency": "undici",
+          "title": "undici vulnerable to TLS certificate validation bypass via dropped tls options in Agent",
+          "url": "https://github.com/advisories/GHSA-2m5v-pch6-74hx",
+          "severity": "high",
+          "cwe": [
+            "CWE-295"
+          ],
+          "cvss": {
+            "score": 7.4,
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:N"
+          },
+          "range": ">=7.0.0 <7.30.1"
+        },
+        {
+          "source": 1243478,
+          "name": "undici",
+          "dependency": "undici",
+          "title": "undici vulnerable to Denial of Service via TLS 1.2 certificate-changing renegotiation",
+          "url": "https://github.com/advisories/GHSA-qrxm-fqhp-jwvm",
+          "severity": "high",
+          "cwe": [
+            "CWE-248",
+            "CWE-617"
+          ],
+          "cvss": {
+            "score": 7.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          },
+          "range": ">=7.0.0 <7.30.1"
+        },
+        {
+          "source": 1243481,
+          "name": "undici",
+          "dependency": "undici",
+          "title": "undici WebSocket client vulnerable to Denial of Service via unbounded automatic PONG buffering",
+          "url": "https://github.com/advisories/GHSA-9fm3-97px-rjf6",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-400",
+            "CWE-405",
+            "CWE-770"
+          ],
+          "cvss": {
+            "score": 5.9,
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          },
+          "range": ">=7.0.0 <7.30.1"
+        },
+        {
+          "source": 1243484,
+          "name": "undici",
+          "dependency": "undici",
+          "title": "undici vulnerable to Denial of Service via unhandled exception in the decompress interceptor",
+          "url": "https://github.com/advisories/GHSA-55wc-3pg8-jfw6",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-248"
+          ],
+          "cvss": {
+            "score": 5.9,
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          },
+          "range": ">=7.15.0 <7.30.1"
+        }
+      ],
+      "effects": [
+        "@module-federation/dts-plugin"
+      ],
+      "range": "7.0.0 - 7.30.0",
+      "nodes": [
+        "node_modules/undici"
+      ],
+      "fixAvailable": {
+        "name": "sanity",
+        "version": "6.1.0",
+        "isSemVerMajor": true
+      }
+    }
+  },
+  "metadata": {
+    "vulnerabilities": {
+      "info": 0,
+      "low": 0,
+      "moderate": 9,
+      "high": 3,
+      "critical": 0,
+      "total": 12
+    },
+    "dependencies": {
+      "prod": 874,
+      "dev": 0,
+      "optional": 48,
+      "peer": 28,
+      "peerOptional": 0,
+      "total": 929
+    }
+  }
+}

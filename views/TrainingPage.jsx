@@ -6,12 +6,12 @@ import SiteLink from '@/components/SiteLink'
 import { useEffect, useRef } from 'react'
 import { motion, useReducedMotion } from 'motion/react'
 import RevealHeading from '@/components/RevealHeading'
-import { FAQList } from '@/components/FAQ'
+import { FAQList } from '@/components/FAQClient'
 import TrainingInquiryForm from '@/components/TrainingInquiryForm'
 import CircularText from '@/components/CircularText'
 import TextMarquee from '@/components/Marquee'
 import Footer from '@/components/Footer'
-import { trainingDetails, trainingFAQs } from '@/data/training'
+import { trainingDetails } from '@/data/training'
 const heroImage = "/assets/Profile&ETC/seri-gloves-beauty-product-portrait.jpg"
 const trainingImage = "/assets/Training/lash-training-demonstration.png"
 const background = "/assets/bgs/site-background.webp"
@@ -21,7 +21,7 @@ const heading = 'font-editorial text-[clamp(2.5rem,4vw,3.5rem)] font-normal lead
 const eyebrow = 'mb-4 text-[10px] font-medium uppercase tracking-[0.18em] text-clay'
 const button = 'inline-flex min-h-12 items-center justify-center border px-8 py-3 text-[10px] font-medium uppercase tracking-[0.16em] transition-colors motion-reduce:transition-none'
 
-export default function TrainingPage() {
+export default function TrainingPage({trainingFAQs, settings}) {
   const reduceMotion = useReducedMotion()
   const overviewRef = useRef(null)
 
@@ -109,7 +109,7 @@ export default function TrainingPage() {
             <RevealHeading id="inquiry-title" className={heading}>Book your Training.</RevealHeading>
             <p className="mt-6 max-w-[36ch] text-sm leading-[1.85] md:text-[15px]">If you’re interested in enrolling, complete the form with a few details. Seri will review your submission and get back to you within 24 hours.</p>
             {/* <p className="mt-5 max-w-[36ch] text-sm leading-[1.85] text-espresso">Your place is secured once your training date is confirmed and your deposit has been received.</p> */}
-            <address className="mt-8 border-t border-stone pt-6 text-sm not-italic leading-[1.85]">296 Stafford St<br />Winnipeg, MB R3M 1J1<br /></address>
+            <address className="mt-8 border-t border-stone pt-6 text-sm not-italic leading-[1.85]">{settings.street}<br />{settings.city}, {settings.region} {settings.postalCode}<br /></address>
           </div>
           <TrainingInquiryForm />
         </div>

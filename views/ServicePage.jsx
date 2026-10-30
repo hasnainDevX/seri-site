@@ -6,23 +6,23 @@ import SiteLink from '@/components/SiteLink'
 import { motion, useReducedMotion } from 'motion/react'
 import RevealHeading from '@/components/RevealHeading'
 import TextMarquee from '@/components/TextMarquee'
-import FAQ from '@/components/FAQ'
+import FAQ from '@/components/FAQClient'
 import Testimonials from '@/components/Testimonials'
 import Footer from '@/components/Footer'
 const serviceNavBackground = "/assets/bgs/site-background.webp"
 import { bookingUrl } from '@/data/site'
-import { servicePages } from '@/data/servicePages'
+
 import Marquee from '@/components/TextMarquee'
 import Marquee2 from '@/components/Marquee'
 
 
 const buttonClass = 'inline-flex min-h-12 items-center justify-center border border-espresso px-7 py-3 font-body text-[10px] font-medium uppercase tracking-[0.16em] text-espresso transition-colors hover:bg-espresso hover:text-white motion-reduce:transition-none'
 
-function BookingLink({ label = 'Take me to booking' }) {
-  return <SiteLink href={bookingUrl} target="_blank" rel="noopener noreferrer" className={buttonClass}>{label}</SiteLink>
+function BookingLink({ label = 'Take me to booking', href = bookingUrl }) {
+  return <SiteLink href={href} target="_blank" rel="noopener noreferrer" className={buttonClass}>{label}</SiteLink>
 }
 
-export default function ServicePage({ service }) {
+export default function ServicePage({ service, faqGroups, servicePages }) {
   const reduceMotion = useReducedMotion()
 
 
@@ -39,7 +39,7 @@ export default function ServicePage({ service }) {
           <RevealHeading as="h1" id="service-title" className="font-editorial text-[clamp(2.75rem,4.8vw,4rem)] font-normal leading-[1.08] tracking-[-0.025em]">{service.title}</RevealHeading>
           <p className="mt-4 font-editorial text-[23px] italic leading-[1.35] text-clay md:text-[26px]">{service.tagline}</p>
           <p className="mx-auto mt-5 max-w-[64ch] font-body text-sm leading-[1.8] md:text-[15px]">{service.description}</p>
-          <div className="mt-7"><BookingLink label="Find my next appointment" /></div>
+          <div className="mt-7"><BookingLink href={service.bookingUrl} label="Find my next appointment" /></div>
         </div>
       </section>
 
@@ -56,7 +56,7 @@ export default function ServicePage({ service }) {
             <div className={`flex flex-col items-start justify-center px-6 py-12 md:px-10 md:py-14 lg:px-14 xl:px-20 ${index % 2 ? 'md:order-2' : ''}`}>
               <p className="mb-4 text-[10px] font-medium uppercase tracking-[0.18em] text-clay">{section.eyebrow}</p>
               <RevealHeading id={`${section.id}-heading`} className="font-editorial text-[36px] font-normal leading-[1.12] tracking-[-0.025em] md:text-[44px] lg:text-[48px]">{section.title}</RevealHeading>
-              <div className="mt-6"><BookingLink label="See available times" /></div>
+              <div className="mt-6">{section.price && <p className="mb-4 font-editorial text-2xl">{section.price}</p>}<BookingLink label="See available times" /></div>
               <p className="mt-6 max-w-[52ch] font-body text-sm leading-[1.8] md:text-[15px]">{section.description}</p>
               <dl className="mt-7 w-full max-w-lg border-t border-stone">
                 {section.facts.map(([label, value]) => <div key={label} className="grid grid-cols-[90px_minmax(0,1fr)] gap-5 border-b border-stone py-4"><dt className="pt-1 text-[10px] font-medium uppercase tracking-[0.12em] text-clay">{label}</dt><dd className="font-editorial text-xl leading-[1.35] md:text-[22px]">{value}</dd></div>)}
@@ -73,7 +73,7 @@ export default function ServicePage({ service }) {
 
       {service.aftercare && <section aria-labelledby="maintenance-heading" className="bg-off-white px-6 py-14 md:px-10 md:py-20 lg:px-16"><div className="mx-auto grid max-w-[1120px] gap-7 md:grid-cols-2 md:gap-20"><RevealHeading id="maintenance-heading" className="font-editorial text-[38px] leading-[1.15] tracking-[-0.025em] md:text-[46px]">{service.aftercare.title}</RevealHeading><div><p className="text-sm leading-[1.8] md:text-[15px]">{service.aftercare.text}</p><div className="mt-7"><BookingLink label="Time for my lash fill" /></div></div></div></section>}
       <div className="bg-off-white py-6 md:py-10"><TextMarquee items={['Thoughtful artistry', 'Made for you', 'Care in every detail']} /></div>
-      <FAQ service={service.faqTitle} />
+      <FAQ service={service.faqTitle} faqGroups={faqGroups} />
       <Marquee2/>
       <Testimonials />
 
@@ -82,7 +82,7 @@ export default function ServicePage({ service }) {
           <p className="mb-4 text-[10px] font-medium uppercase tracking-[0.18em] text-clay">Your next appointment</p>
           <RevealHeading id="service-booking-heading" className="font-editorial text-[42px] leading-[1.1] tracking-[-0.025em] md:text-[56px]">Let’s find your look.</RevealHeading>
           <p className="mx-auto mb-7 mt-5 max-w-md text-sm leading-[1.8]">Choose a time for your {service.title} appointment at SERIÉ in Winnipeg.</p>
-          <BookingLink />
+          <BookingLink href={service.bookingUrl} />
           <div className="mt-14 border-t border-stone pt-8 md:mt-20">
             <RevealHeading as="h3" className="mb-5 text-[10px] font-medium uppercase tracking-[0.16em]">Explore more services</RevealHeading>
             <div className="flex flex-wrap justify-center gap-x-8 gap-y-2">

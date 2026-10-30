@@ -5,3 +5,7 @@ out/
 !.env.example
 *.log
 .vercel/
+
+/studio/node_modules/
+/studio/dist/
+/studio/.sanity/

@@ -1,3 +1,4 @@
+import {getContent} from '@/lib/cms'
 import MediaImage from '@/components/MediaImage'
 import SiteLink from '@/components/SiteLink'
 import RevealHeading from '@/components/RevealHeading'
@@ -7,14 +8,15 @@ const contactBackground = "/assets/bgs/site-background.webp"
 const posterImage = "/assets/Profile&ETC/seri-laptop-sofa-full-length.jpg"
 import Marquee from '@/components/Marquee'
 
-const address = '296 Stafford St, Winnipeg, MB R3M 1J1, Canada'
-const mapQuery = encodeURIComponent(address)
-const mapUrl = 'https://www.google.com/maps?q=' + mapQuery + '&z=16&output=embed'
-const directionsUrl = 'https://www.google.com/maps/dir/?api=1&destination=' + mapQuery
 const heading = 'font-editorial text-[clamp(2.5rem,4vw,3.5rem)] font-normal leading-[1.1] tracking-[-0.025em]'
 const eyebrow = 'mb-4 text-[10px] font-medium uppercase tracking-[0.18em] text-clay'
 
-export default function ContactPage() {
+export default async function ContactPage() {
+  const {settings}=await getContent()
+  const address=[settings.street,settings.city,settings.region,settings.postalCode,'Canada'].join(', ')
+  const query=encodeURIComponent(address)
+  const mapUrl='https://www.google.com/maps?q='+query+'&z=16&output=embed'
+  const directionsUrl='https://www.google.com/maps/dir/?api=1&destination='+query
 
   return (
     <main className="bg-white text-black">
@@ -56,15 +58,15 @@ export default function ContactPage() {
               <RevealHeading id="location-title" className={heading}>Find SERIÉ in Winnipeg.</RevealHeading>
             </div>
             <div className="grid gap-5 sm:grid-cols-2">
-              <address className="text-sm not-italic leading-[1.85]">296 Stafford St<br />Winnipeg, MB R3M 1J1<br /></address>
+              <address className="text-sm not-italic leading-[1.85]">{settings.street}<br />{settings.city}, {settings.region} {settings.postalCode}<br /></address>
               <div>
-                <p className="text-sm leading-[1.85]">By appointment</p>
+                <p className="text-sm leading-[1.85]">{settings.hours}</p>
                 <SiteLink href={directionsUrl} target="_blank" rel="noopener noreferrer" className="mt-2 inline-flex min-h-11 items-center gap-3 text-[10px] font-medium uppercase tracking-[0.14em] underline underline-offset-4">Get studio directions <span aria-hidden="true">↗</span></SiteLink>
               </div>
             </div>
           </div>
           <div className="overflow-hidden border border-stone bg-greige">
-            <iframe title="Google Map: SERIÉ studio at 296 Stafford Street, Winnipeg" src={mapUrl} loading="lazy" referrerPolicy="no-referrer-when-downgrade" allowFullScreen className="block h-[360px] w-full border-0 md:h-[480px]" />
+            <iframe title={"Google Map: SERIÉ studio at " + address} src={mapUrl} loading="lazy" referrerPolicy="no-referrer-when-downgrade" allowFullScreen className="block h-[360px] w-full border-0 md:h-[480px]" />
           </div>
           <p className="mt-4 text-xs leading-relaxed text-espresso"><SiteLink href={directionsUrl} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4">Open directions in Google Maps.</SiteLink></p>
         </div>

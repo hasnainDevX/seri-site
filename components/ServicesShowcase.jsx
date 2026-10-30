@@ -1,3 +1,4 @@
+import {getContent} from '@/lib/cms'
 import ArrowIcon from './ArrowIcon'
 import MediaImage from '@/components/MediaImage'
 import DeferredBackdrop from './DeferredBackdrop'
@@ -5,50 +6,9 @@ import SiteLink from '@/components/SiteLink'
 import RevealHeading from "./RevealHeading";
 import { bookingUrl } from "@/data/site";
 const studioImage = "/assets/Profile&ETC/seri-brow-brush-mirror-landscape.jpg"
-const browsImage = "/assets/ClientsPhotos/Nano-NanoComboBrows/nano-brows-before-after-01.jpg"
-const liftImage = "/assets/ClientsPhotos/KoreanLashLiftTint/korean-lash-lift-client-portrait.png"
-const extensionsImage = "/assets/ClientsPhotos/LashExtension/lash-extensions-client-portrait-01.jpg"
-const laminationImage = "/assets/ClientsPhotos/BrowLamination/brow-lamination-client-result.png"
-
-const services = [
-  {
-    name: "Nano & Combo Brows",
-    href: "/services/nano-combo-brows",
-    image: browsImage,
-    intro:
-      "Nano Brows: Ideal for a natural, “these are my real brows” look, with fine hairstrokes that mimic natural brow hairs. Can last 1–2 years.",
-    description:
-      "Combo Brows: Ideal for a soft makeup look, combining hairstrokes with shading for added fullness and definition. Can last 2–3 years.",
-  },
-  {
-    name: "Korean Lash Lift & Tint",
-    href: "/services/korean-lash-lift",
-    image: liftImage,
-    intro:
-      "A Korean lash lift enhances your natural lashes with a customized lift and curl for a longer, more defined look—without extensions. Perfect for a fresh, eye-opening finish.",
-    description:
-      "Includes a complimentary keratin and peptide lash mask and lash tint. Results typically last 6–8 weeks, depending on your natural lash growth and aftercare.",
-  },
-  {
-    name: "Lash Extensions",
-    href: "/services/lash-extensions",
-    image: extensionsImage,
-    intro:
-      "Customized lash extensions for added length, fullness, and definition. Lasts 3+ weeks, with fills recommended within 3 weeks to keep lashes full and fresh.",
-    description:
-      "Styles offered: Classic, Wet Mascara Look, Natural Wispy, and YY Wispy.",
-  },
-  {
-    name: "Brow Lamination & Sculpt",
-    href: "/services/brow-lamination",
-    image: laminationImage,
-    intro:
-      "Brow Lamination softens, straightens, and repositions natural eyebrow hairs to create a fuller, fluffier, and more uniform look. Results typically last 4–6 weeks and can last up to 8 weeks, depending on your natural hair growth and aftercare.",
-    description: "Brow Sculpt includes shaping, waxing, and tinting.",
-  },
-];
-
-export default function ServicesShowcase() {
+export default async function ServicesShowcase() {
+  const {services: current}=await getContent()
+  const services=['nano-combo-brows','korean-lash-lift','lash-extensions','brow-lamination'].map(slug=>current.find(s=>s.slug===slug)).map(s=>({...s.summary,bookingUrl:s.bookingUrl}))
   return (
     <section
       id="services"
@@ -101,7 +61,7 @@ export default function ServicesShowcase() {
               <div className="mt-auto flex flex-wrap items-center gap-x-6 gap-y-3">
               <SiteLink href={service.href} aria-label={"Explore this treatment: " + service.name} className="inline-flex min-h-11 items-center gap-3 text-[11px] font-medium uppercase tracking-[0.06em] underline underline-offset-4 hover:text-clay">Explore this treatment <ArrowIcon /></SiteLink>
               <SiteLink
-                href={bookingUrl}
+                href={service.bookingUrl || bookingUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={"Find my appointment — " + service.name}

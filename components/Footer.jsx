@@ -1,3 +1,5 @@
+'use client'
+import {useContentSettings} from './ContentSettings'
 import MediaImage from '@/components/MediaImage'
 import SiteLink from '@/components/SiteLink'
 import RevealHeading from './RevealHeading'
@@ -16,6 +18,7 @@ function Arrow({ className = 'size-4' }) {
 }
 
 export default function Footer() {
+  const {settings}=useContentSettings()
   return (
     <footer className="relative isolate border-t border-stone bg-espresso text-white">
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10"><MediaImage src={footerImage} alt="" loading="lazy" className="size-full object-cover" /><div className="absolute inset-0 bg-black/65" /></div>
@@ -44,9 +47,11 @@ export default function Footer() {
           <div>
             <RevealHeading className={label}>Visit the studio</RevealHeading>
             <p className="mt-6 text-sm leading-7">
-              Winnipeg, Canada<br />
-              By appointment
+              {settings.street}<br />{settings.city}, {settings.region} {settings.postalCode}<br />{settings.hours}
             </p>
+            {settings.email && <a className={link} href={'mailto:'+settings.email}>{settings.email}</a>}
+            {settings.phone && <a className={link} href={'tel:'+settings.phone}>{settings.phone}</a>}
+            {settings.instagram && <SiteLink href={settings.instagram} target="_blank" rel="noopener noreferrer" className={link}>Instagram</SiteLink>}
             <SiteLink href={bookingUrl} target="_blank" rel="noopener noreferrer" className="group mt-6 inline-flex min-h-11 items-center gap-6 border-b border-white/60 pb-2 text-[11px] font-semibold uppercase tracking-[0.12em] hover:text-stone">
               See you in the studio
               <span className="transition-transform duration-300 group-hover:translate-x-1 motion-reduce:transition-none"><Arrow /></span>

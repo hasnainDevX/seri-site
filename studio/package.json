@@ -1,0 +1,17 @@
+{
+  "name": "serie-studio",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "sanity dev",
+    "build": "sanity build",
+    "deploy": "sanity deploy",
+    "seed": "sanity exec seed.mjs --with-user-token"
+  },
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "sanity": "6.21.0",
+    "styled-components": "^6.6.0"
+  }
+}

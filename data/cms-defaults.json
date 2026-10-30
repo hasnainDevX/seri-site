@@ -1,0 +1,446 @@
+{
+  "settings": {
+    "bookingUrl": "https://app.acuityscheduling.com/schedule/3b520d52",
+    "street": "296 Stafford St",
+    "city": "Winnipeg",
+    "region": "MB",
+    "postalCode": "R3M 1J1",
+    "hours": "By appointment",
+    "instagram": "https://www.instagram.com/alluredbyseri/",
+    "email": "",
+    "phone": ""
+  },
+  "announcement": {
+    "enabled": true,
+    "message": "Allured By Seri is now SERIÉ Beauty | Lash, brow & training in Winnipeg",
+    "link": ""
+  },
+  "images": [],
+  "services": [
+    {
+      "slug": "nano-combo-brows",
+      "heroImage": "/assets/Profile&ETC/seri-brow-brush-mirror-landscape.jpg",
+      "heroPosition": "center 42%",
+      "title": "Nano & Combo Brows",
+      "tagline": "Natural definition. Your kind of brows.",
+      "description": "Fine hairstrokes or a soft makeup finish. Explore Nano and Combo Brows, designed around your natural features and the look you love.",
+      "faqTitle": "Nano & Combo Brows",
+      "image": "/assets/ClientsPhotos/Nano-NanoComboBrows/nano-brows-before-after-01.jpg",
+      "sections": [
+        {
+          "id": "nano-brows",
+          "title": "Nano Brows",
+          "eyebrow": "Fine hairstrokes",
+          "image": "/assets/ClientsPhotos/Nano-NanoComboBrows/nano-brows-before-after-01.jpg",
+          "imageAlt": "Nano brows before and after by Seri",
+          "caption": "Nano brows · Before & after",
+          "description": "Ideal for clients who want a natural, “these are my real brows” look, with fine hairstrokes that mimic natural brow hairs.",
+          "facts": [
+            [
+              "Results",
+              "Can last 1–2 years"
+            ],
+            [
+              "Your design",
+              "Shape and thickness mapped with you before treatment"
+            ]
+          ],
+          "detail": "We carefully map your brows and discuss the shape, thickness, and overall look you prefer. Nothing is tattooed until we’ve reviewed the design together."
+        },
+        {
+          "id": "combo-brows",
+          "title": "Combo Brows",
+          "eyebrow": "Hairstrokes & shading",
+          "image": "/assets/ClientsPhotos/Nano-NanoComboBrows/nano-combo-brows-before-after.jpg",
+          "imageAlt": "Nano and combo brow work by Seri",
+          "caption": "Brow artistry by Seri",
+          "description": "Ideal for clients who prefer a soft makeup look, combining hairstrokes with shading for added fullness and definition.",
+          "facts": [
+            [
+              "Results",
+              "Can last 2–3 years"
+            ],
+            [
+              "Finish",
+              "Soft definition with added fullness"
+            ]
+          ],
+          "detail": "Your brow shape, skin type, existing brow hair, and personal preferences are all considered when designing your brows."
+        }
+      ],
+      "summary": {
+        "name": "Nano & Combo Brows",
+        "href": "/services/nano-combo-brows",
+        "image": "/assets/ClientsPhotos/Nano-NanoComboBrows/nano-brows-before-after-01.jpg",
+        "intro": "Nano Brows: Ideal for a natural, “these are my real brows” look, with fine hairstrokes that mimic natural brow hairs. Can last 1–2 years.",
+        "description": "Combo Brows: Ideal for a soft makeup look, combining hairstrokes with shading for added fullness and definition. Can last 2–3 years."
+      }
+    },
+    {
+      "slug": "brow-lamination",
+      "heroImage": "/assets/ClientsPhotos/BrowLamination/brow-lamination-client-result.png",
+      "heroPosition": "center 38%",
+      "title": "Brow Lamination & Sculpt",
+      "tagline": "Fuller brows, thoughtfully shaped.",
+      "description": "From a soft, fluffy finish to precise shaping and tinting, choose the brow treatment that suits your natural hairs and personal style.",
+      "faqTitle": "Brow Lamination & Sculpt",
+      "image": "/assets/ClientsPhotos/BrowLamination/brow-lamination-client-result.png",
+      "sections": [
+        {
+          "id": "brow-lamination",
+          "title": "Brow Lamination",
+          "eyebrow": "Lift, shape & define",
+          "image": "/assets/ClientsPhotos/BrowLamination/brow-lamination-client-result.png",
+          "imageAlt": "Brow lamination result by Seri",
+          "caption": "Brow lamination by Seri",
+          "description": "Softens, straightens, and repositions natural eyebrow hairs to create a fuller, fluffier, and more uniform look.",
+          "facts": [
+            [
+              "Includes",
+              "Lamination, tinting, and shaping"
+            ],
+            [
+              "Results",
+              "Typically 4–6 weeks; up to 8 weeks depending on natural hair growth and aftercare"
+            ]
+          ],
+          "detail": "Prefer a finish without tint? Naked Brow Lamination includes the same brow lamination and shaping, without tinting."
+        },
+        {
+          "id": "brow-sculpt",
+          "title": "Brow Sculpt",
+          "eyebrow": "Shape & polish",
+          "image": "/assets/ClientsPhotos/BrowLamination/brow-lamination-before-after.jpg",
+          "imageAlt": "Brow treatment before and after by Seri",
+          "caption": "Brow treatment · Before & after",
+          "description": "Shaping, waxing, and tinting to refine your brows.",
+          "facts": [
+            [
+              "Includes",
+              "Shaping · Waxing · Tinting"
+            ]
+          ],
+          "detail": "Your brows are shaped and styled to suit your preferences, whether you love a soft, natural look or more definition."
+        }
+      ],
+      "summary": {
+        "name": "Brow Lamination & Sculpt",
+        "href": "/services/brow-lamination",
+        "image": "/assets/ClientsPhotos/BrowLamination/brow-lamination-client-result.png",
+        "intro": "Brow Lamination softens, straightens, and repositions natural eyebrow hairs to create a fuller, fluffier, and more uniform look. Results typically last 4–6 weeks and can last up to 8 weeks, depending on your natural hair growth and aftercare.",
+        "description": "Brow Sculpt includes shaping, waxing, and tinting."
+      }
+    },
+    {
+      "slug": "korean-lash-lift",
+      "heroImage": "/assets/ClientsPhotos/KoreanLashLiftTint/korean-lash-lift-eye-closeup.png",
+      "heroPosition": "center 63%",
+      "title": "Korean Lash Lift & Tint",
+      "tagline": "Your natural lashes, beautifully lifted.",
+      "description": "A customized lift and curl for a longer, more defined look—without extensions. Perfect for a fresh, eye-opening finish.",
+      "faqTitle": "Korean Lash Lift & Tint",
+      "image": "/assets/ClientsPhotos/KoreanLashLiftTint/korean-lash-lift-client-portrait.png",
+      "sections": [
+        {
+          "id": "lash-lift",
+          "title": "Korean Lash Lift",
+          "eyebrow": "Lift your natural lashes",
+          "image": "/assets/ClientsPhotos/KoreanLashLiftTint/korean-lash-lift-client-portrait.png",
+          "imageAlt": "Korean lash lift client result by Seri",
+          "caption": "Korean lash lift by Seri",
+          "description": "Enhance your natural lashes with a customized lift and curl. Your natural lash health, direction, eye shape, and desired result guide the treatment.",
+          "facts": [
+            [
+              "Includes",
+              "Lash tint and a complimentary keratin and peptide lash mask"
+            ],
+            [
+              "Results",
+              "Typically 6–8 weeks, depending on natural lash growth and aftercare"
+            ]
+          ],
+          "detail": "Korean Lash Lifts use specialized techniques and products that allow for greater control over softening, lash placement, and shaping."
+        },
+        {
+          "id": "lift-results",
+          "title": "The finishing details",
+          "eyebrow": "Tint & care",
+          "image": "/assets/ClientsPhotos/KoreanLashLiftTint/korean-lash-lift-client-comparison.jpg",
+          "imageAlt": "Korean lash lift before and after by Seri",
+          "caption": "Lash lift · Before & after",
+          "description": "Your lash tint and complimentary keratin and peptide lash mask are included with your treatment.",
+          "facts": [
+            [
+              "Maintenance",
+              "Most clients return every 6–8 weeks"
+            ],
+            [
+              "Your lashes",
+              "Results depend on natural lash length, density, and condition"
+            ]
+          ],
+          "detail": "As your lashes naturally shed and new lashes grow in, the lifted appearance gradually fades. We recommend allowing enough time between treatments to avoid unnecessary chemical processing."
+        }
+      ],
+      "summary": {
+        "name": "Korean Lash Lift & Tint",
+        "href": "/services/korean-lash-lift",
+        "image": "/assets/ClientsPhotos/KoreanLashLiftTint/korean-lash-lift-client-portrait.png",
+        "intro": "A Korean lash lift enhances your natural lashes with a customized lift and curl for a longer, more defined look—without extensions. Perfect for a fresh, eye-opening finish.",
+        "description": "Includes a complimentary keratin and peptide lash mask and lash tint. Results typically last 6–8 weeks, depending on your natural lash growth and aftercare."
+      }
+    },
+    {
+      "slug": "lash-extensions",
+      "heroImage": "/assets/ClientsPhotos/LashExtension/lash-extensions-client-portrait-01.jpg",
+      "heroPosition": "center 42%",
+      "title": "Lash Extensions",
+      "tagline": "A lash look that feels like you.",
+      "description": "Customized lash extensions for added length, fullness, and definition. Lasts 3+ weeks, with fills recommended within 3 weeks to keep lashes full and fresh.",
+      "faqTitle": "Lash Extensions",
+      "image": "/assets/ClientsPhotos/LashExtension/lash-extensions-client-portrait-01.jpg",
+      "sections": [
+        {
+          "id": "classic",
+          "title": "Classic",
+          "eyebrow": "Everyday definition",
+          "image": "/assets/ClientsPhotos/LashExtension/lash-extensions-client-portrait-01.jpg",
+          "imageAlt": "Lash extension client result by Seri",
+          "caption": "Lash extensions by Seri",
+          "description": "For a subtle, everyday look. Your set is customized to your preferences, eye shape, and natural lash health.",
+          "facts": [
+            [
+              "Service",
+              "Customized lash extensions"
+            ],
+            [
+              "Maintenance",
+              "Fills recommended within 3 weeks"
+            ]
+          ],
+          "detail": "We’ll discuss your preferred length, fullness, and overall look before your appointment begins."
+        },
+        {
+          "id": "wet-mascara-look",
+          "title": "Wet Mascara Look",
+          "eyebrow": "Defined & expressive",
+          "image": "/assets/ClientsPhotos/LashExtension/lash-extensions-client-portrait-02.png",
+          "imageAlt": "Lash extension work by Seri",
+          "caption": "Lash extensions by Seri",
+          "description": "A mascara-inspired finish with added length, fullness, and definition, tailored to your eyes.",
+          "facts": [
+            [
+              "Your style",
+              "Customized to your preferences and natural lashes"
+            ],
+            [
+              "Maintenance",
+              "Fills recommended within 3 weeks"
+            ]
+          ]
+        },
+        {
+          "id": "natural-wispy",
+          "title": "Natural Wispy",
+          "eyebrow": "Soft & effortless",
+          "image": "/assets/ClientsPhotos/LashExtension/lash-extensions-client-portrait-03.png",
+          "imageAlt": "Lash extension client portrait by Seri",
+          "caption": "Lash extensions by Seri",
+          "description": "A soft, wispy look with length and definition tailored to your eyes and preferred finish.",
+          "facts": [
+            [
+              "Your style",
+              "A personalized, natural-looking finish"
+            ],
+            [
+              "Maintenance",
+              "Fills recommended within 3 weeks"
+            ]
+          ]
+        },
+        {
+          "id": "yy-wispy",
+          "title": "YY Wispy",
+          "eyebrow": "Your wispy finish",
+          "image": "/assets/ClientsPhotos/LashExtension/lash-extensions-closeup-comparison.jpg",
+          "imageAlt": "Lash extension close-up results by Seri",
+          "caption": "Lash extensions · Client results",
+          "description": "Explore YY Wispy as part of your customized lash set. We’ll discuss the best look for your preferences, eye shape, and natural lash health.",
+          "facts": [
+            [
+              "Your style",
+              "Customized length, fullness, and definition"
+            ],
+            [
+              "Maintenance",
+              "Fills recommended within 3 weeks"
+            ]
+          ]
+        }
+      ],
+      "aftercare": {
+        "title": "Keeping your lashes full & fresh",
+        "text": "During a fill, grown-out extensions are removed and new extensions are applied to replace those that have naturally shed. Fills must be booked within 3 weeks of your previous appointment, with at least 40–50% of extensions remaining. Otherwise, a full set may be required."
+      },
+      "summary": {
+        "name": "Lash Extensions",
+        "href": "/services/lash-extensions",
+        "image": "/assets/ClientsPhotos/LashExtension/lash-extensions-client-portrait-01.jpg",
+        "intro": "Customized lash extensions for added length, fullness, and definition. Lasts 3+ weeks, with fills recommended within 3 weeks to keep lashes full and fresh.",
+        "description": "Styles offered: Classic, Wet Mascara Look, Natural Wispy, and YY Wispy."
+      }
+    }
+  ],
+  "faqGroups": [
+    {
+      "title": "Nano & Combo Brows",
+      "items": [
+        [
+          "What's the difference between Nano Brows and Microblading?",
+          "Both techniques create hair-like strokes, but they use different tools. Microblading uses a manual blade, while Nano Brows uses a digital machine with a fine needle. Nano Brows allows for precise pigment placement and can be a gentler option for certain skin types."
+        ],
+        [
+          "Does the procedure hurt?",
+          "Most clients find the procedure very manageable. A topical numbing product is used to help minimize discomfort, and many clients even fall asleep during their appointment! Sensitivity varies from person to person."
+        ],
+        [
+          "What should I avoid before my appointment?",
+          "Avoid alcohol for 24 hours, excessive sun exposure, and irritating skincare treatments around the brow area and forehead before your appointment. You'll receive detailed preparation instructions in the booking email. Never stop prescribed medications without consulting your healthcare provider."
+        ],
+        [
+          "What should I avoid after the procedure?",
+          "During the initial healing period, avoid picking or scratching your brows, applying makeup directly over the treated area, excessive sweating, swimming, and prolonged sun exposure. Follow the specific aftercare instructions provided at your appointment."
+        ],
+        [
+          "Who is not a suitable candidate for PMU Brows?",
+          "PMU Brows may not be suitable if you are pregnant or breastfeeding, have certain medical conditions, active skin irritation or infections around the brow area, or have recently undergone certain skin treatments. Eligibility is assessed individually during the consultation."
+        ],
+        [
+          "Can I choose my brow shape and thickness?",
+          "Of course! We carefully map your brows before starting the procedure and discuss the shape, thickness, and overall look you prefer. Nothing is tattooed until we've reviewed the design together."
+        ],
+        [
+          "Can I get Nano or Combo Brows over previous brow tattoos?",
+          "It depends on the condition, colour, saturation, and shape of your existing tattoo. Some previous tattoos may require fading or laser removal before new work can be performed. A consultation is recommended to determine your options."
+        ],
+        [
+          "What if I have very little or no brow hair?",
+          "You can still be a great candidate for PMU Brows! Nano Brows, Nano Combo, or Powder Brows can help create the appearance of fuller brows even when natural brow hair is sparse or missing."
+        ],
+        [
+          "How long does it take to heal?",
+          "Initial healing typically takes around 7–14 days, while the skin continues to recover beneath the surface for several weeks. Your brows may appear darker immediately after the procedure, then soften as they heal. The final healed colour is generally assessed after 4–6 weeks."
+        ],
+        [
+          "Will my brows look natural?",
+          "Absolutely! My approach focuses on enhancing your natural features rather than creating an overly bold or artificial appearance. Your brow shape, skin type, existing brow hair, and personal preferences are all considered when designing your brows."
+        ]
+      ]
+    },
+    {
+      "title": "Lash Extensions",
+      "items": [
+        [
+          "How long do lash extensions last?",
+          "Lash extensions can last 3+ weeks. However, lash extensions shed naturally along with your natural lash cycle. Our regular clients return for a fill every 3 weeks to maintain a full, fresh appearance. Retention varies depending on your natural lash cycle, lifestyle, and aftercare."
+        ],
+        [
+          "Will lash extensions damage my natural lashes?",
+          "When applied correctly with appropriate lengths and weights, lash extensions should not damage your natural lashes. Proper application, regular maintenance, and avoiding pulling or rubbing are essential for keeping your natural lashes healthy."
+        ],
+        [
+          "What's the difference between a full set and a fill?",
+          "A full set is the initial application of lash extensions. During a fill, grown-out extensions are removed and new extensions are applied to replace those that have naturally shed. Fills must be booked within 3 weeks of your previous appointment, with at least 40–50% of extensions remaining. Otherwise, a full set may be required."
+        ],
+        [
+          "Can I choose how natural or dramatic I want my lashes?",
+          "Absolutely! Every set is customized based on your preferences, eye shape, and natural lash health. Whether you prefer a subtle, everyday look or something fuller and more noticeable, we'll discuss the best style for you."
+        ],
+        [
+          "Can I shower, swim, or exercise with lash extensions?",
+          "Yes! Lash extensions are designed to fit into your everyday lifestyle. However, excessive exposure to heat, steam, oils, and moisture without proper cleansing and drying may affect retention. Follow the aftercare instructions provided after your appointment."
+        ],
+        [
+          "Are lash extensions suitable for everyone?",
+          "Most people can enjoy lash extensions, but certain eye conditions, sensitivities, or adhesive allergies may make the service unsuitable. If you have concerns, please contact us before booking."
+        ],
+        [
+          "Can I remove lash extensions whenever I want?",
+          "Yes! Professional lash extension removal is recommended to protect your natural lashes. Never pull or attempt to remove extensions yourself, as this can cause damage."
+        ]
+      ]
+    },
+    {
+      "title": "Korean Lash Lift & Tint",
+      "items": [
+        [
+          "How is a Korean Lash Lift different from a traditional lash lift?",
+          "Korean Lash Lifts use specialized techniques and products that allow for greater control over softening, lash placement and shaping. The focus is on creating a smooth, even lift while considering your natural lash health, direction, eye shape, and desired results."
+        ],
+        [
+          "How long does a Korean Lash Lift last?",
+          "Results typically last 6–8 weeks, depending on your natural lash growth cycle and aftercare. As your lashes naturally shed and new lashes grow in, the lifted appearance gradually fades."
+        ],
+        [
+          "Can I get a lash lift if I have short or straight lashes?",
+          "Yes! Korean Lash Lifts can be especially beneficial for straight or downward-growing lashes. However, the final results depend on your natural lash length, density, and condition."
+        ],
+        [
+          "Can I wear mascara after a lash lift?",
+          "Absolutely! You can wear mascara after your lash lift, although many clients find they no longer need it. We recommend waiting 24 hours before applying mascara and avoiding waterproof formulas, which can be difficult to remove."
+        ],
+        [
+          "Can I get a lash lift if I have hooded eyelids?",
+          "Yes! Korean Lash Lifts can be customized for hooded eyelids. We carefully consider your eyelid shape and the space between your lashes and lids to create a flattering lift without the lashes pressing against the skin."
+        ],
+        [
+          "How often can I get a Korean Lash Lift?",
+          "Most clients return every 6–8 weeks, depending on their natural lash growth cycle and lash condition. We recommend allowing enough time between treatments to avoid unnecessary chemical processing."
+        ]
+      ]
+    },
+    {
+      "title": "Brow Lamination & Sculpt",
+      "items": [
+        [
+          "What is Brow Lamination?",
+          "Brow Lamination is a treatment that relaxes and redirects your natural brow hairs to create a fuller, smoother, and more defined appearance. It's ideal for taming unruly brows, improving symmetry, and achieving a beautifully groomed look."
+        ],
+        [
+          "Can I get Brow Lamination if I have thin or sparse brows?",
+          "Yes! Brow Lamination can help create the appearance of fuller brows by repositioning your existing hairs to cover sparse areas. However, it doesn't create new hair, so results depend on the amount of natural brow hair you have."
+        ],
+        [
+          "Will my brows look too thick or brushed straight up?",
+          "Not at all! Brow Lamination is fully customizable. Whether you prefer a soft, natural look or a fuller, more lifted style, your brows can be shaped and styled to suit your preferences."
+        ],
+        [
+          "Can I wash my face or get my brows wet after Brow Lamination?",
+          "We recommend keeping your brows dry for the first 24 hours and avoiding excessive steam, sweating, and rubbing during this period. Afterward, you can return to your normal routine while following the recommended aftercare."
+        ],
+        [
+          "What's the difference between Brow Lamination and Naked Brow Lamination?",
+          "Both treatments include brow lamination to reshape and style your natural brow hairs.\n\n• Brow Lamination: Includes brow lamination, tinting, and brow shaping for a more defined, polished look.\n• Naked Brow Lamination: Same as Brow Lamination but without tinting."
+        ],
+        [
+          "Is Brow Lamination suitable for everyone?",
+          "Brow Lamination is suitable for many clients, but it may not be recommended for those with very damaged brow hairs, active skin irritation, or certain sensitivities and allergies. We'll assess your brows before proceeding."
+        ]
+      ]
+    }
+  ],
+  "trainingFAQs": [
+    [
+      "When will I receive access to the online learning materials?",
+      "You will receive access to the online theory portion once the remaining balance has been received. The access link will be emailed to you within 24 hours."
+    ],
+    [
+      "Do I need to bring models for hands-on practice?",
+      "Yes. Students are responsible for sourcing their own models for the in-person training day. Each student will have full hands-on practice on two models with Seri’s guidance.\n\nOnce the training deposit is received, you will receive a confirmation email from Seri with detailed model qualifications and requirements."
+    ],
+    [
+      "Where will the in-person training take place?",
+      "296 Stafford St, Winnipeg, MB R3M 1J1 (inside Lisa Tran Brow).\n\nYou can also search “AlluredbySeri” on Google Maps for directions."
+    ]
+  ]
+}

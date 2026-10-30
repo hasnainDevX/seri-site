@@ -1,3 +1,4 @@
+import {getContent} from '@/lib/cms'
 import MediaImage from '@/components/MediaImage'
 import SiteLink from '@/components/SiteLink'
 import RevealHeading from './RevealHeading'
@@ -42,7 +43,9 @@ export const services = [
   },
 ];
 
-export default function ServicesShowcase() {
+export default async function ServicesShowcase() {
+  const {services:current}=await getContent()
+  const items=services.map(s=>({...s,label:current.find(x=>s.href.endsWith(x.slug))?.title || s.label}))
   return (
     <section className="relative z-10 bg-white px-6 py-20 md:px-10 md:py-28 lg:px-16">
       <div className="mx-auto max-w-[1440px] bg-white text-center">
@@ -64,7 +67,7 @@ export default function ServicesShowcase() {
       </div>
 
       <div className="mx-auto mt-14 grid max-w-[1440px] grid-cols-1 gap-x-6 gap-y-14 sm:grid-cols-2 lg:grid-cols-4">
-        {services.map((item) => (
+        {items.map((item) => (
           <SiteLink
             key={item.label}
             href={item.href}
