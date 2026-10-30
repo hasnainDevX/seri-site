@@ -49,21 +49,24 @@ export default function Footer() {
             <p className="mt-6 text-sm leading-7">
               {settings.street}<br />{settings.city}, {settings.region} {settings.postalCode}<br />{settings.hours}
             </p>
+            <div className="mt-4 flex min-w-0 flex-col items-start gap-1 [&_a]:max-w-full [&_a]:break-words">
             {settings.email && <a className={link} href={'mailto:'+settings.email}>{settings.email}</a>}
             {settings.phone && <a className={link} href={'tel:'+settings.phone}>{settings.phone}</a>}
             {settings.instagram && <SiteLink href={settings.instagram} target="_blank" rel="noopener noreferrer" className={link}>Instagram</SiteLink>}
-            <SiteLink href={bookingUrl} target="_blank" rel="noopener noreferrer" className="group mt-6 inline-flex min-h-11 items-center gap-6 border-b border-white/60 pb-2 text-[11px] font-semibold uppercase tracking-[0.12em] hover:text-stone">
-              See you in the studio
+            <SiteLink href={bookingUrl} target="_blank" rel="noopener noreferrer" className="group mt-3 inline-flex min-h-11 items-center gap-6 border-b border-white/60 pb-2 text-[11px] font-semibold uppercase tracking-[0.12em] hover:text-stone">
+              <span>See you in the studio</span>
               <span className="transition-transform duration-300 group-hover:translate-x-1 motion-reduce:transition-none"><Arrow /></span>
             </SiteLink>
+            </div>
           </div>
         </div>
 
-        <div className="flex flex-col gap-4 border-t border-stone py-6 text-xs leading-relaxed sm:flex-row sm:items-center sm:justify-between">
+        <div className="grid grid-cols-1 items-center gap-4 border-t border-stone py-6 text-center text-xs leading-relaxed md:grid-cols-[1fr_auto_1fr] md:text-left">
           <p>&copy; {new Date().getFullYear()} SERIÉ. All rights reserved.</p>
-          <SiteLink href="#root" className="inline-flex min-h-11 w-fit items-center gap-3 underline-offset-4 hover:underline">
-            Back to top <Arrow className="size-4 -rotate-90" />
-          </SiteLink>
+          <p className="text-center">Website by <SiteLink href="https://hasnainwebstudio.com" target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center underline underline-offset-4 transition-colors hover:text-stone">Hasnain Webstudio</SiteLink></p>
+          <button type="button" aria-label="Back to top" onClick={() => window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' })} className="group inline-flex size-11 cursor-pointer items-center justify-center justify-self-center rounded-full border border-white/50 transition-colors hover:bg-white hover:text-espresso focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white motion-reduce:transition-none md:justify-self-end">
+            <Arrow className="size-5 -rotate-90 transition-transform group-hover:-translate-y-0.5 motion-reduce:transition-none" />
+          </button>
         </div>
       </div>
     </footer>
