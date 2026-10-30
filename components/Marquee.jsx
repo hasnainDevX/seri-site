@@ -5,7 +5,7 @@ export default function Marquee({ items = defaultItems }) {
   if (!items.length) return null
 
   return (
-    <section aria-label={items.join(' · ')} tabIndex={0} className="group relative z-10 overflow-hidden bg-espresso text-white! py-2  focus-visible:outline-2 focus-visible:-outline-offset-4 focus-visible:outline-butter md:py-3 border-y">
+    <section aria-label={items.join(' · ')} tabIndex={0} className="group relative z-10 overflow-hidden bg-espresso text-white! py-2  focus-visible:outline-2 focus-visible:-outline-offset-4 focus-visible:outline-butter md:py-3">
       <div aria-hidden="true" className="flex w-max animate-marquee group-hover:[animation-play-state:paused] group-focus-within:[animation-play-state:paused] motion-reduce:w-full motion-reduce:animate-none">
         {[0, 1].map((group) => (
           <div key={group} className="flex min-w-screen shrink-0 items-center justify-around motion-reduce:min-w-0 motion-reduce:w-full motion-reduce:flex-wrap motion-reduce:[&:not(:first-child)]:hidden">
