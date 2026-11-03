@@ -41,7 +41,8 @@ export default async function ServicesShowcase() {
           >
             <MediaImage
               sizes="(min-width: 768px) 330px, calc(100vw - 60px)" src={service.image}
-              alt={service.name + " by Seri"}
+              alt={service.imageAlt || service.name + " by Seri"}
+              style={{objectPosition: service.imagePosition}}
               loading="lazy"
               className="aspect-[7/6] w-full object-cover md:h-full md:min-h-[274px]"
             />

@@ -45,7 +45,14 @@ export const services = [
 
 export default async function ServicesShowcase() {
   const {services:current}=await getContent()
-  const items=services.map(s=>({...s,label:current.find(x=>s.href.endsWith(x.slug))?.title || s.label}))
+  const items=services.map(s=>{
+    const service=current.find(x=>s.href.endsWith(x.slug));
+    return {...s,label:service?.title || s.label,image:service?.gridPhoto?.src || s.image,
+      imageAlt:service?.gridPhoto?.alt || service?.title || s.label,
+      imagePosition:service?.gridPhoto?.position,
+      hoverImage:service?.gridHoverPhoto?.src || s.hoverImage,
+      hoverPosition:service?.gridHoverPhoto?.position}
+  })
   return (
     <section className="relative z-10 bg-white px-6 py-20 md:px-10 md:py-28 lg:px-16">
       <div className="mx-auto max-w-[1440px] bg-white text-center">
@@ -79,13 +86,15 @@ export default async function ServicesShowcase() {
               <div aria-hidden={false} className="absolute inset-0">
                 <MediaImage sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, calc(100vw - 48px)"
                   src={item.image}
-                  alt={item.label}
+                  alt={item.imageAlt}
+                  style={{objectPosition: item.imagePosition}}
                   className="absolute inset-0 size-full object-cover transition-opacity duration-500 group-hover:opacity-0 motion-reduce:transition-none"
                 />
               </div>
               <div aria-hidden="true" className="absolute inset-0">
                 <MediaImage sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, calc(100vw - 48px)"
                   src={item.hoverImage}
+                  style={{objectPosition: item.hoverPosition}}
                   alt=""
                   className="absolute inset-0 size-full object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100 motion-reduce:transition-none"
                 />

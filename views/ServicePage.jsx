@@ -29,7 +29,7 @@ export default function ServicePage({ service, faqGroups, servicePages }) {
   return (
     <main className="bg-white text-black">
       <div className="relative h-[50svh] min-h-[320px] max-h-[580px] overflow-hidden bg-espresso md:h-[60svh] md:min-h-[420px]">
-        <MotionImage src={service.heroImage} alt={`${service.title} at SERIÉ`} fetchPriority="high" initial={{ scale: reduceMotion ? 1 : 1.06 }} animate={{ scale: 1 }} transition={{ duration: reduceMotion ? 0 : 1.8, ease: [0.22, 1, 0.36, 1] }} className="absolute inset-0 size-full object-cover" style={{ objectPosition: service.heroPosition }} />
+        <MotionImage src={service.heroImage} alt={service.heroAlt || `${service.title} at SERIÉ`} fetchPriority="high" initial={{ scale: reduceMotion ? 1 : 1.06 }} animate={{ scale: 1 }} transition={{ duration: reduceMotion ? 0 : 1.8, ease: [0.22, 1, 0.36, 1] }} className="absolute inset-0 size-full object-cover" style={{ objectPosition: service.heroPosition }} />
         <div aria-hidden="true" className="absolute inset-0 bg-black/35" />
         <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-transparent" />
       </div>
@@ -64,7 +64,7 @@ export default function ServicePage({ service, faqGroups, servicePages }) {
               {section.detail && <p className="mt-6 max-w-[52ch] font-body text-sm leading-[1.8] text-espresso">{section.detail}</p>}
             </div>
             <motion.figure initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.15 }} className={`relative aspect-square overflow-hidden bg-greige md:aspect-auto md:min-h-[520px] ${index % 2 ? 'md:order-1' : ''}`}>
-              <MotionImage sizes="(min-width: 768px) 50vw, calc(100vw - 48px)" src={section.image} alt={section.imageAlt} loading="lazy" variants={{ hidden: { x: reduceMotion ? 0 : 45, opacity: reduceMotion ? 1 : 0 }, visible: { x: 0, opacity: 1 } }} transition={{ duration: reduceMotion ? 0 : 0.9, ease: [0.22, 1, 0.36, 1] }} className="absolute inset-0 size-full object-contain" />
+              <MotionImage sizes="(min-width: 768px) 50vw, calc(100vw - 48px)" src={section.image} alt={section.imageAlt} style={{objectPosition: section.imagePosition}} loading="lazy" variants={{ hidden: { x: reduceMotion ? 0 : 45, opacity: reduceMotion ? 1 : 0 }, visible: { x: 0, opacity: 1 } }} transition={{ duration: reduceMotion ? 0 : 0.9, ease: [0.22, 1, 0.36, 1] }} className="absolute inset-0 size-full object-contain" />
               <figcaption className="absolute bottom-5 left-5 right-5 w-fit max-w-[calc(100%-2.5rem)] bg-white/95 px-4 py-2 text-[9px] font-medium uppercase leading-relaxed tracking-[0.12em] text-espresso">{section.caption}</figcaption>
             </motion.figure>
           </section>

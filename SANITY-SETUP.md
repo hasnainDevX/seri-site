@@ -9,7 +9,7 @@ Separate Studio in studio/ keeps Sanity editor dependencies out of the public we
 
 Website reads published data server-side, with a five-minute Next cache. Publishing becomes visible after cache revalidation and a fresh visit; no browser-side CMS request. Missing fields/documents and network errors fall back to bundled content. Previous successful fetches remain cached during failed revalidation. No private token is required for public reads. Keep dataset public.
 
-Only service menu, prices, announcement, four images, studio details, and FAQs are editable. Navigation, design, page routes, and supplied policy content remain in code. Existing prices were not supplied and are left blank. Upload a replacement image to change its slot; clearing it restores the original.
+Only service menu, prices, announcement, four general images, all service images, studio details, and FAQs are editable. Navigation, design, page routes, and supplied policy content remain in code. Existing prices were not supplied and are left blank. Upload a replacement image to change its slot; clearing it restores the original.
 
 Optional website environment overrides: NEXT_PUBLIC_SANITY_PROJECT_ID=zbxbb6jd and NEXT_PUBLIC_SANITY_DATASET=production. Changing project requires updating the allowed image hostname path in next.config.mjs.
 
@@ -19,3 +19,9 @@ Hosted dashboard: https://serie-beauty-zbxbb6jd.sanity.studio/
 Deployment app ID: pkf5xlc0pd2g33fa6bvgpc2w (saved in studio/sanity.cli.js).
 Sign in with your Sanity account, choose an item under Website essentials, edit, then Publish. The public Vercel website must receive the updated Next.js code once before it can consume CMS changes. After that, published edits use the five-minute cache and do not require redeploys.
 
+
+## Service photos
+
+Open a service under Website essentials. Its four photo fields control the service-page hero, homepage menu image, and About-page grid/hover images independently. Open each item under Treatments and prices to replace its treatment photo and optionally its caption. Add an image description, adjust crop/focal point if needed, and Publish. Empty or removed images restore the existing website photos. No existing content needs importing again.
+
+Deploy the updated website code once and deploy the Studio schema. Afterward image edits use the same server-side five-minute cache, Next Image optimization and lazy loading as other content; no additional browser CMS requests.
